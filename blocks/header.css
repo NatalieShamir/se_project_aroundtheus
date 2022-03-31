@@ -1,0 +1,10 @@
+.header {
+  max-width: 880px;
+  max-height: 74px;
+  margin: 45px auto 0 auto;
+  border-bottom: 1px solid #545454;
+}
+
+.header__image {
+  width: 100%;
+}
