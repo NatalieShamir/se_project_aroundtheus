@@ -1,0 +1,30 @@
+.profile {
+  max-width: 880px;
+  margin: 0 auto 50px auto;
+}
+
+.profile__image {
+  max-width: 120px;
+  max-height: 120px;
+  border-radius: 50%;
+}
+
+.profile__title {
+  max-width: 373px;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: "Inter", "Arial", sans-serif;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 48px;
+}
+
+.profile__subtitle {
+  max-width: 415px;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: "Inter", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21.78px;
+}
