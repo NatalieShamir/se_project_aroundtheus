@@ -9,6 +9,12 @@
   border-radius: 50%;
 }
 
+.profile__info {
+  max-width: 415px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .profile__title {
   max-width: 373px;
   margin-top: 0;
@@ -17,6 +23,14 @@
   font-weight: 500;
   font-size: 42px;
   line-height: 48px;
+}
+
+.profile__button-edit {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #ffffff;
+  margin-top: 15px;
+  padding: 7px;
 }
 
 .profile__subtitle {
