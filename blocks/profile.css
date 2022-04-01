@@ -1,6 +1,8 @@
 .profile {
   max-width: 880px;
   margin: 0 auto 50px auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 .profile__image {
@@ -27,14 +29,15 @@
 }
 
 .profile__button-edit {
-  padding: 7px;
+  width: 24px;
+  height: 24px;
   color: #ffffff;
-  text-align: center;
   text-decoration: none;
-  width: 16px;
-  height: 16px;
   border: 1px solid #ffffff;
   margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .profile__subtitle {
@@ -48,6 +51,10 @@
 }
 
 .profile__button-add {
-  padding: 14px 64px;
+  width: 150px;
+  height: 50px;
   border: 2px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
