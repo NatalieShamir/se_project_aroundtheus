@@ -27,10 +27,6 @@
   border-radius: 10px 10px 0 0;
 }
 
-.cards__gallery-container {
-  display: flex;
-  justify-content: space-between;
-}
 .cards__gallery-title {
   max-width: 246px;
   margin-right: 15px;
@@ -44,4 +40,6 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  display: flex;
+  justify-content: space-between;
 }
