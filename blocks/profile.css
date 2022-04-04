@@ -10,10 +10,6 @@
   display: flex;
 }
 
-/*.profile__avatar {
-  max-width: 168.75px;
-  max-height: 127.5px;
-}*/
 .profile__image {
   max-width: 120px;
   max-height: 120px;
@@ -24,13 +20,14 @@
   max-width: 415px;
   margin-left: 26.25px;
   display: grid;
-  grid-template-columns: minmax(auto, 373px) auto;
+  grid-template-columns: minmax(373px, auto) auto;
   grid-template-areas:
-    name button
-    occuptaion occupation;
+    "name button"
+    "occupation occupation";
 }
 
 .profile__title {
+  grid-area: name;
   max-width: 373px;
   margin: 0 0 16px 0;
   font-family: "Inter", "Arial", sans-serif;
@@ -40,6 +37,7 @@
 }
 
 .profile__button-edit {
+  grid-area: button;
   width: 24px;
   height: 24px;
   color: #ffffff;
@@ -53,6 +51,7 @@
 }
 
 .profile__subtitle {
+  grid-area: occupation;
   max-width: 415px;
   margin-top: 0;
   margin-bottom: 0;
