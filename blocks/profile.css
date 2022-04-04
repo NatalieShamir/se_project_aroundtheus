@@ -1,0 +1,72 @@
+.profile {
+  max-width: 880px;
+  margin: 0 auto 50px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile__user {
+  max-width: 583px;
+  display: flex;
+}
+
+/*.profile__avatar {
+  max-width: 168.75px;
+  max-height: 127.5px;
+}*/
+.profile__image {
+  max-width: 120px;
+  max-height: 120px;
+  border-radius: 50%;
+}
+
+.profile__info {
+  max-width: 415px;
+  margin-left: 26.25px;
+  display: grid;
+  grid-template-columns: minmax(auto, 373px) auto;
+  grid-template-areas:
+    name button
+    occuptaion occupation;
+}
+
+.profile__title {
+  max-width: 373px;
+  margin: 0 0 16px 0;
+  font-family: "Inter", "Arial", sans-serif;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 48px;
+}
+
+.profile__button-edit {
+  width: 24px;
+  height: 24px;
+  color: #ffffff;
+  text-decoration: none;
+  border: 1px solid #ffffff;
+  margin-top: 15px;
+  margin-left: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile__subtitle {
+  max-width: 415px;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: "Inter", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21.78px;
+}
+
+.profile__button-add {
+  width: 150px;
+  height: 50px;
+  border: 2px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
