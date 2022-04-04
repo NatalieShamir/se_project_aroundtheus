@@ -141,5 +141,27 @@
     <footer class="footer">
       <p class="footer__copyright">&#169; 2022 Around The U.S</p>
     </footer>
+    <div class="popup">
+      <form
+        class="popup__container"
+        action="/my-handling-form-page"
+        method="post"
+      >
+        <h2 class="popup__container-title">Edit profile</h2>
+        <ul>
+          <li class="popup__container-field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="user_name" />
+          </li>
+          <li class="popup__container-field">
+            <label for="aboutme">About me</label>
+            <input type="text" id="aboutme" name="aboutme" />
+          </li>
+          <li class="popup__container-button">
+            <button type="save">Save</button>
+          </li>
+        </ul>
+      </form>
+    </div>
   </body>
 </html>
