@@ -31,6 +31,7 @@
   max-width: 246px;
   margin: auto 15px auto 21px;
   display: flex;
+  align-items: baseline;
   justify-content: space-between;
   color: #000000;
 }
@@ -42,4 +43,11 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+
+.cards__gallery-button {
+  width: 21px;
+  height: 19px;
+  background-color: #ffffff;
+  border: none;
 }
