@@ -50,6 +50,11 @@
   height: 19px;
   background-color: #ffffff;
   border: none;
+  cursor: pointer;
+}
+
+.cards__gallery-button:hover {
+  opacity: 0.5;
 }
 
 .cards__gallery-button_active {
