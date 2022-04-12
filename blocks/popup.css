@@ -57,7 +57,7 @@
 .popup__form-fieldset {
   width: 358px;
 }
-.popup__form-input [type="text"] {
+.popup__form-input {
   width: 100%;
   margin: auto;
   font-family: "Inter", "Arial", sans-serif;
@@ -65,15 +65,12 @@
   font-size: 14px;
   line-height: 17px;
   color: black;
-}
-
-.popup__form-input [type="text"]:focus {
   outline: none;
-  border: 0;
+  border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.popup__form-button [type="submit"] {
+.popup__form-button {
   width: 100%;
   margin: auto;
   padding: 13.66px 124px 18.49px 125px;
