@@ -80,3 +80,27 @@
 .profile__add-button:hover {
   opacity: 0.6;
 }
+
+@media screen and (max-width: 600px) {
+  .profile {
+    max-width: 90%;
+    flex-direction: column;
+    margin-bottom: 36px;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .profile__user {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .profile__title {
+    max-width: 196px;
+    font-size: 22px;
+    line-height: 27px;
+  }
+}
