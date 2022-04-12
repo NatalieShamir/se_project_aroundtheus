@@ -60,3 +60,17 @@
 .cards__gallery-button_active {
   background-image: url("../images/heart-active.svg");
 }
+
+@media screen and (max-width: 600px) {
+  .cards {
+    max-width: 90%;
+    margin: 0 auto 50px auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .cards__gallery {
+    grid-template-columns: repeat(1, 1fr);
+    grid-row-gap: 20px;
+  }
+}
