@@ -5,8 +5,7 @@
 
 .cards__gallery {
   list-style-type: none;
-  margin-top: 0;
-  margin-bottom: 0;
+  margin: 0 auto;
   padding-left: 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -70,7 +69,14 @@
 
 @media screen and (max-width: 600px) {
   .cards__gallery {
+    width: 100%;
     grid-template-columns: repeat(1, 1fr);
     grid-row-gap: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .cards__gallery-item {
+    margin: auto;
   }
 }
