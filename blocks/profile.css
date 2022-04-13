@@ -83,7 +83,7 @@
 
 @media screen and (max-width: 600px) {
   .profile {
-    max-width: 90%;
+    max-width: 282px;
     flex-direction: column;
     margin-bottom: 36px;
     justify-content: center;
@@ -93,7 +93,25 @@
 @media screen and (max-width: 600px) {
   .profile__user {
     flex-direction: column;
-    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .profile__image {
+    margin: 0 auto 26.25px auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .profile__info {
+    max-width: 282px;
+    margin: 0 auto;
+    grid-template-columns: minmax(196px, auto) 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 14px;
+    grid-template-areas:
+      "name button"
+      "occupation occupation";
   }
 }
 
@@ -102,5 +120,31 @@
     max-width: 196px;
     font-size: 22px;
     line-height: 27px;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .profile__edit-button {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    align-self: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .profile__subtitle {
+    max-width: 282px;
+    margin-bottom: 36px;
+    font-size: 14px;
+    line-height: 16.94px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .profile__add-button {
+    width: 282px;
   }
 }
