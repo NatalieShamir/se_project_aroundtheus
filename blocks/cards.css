@@ -1,6 +1,6 @@
 .cards {
   max-width: 880px;
-  margin: 0 200px 68px 200px;
+  margin: 0 auto 68px auto;
 }
 
 .cards__gallery {
