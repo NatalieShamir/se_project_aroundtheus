@@ -12,7 +12,7 @@
 
 .popup__container {
   max-width: 430px;
-  position: fixed;
+  position: relative;
 }
 
 .popup__close-button {
@@ -24,7 +24,7 @@
   position: absolute;
   left: 66.15%;
   right: 30.73%;
-  top: 146.72px;
+  top: 175px;
   cursor: pointer;
 }
 
@@ -88,4 +88,45 @@
 
 .popup__form-button:hover {
   background: rgba(0, 0, 0, 0.8);
+}
+
+@media screen and (max-width: 600px) {
+  .popup__close-button {
+    width: 26px;
+    height: 26px;
+    left: 82.69%;
+    right: 9.18%;
+    top: 91px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .popup__form {
+    width: 282px;
+    height: 322px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .popup__form-title {
+    max-width: 238px;
+    margin: 0 0 0 22px;
+    font-size: 18px;
+    line-height: 21.78px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .popup__form-fieldset {
+    width: 238px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .popup__form-button {
+    width: 238px;
+    padding: 14px 100px;
+    font-size: 14px;
+    line-height: 16.94px;
+  }
 }
