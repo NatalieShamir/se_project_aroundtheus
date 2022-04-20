@@ -1,0 +1,52 @@
+.card {
+  max-width: 282px;
+  max-height: 361px;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+.card__image {
+  max-width: 100%;
+  height: 282px;
+  border-radius: 10px 10px 0 0;
+}
+
+.card__info {
+  max-width: 246px;
+  margin: auto 15px auto 21px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  color: #000000;
+}
+.card__title {
+  font-family: "Inter", "Arial", sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29.05px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.card__button {
+  width: 21px;
+  height: 19px;
+  background-color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+.card__button:hover {
+  opacity: 0.5;
+}
+
+.card__button_active {
+  background-image: url("../images/heart-active.svg");
+}
+
+@media screen and (max-width: 960px) {
+  .card {
+    justify-self: center;
+  }
+}
