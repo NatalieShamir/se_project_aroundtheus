@@ -25,9 +25,11 @@ form.addEventListener("submit", function (event) {
 
   profileName.textContent = inputNameValue;
   profileJob.textContent = inputJobValue;
-
-  togglePopup();
 });
+
+function closePopup() {
+  popup.close();
+}
 
 closeEditProfileButton.addEventListener("click", function closePopup() {
   popup.classList.remove("popup_open");
