@@ -98,31 +98,23 @@
     left: 282px;
     bottom: 322px;
   }
-}
 
-@media screen and (max-width: 600px) {
   .popup__form {
     width: 282px;
     height: 322px;
   }
-}
 
-@media screen and (max-width: 600px) {
   .popup__form-title {
     max-width: 238px;
     margin: 25px 0 0 22px;
     font-size: 18px;
     line-height: 21.78px;
   }
-}
 
-@media screen and (max-width: 600px) {
   .popup__form-fieldset {
     width: 238px;
   }
-}
 
-@media screen and (max-width: 600px) {
   .popup__form-button {
     width: 238px;
     padding: 14px 100px;
