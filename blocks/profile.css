@@ -21,7 +21,7 @@
 
 .profile__info {
   max-width: 415px;
-  margin-left: 26.25px;
+  margin: 22px 0px 21px 26.25px;
   display: grid;
   grid-template-columns: minmax(373px, auto) auto;
   grid-template-areas:
@@ -78,6 +78,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  align-self: center;
 }
 
 .profile__add-button:hover {
