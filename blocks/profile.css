@@ -131,6 +131,14 @@
   }
 }
 
+@media screen and (max-width: 740px) {
+  .profile__title {
+    max-width: 196px;
+    font-size: 22px;
+    line-height: 27px;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .profile {
     max-width: 282px;
@@ -146,12 +154,6 @@
     grid-template-areas:
       "name button"
       "occupation occupation";
-  }
-
-  .profile__title {
-    max-width: 196px;
-    font-size: 22px;
-    line-height: 27px;
   }
 
   .profile__edit-button {
