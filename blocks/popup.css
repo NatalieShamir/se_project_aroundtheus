@@ -55,6 +55,7 @@
 }
 
 .popup__form-fieldset {
+  padding: 0;
   margin: auto;
   width: 358px;
   border: none;
