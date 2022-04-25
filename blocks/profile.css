@@ -113,6 +113,10 @@
 
   .profile__title {
     margin-bottom: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 373px;
   }
 
   .profile__edit-button {
@@ -123,6 +127,10 @@
   .profile__subtitle {
     margin-bottom: 36px;
     text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 415px;
   }
 
   .profile__add-button {
