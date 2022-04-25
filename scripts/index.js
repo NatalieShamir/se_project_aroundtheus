@@ -27,12 +27,14 @@ function onSubmit(event) {
 
   profileName.textContent = inputNameValue;
   profileJob.textContent = inputJobValue;
+
+  closePopup();
 }
 
 form.addEventListener("submit", onSubmit);
 
+closeEditProfileButton.addEventListener("click", closePopup);
+
 function closePopup() {
   popup.classList.remove("popup_open");
 }
-
-closeEditProfileButton.addEventListener("click", closePopup);
