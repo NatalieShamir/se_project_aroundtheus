@@ -31,6 +31,9 @@
 
 .profile__title {
   grid-area: name;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   max-width: 373px;
   margin: 0 0 16px 0;
   font-family: "Inter", "Arial", sans-serif;
@@ -60,6 +63,9 @@
 
 .profile__subtitle {
   grid-area: occupation;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   max-width: 415px;
   margin-top: 0;
   margin-bottom: 0;
@@ -113,9 +119,6 @@
 
   .profile__title {
     margin-bottom: 0;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
     max-width: 373px;
   }
 
@@ -127,9 +130,6 @@
   .profile__subtitle {
     margin-bottom: 36px;
     text-align: center;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
     max-width: 415px;
   }
 
