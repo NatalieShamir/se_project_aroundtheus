@@ -35,6 +35,7 @@
   background-color: #ffffff;
   border: none;
   cursor: pointer;
+  background-image: url("../images/heart.svg");
 }
 
 .card__button:hover {
