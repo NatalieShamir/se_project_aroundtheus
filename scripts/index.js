@@ -73,3 +73,6 @@ const gallery = document.querySelector(".cards__gallery");
 const galleryItem = templateGalleryItem.cloneNode(true);
 const title = galleryItem.querySelector(".card__title");
 const image = galleryItem.querySelector("card__image");
+
+title.textContent("123");
+image.style.backgroundImage = "url(123)";
