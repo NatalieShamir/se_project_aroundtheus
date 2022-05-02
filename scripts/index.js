@@ -1,44 +1,4 @@
-const openEditProfileButton = document.querySelector(".profile__edit-button");
-const popup = document.querySelector(".popup");
-const closeEditProfileButton = document.querySelector(".popup__close-button");
-const inputName = document.querySelector(".popup__form-input_type_name");
-const inputJob = document.querySelector(".popup__form-input_type_job");
-const profileName = document.querySelector(".profile__title");
-const profileJob = document.querySelector(".profile__subtitle");
-const form = document.querySelector(".popup__form");
-
-function openPopup() {
-  popup.classList.add("popup_open");
-
-  const profileNameText = profileName.textContent;
-  const profileJobText = profileJob.textContent;
-
-  inputName.value = profileNameText;
-  inputJob.value = profileJobText;
-}
-
-openEditProfileButton.addEventListener("click", openPopup);
-
-function onSubmit(event) {
-  event.preventDefault();
-
-  const inputNameValue = inputName.value;
-  const inputJobValue = inputJob.value;
-
-  profileName.textContent = inputNameValue;
-  profileJob.textContent = inputJobValue;
-
-  closePopup();
-}
-
-form.addEventListener("submit", onSubmit);
-
-closeEditProfileButton.addEventListener("click", closePopup);
-
-function closePopup() {
-  popup.classList.remove("popup_open");
-}
-
+//Declarations
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -66,8 +26,52 @@ const initialCards = [
   },
 ];
 
+//Modals
+const popup = document.querySelector(".popup");
+const form = document.querySelector(".popup__form");
+const inputName = document.querySelector(".popup__form-input_type_name");
+const inputJob = document.querySelector(".popup__form-input_type_job");
+
+//Buttons and Other DOM Elements
+const closeEditProfileButton = document.querySelector(".popup__close-button");
+const openEditProfileButton = document.querySelector(".profile__edit-button");
+const profileName = document.querySelector(".profile__title");
+const profileJob = document.querySelector(".profile__subtitle");
+
+//Functions
+function openPopup() {
+  popup.classList.add("popup_open");
+
+  const profileNameText = profileName.textContent;
+  const profileJobText = profileJob.textContent;
+
+  inputName.value = profileNameText;
+  inputJob.value = profileJobText;
+}
+
+function onSubmit(event) {
+  event.preventDefault();
+
+  const inputNameValue = inputName.value;
+  const inputJobValue = inputJob.value;
+
+  profileName.textContent = inputNameValue;
+  profileJob.textContent = inputJobValue;
+
+  closePopup();
+}
+
+function closePopup() {
+  popup.classList.remove("popup_open");
+}
+
+//Event Handlers
+openEditProfileButton.addEventListener("click", openPopup);
+form.addEventListener("submit", onSubmit);
+closeEditProfileButton.addEventListener("click", closePopup);
+
 const templateGalleryItem = document
-  .querySelector(".card__template")
+  .querySelector("#card-template")
   .content.querySelector(".card");
 const gallery = document.querySelector(".cards__gallery");
 const galleryItem = templateGalleryItem.cloneNode(true);
