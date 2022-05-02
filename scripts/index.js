@@ -38,6 +38,9 @@ const openEditProfileButton = document.querySelector(".profile__edit-button");
 const profileName = document.querySelector(".profile__title");
 const profileJob = document.querySelector(".profile__subtitle");
 
+//Wrappers
+const cardsGallery = document.querySelector(".cards__gallery");
+
 //Functions
 function openPopup() {
   popup.classList.add("popup_open");
@@ -81,4 +84,6 @@ initialCards.forEach((card) => {
 
   cardImage.src = `url(${card.link})`;
   cardTitle.textContent = card.name;
+
+  cardsGallery.append(cardElement);
 });
