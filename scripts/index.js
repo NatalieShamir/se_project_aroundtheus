@@ -42,6 +42,25 @@ const profileJob = document.querySelector(".profile__subtitle");
 const cardsGallery = document.querySelector(".cards__gallery");
 
 //Functions
+function createCardElement() {
+  const cardTemplate = document
+    .querySelector("#card-template")
+    .content.querySelector(".card");
+  const cardElement = cardTemplate.cloneNode(true);
+
+  const cardTitle = cardElement.querySelector(".card__title");
+  const cardImage = cardElement.querySelector(".card__image");
+
+  cardImage.style.backgroundImage = `url(${card.link})`;
+  cardTitle.textContent = card.name;
+
+  return cardElement;
+}
+
+function renderCard(card, wrapper) {
+  wrapper.append(createCardElement(card));
+}
+
 function openPopup() {
   popup.classList.add("popup_open");
 
@@ -73,17 +92,4 @@ openEditProfileButton.addEventListener("click", openPopup);
 form.addEventListener("submit", onSubmit);
 closeEditProfileButton.addEventListener("click", closePopup);
 
-initialCards.forEach((card) => {
-  const cardTemplate = document
-    .querySelector("#card-template")
-    .content.querySelector(".card");
-  const cardElement = cardTemplate.cloneNode(true);
-
-  const cardTitle = cardElement.querySelector(".card__title");
-  const cardImage = cardElement.querySelector(".card__image");
-
-  cardImage.src = `url(${card.link})`;
-  cardTitle.textContent = card.name;
-
-  cardsGallery.append(cardElement);
-});
+initialCards.forEach((card) => renderCard(card, cardsGallery));
