@@ -27,7 +27,8 @@ const initialCards = [
 ];
 
 //Modals
-const popup = document.querySelector(".popup");
+const addCardModal = document.querySelector(".popup_type_add-card");
+const editProfileModal = document.querySelector(".popup_type_edit-profile");
 const form = document.querySelector(".popup__form");
 const inputName = document.querySelector(".popup__form-input_type_name");
 const inputJob = document.querySelector(".popup__form-input_type_job");
@@ -42,7 +43,7 @@ const profileJob = document.querySelector(".profile__subtitle");
 const cardsGallery = document.querySelector(".cards__gallery");
 
 //Functions
-function createCardElement() {
+function createCardElement(card) {
   const cardTemplate = document
     .querySelector("#card-template")
     .content.querySelector(".card");
