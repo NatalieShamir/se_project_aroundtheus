@@ -70,13 +70,15 @@ openEditProfileButton.addEventListener("click", openPopup);
 form.addEventListener("submit", onSubmit);
 closeEditProfileButton.addEventListener("click", closePopup);
 
-const templateGalleryItem = document
-  .querySelector("#card-template")
-  .content.querySelector(".card");
-const gallery = document.querySelector(".cards__gallery");
-const galleryItem = templateGalleryItem.cloneNode(true);
-const title = galleryItem.querySelector(".card__title");
-const image = galleryItem.querySelector("card__image");
+initialCards.forEach((card) => {
+  const cardTemplate = document
+    .querySelector("#card-template")
+    .content.querySelector(".card");
+  const cardElement = cardTemplate.cloneNode(true);
 
-title.textContent("123");
-image.style.backgroundImage = "url(123)";
+  const cardTitle = cardElement.querySelector(".card__title");
+  const cardImage = cardElement.querySelector(".card__image");
+
+  cardImage.src = `url(${card.link})`;
+  cardTitle.textContent = card.name;
+});
