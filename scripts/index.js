@@ -34,8 +34,8 @@ const inputName = document.querySelector(".popup__form-input_type_name");
 const inputJob = document.querySelector(".popup__form-input_type_job");
 
 //Buttons and Other DOM Elements
-const closeEditProfileButton = document.querySelector(".popup__close-button");
-const openEditProfileButton = document.querySelector(".profile__edit-button");
+const closeEditProfileButton = document.querySelector(".popup_close_profile");
+const openEditProfileButton = document.querySelector(".popup_close_add-card");
 const profileName = document.querySelector(".profile__title");
 const profileJob = document.querySelector(".profile__subtitle");
 
