@@ -27,11 +27,10 @@ const initialCards = [
 ];
 
 //Modals
-const addCard = document.querySelector(".popup_type_add-card");
-const editProfile = document.querySelector(".popup_type_edit-profile");
 const form = document.querySelector(".popup__form");
-const inputName = document.querySelector(".popup__form-input_type_name");
-const inputJob = document.querySelector(".popup__form-input_type_job");
+const addCard = document.querySelector(".popup_type_add-card");
+const addPreview = document.querySelector(".popup_type_preview");
+const editProfile = document.querySelector(".popup_type_edit-profile");
 
 //Buttons and Other DOM Elements
 const openEditProfileButton = document.querySelector(".profile__edit-button");
@@ -40,6 +39,12 @@ const openAddCardButton = document.querySelector(".profile__add-button");
 const closeAddCardButton = document.querySelector(".popup_close_add-card");
 const profileName = document.querySelector(".profile__title");
 const profileJob = document.querySelector(".profile__subtitle");
+
+//Inputs
+const inputName = document.querySelector(".popup__form-input_type_name");
+const inputJob = document.querySelector(".popup__form-input_type_job");
+const cardTitleInput = document.querySelector(".popup__form-input_type_title");
+const cardLinkInput = document.querySelector(".popup__form-input_type_image");
 
 //Wrappers
 const cardsGallery = document.querySelector(".cards__gallery");
@@ -103,9 +108,9 @@ function closeAddCardPopup() {
 }
 
 //Event Handlers
+form.addEventListener("submit", onSubmit);
 openEditProfileButton.addEventListener("click", openEditProfilePopup);
+closeEditProfileButton.addEventListener("click", closeEditProfilePopup);
 openAddCardButton.addEventListener("click", openAddCardModal);
 closeAddCardButton.addEventListener("click", closeAddCardPopup);
-form.addEventListener("submit", onSubmit);
-closeEditProfileButton.addEventListener("click", closeEditProfilePopup);
 initialCards.forEach((card) => renderCard(card, cardsGallery));
