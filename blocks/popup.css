@@ -94,6 +94,35 @@
   background: rgba(0, 0, 0, 0.8);
 }
 
+.popup_type_preview {
+  /*display: flex;*/
+  display: none;
+}
+
+.popup__container_content_preview {
+  position: relative;
+}
+
+.popup__image {
+  background: transparent;
+  max-width: 75vw;
+  max-height: 75vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.popup_close_preview {
+  background-image: url(../images/Close_Icon.svg);
+  background-repeat: no-repeat;
+  background-color: transparent;
+  width: 40px;
+  height: 40px;
+  border: none;
+  position: absolute;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 600px) {
   .popup__close-button {
     background-size: contain;
