@@ -3,6 +3,7 @@
   max-height: 361px;
   background-color: #ffffff;
   border-radius: 10px;
+  position: relative;
 }
 
 .card__image {
@@ -10,6 +11,17 @@
   height: 282px;
   border-radius: 10px 10px 0 0;
   background-size: cover;
+}
+
+.card__delete-button {
+  background-image: url("../images/bin.svg");
+  background-color: #ffffff;
+  position: absolute;
+  top: 18px;
+  left: 250.28px;
+  cursor: pointer;
+  width: 18px;
+  height: 19.3px;
 }
 
 .card__info {
@@ -30,7 +42,7 @@
   overflow: hidden;
 }
 
-.card__button {
+.card__like-button {
   width: 21px;
   height: 19px;
   background-color: #ffffff;
