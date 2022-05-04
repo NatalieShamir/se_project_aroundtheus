@@ -119,7 +119,7 @@
             />
           </fieldset>
           <fieldset class="popup__form-fieldset">
-            <button type="submit" class="popup__form-button">Save</button>
+            <button type="submit" class="popup__form-button">Create</button>
           </fieldset>
         </form>
       </div>
@@ -130,15 +130,20 @@
           type="button"
           class="popup__close-button popup_close_preview"
         ></button>
-        <img class="popup__image" src="" alt="" />
+        <img
+          class="popup__image"
+          src="https://code.s3.yandex.net/web-code/yosemite.jpg"
+          alt=""
+        />
       </div>
     </div>
     <template id="card-template">
       <li class="card">
         <div class="card__image" syle=""></div>
+        <button type="button" class="card__delete-button"></button>
         <div class="card__info">
           <h2 class="card__title"></h2>
-          <button type="button" class="card__button"></button>
+          <button type="button" class="card__like-button"></button>
         </div></li
     ></template>
     <script src="./scripts/index.js"></script>
