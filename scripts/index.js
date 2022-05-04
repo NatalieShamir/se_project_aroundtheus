@@ -32,7 +32,7 @@ const addPreview = document.querySelector(".popup_type_preview");
 const editProfile = document.querySelector(".popup_type_edit-profile");
 
 //Forms
-const editProfileForm = editProfile.querySelector(".popup__form");
+const editForm = editProfile.querySelector(".popup__form");
 const addCardForm = addCard.querySelector(".popup__form");
 
 //Buttons and Other DOM Elements
@@ -64,7 +64,7 @@ function openEditProfilePopup() {
   inputJob.value = profileJobText;
 }
 
-function onSubmit(event) {
+function onSubmitEditProfile(event) {
   event.preventDefault();
 
   const inputNameValue = inputName.value;
@@ -103,7 +103,7 @@ function openAddCardModal() {
   addCard.classList.add("popup_open");
 }
 
-function onSubmit(event) {
+function onSubmitAddCard(event) {
   closeAddCardPopup();
 }
 
@@ -111,10 +111,22 @@ function closeAddCardPopup() {
   addCard.classList.remove("popup_open");
 }
 
+function closeAddCardForm() {
+  addCardForm.classList.remove("popup__open");
+}
+
 //Event Handlers
-editProfileForm.addEventListener("submit", onSubmit);
+editProfile.addEventListener("submit", onSubmitEditProfile);
 openEditProfileButton.addEventListener("click", openEditProfilePopup);
 closeEditProfileButton.addEventListener("click", closeEditProfilePopup);
 openAddCardButton.addEventListener("click", openAddCardModal);
 closeAddCardButton.addEventListener("click", closeAddCardPopup);
 initialCards.forEach((card) => renderCard(card, cardsGallery));
+addCardForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const card = {
+    name: cardTitleInput.value,
+    link: cardLinkInput.value,
+  };
+  renderCard(card, cardsGallery);
+});
