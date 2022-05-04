@@ -11,11 +11,12 @@
   height: 282px;
   border-radius: 10px 10px 0 0;
   background-size: cover;
+  background-position: center;
 }
 
 .card__delete-button {
-  background-image: url("../images/bin.svg");
-  background-color: #ffffff;
+  background: transparent url(../images/bin.svg) center no-repeat;
+  border: none;
   position: absolute;
   top: 18px;
   left: 250.28px;
