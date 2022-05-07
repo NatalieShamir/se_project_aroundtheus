@@ -101,6 +101,7 @@ function generateCard(cardData) {
 initialCards.forEach(generateCard);
 
 function openAddCardModal() {
+  addCardForm.reset();
   addCard.classList.add("popup_open");
 }
 
@@ -118,5 +119,4 @@ addCardForm.addEventListener("submit", (e) => {
   e.preventDefault();
   generateCard({ name: cardTitleInput.value, link: cardLinkInput.value });
   closeAddCardPopup();
-  addCardForm.reset();
 });
