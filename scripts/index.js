@@ -118,4 +118,5 @@ addCardForm.addEventListener("submit", (e) => {
   e.preventDefault();
   generateCard({ name: cardTitleInput.value, link: cardLinkInput.value });
   closeAddCardPopup();
+  addCardForm.reset();
 });
