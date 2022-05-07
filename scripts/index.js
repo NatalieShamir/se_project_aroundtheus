@@ -86,7 +86,7 @@ function closeEditProfilePopup() {
   editProfile.classList.remove("popup_open");
 }
 
-initialCards.forEach(function (cardData) {
+function generateCard(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
 
   const cardTitle = cardElement.querySelector(".card__title");
@@ -95,16 +95,10 @@ initialCards.forEach(function (cardData) {
   cardTitle.textContent = cardData.name;
   cardImage.style.backgroundImage = `url(${cardData.link})`;
 
-  //const likeButton = document
-  //.querySelector("#card-template")
-  //.content.querySelector(".card__like-button");
-
-  //likeButton.addEventListener("click", () => {
-  //likeButton.classList.toggle("card__like-button_active");
-  //});
-
   cardsGallery.append(cardElement);
-});
+}
+
+initialCards.forEach(generateCard);
 
 function openAddCardModal() {
   addCard.classList.add("popup_open");
@@ -120,13 +114,8 @@ openEditProfileButton.addEventListener("click", openEditProfilePopup);
 closeEditProfileButton.addEventListener("click", closeEditProfilePopup);
 openAddCardButton.addEventListener("click", openAddCardModal);
 closeAddCardButton.addEventListener("click", closeAddCardPopup);
-initialCards.forEach((card) => renderCard(card, cardsGallery));
 addCardForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  const card = {
-    name: cardTitleInput.value,
-    link: cardLinkInput.value,
-  };
-  renderCard(card, cardsGallery);
+  generateCard({ name: cardTitleInput.value, link: cardLinkInput.value });
   closeAddCardPopup();
 });
