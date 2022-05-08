@@ -130,11 +130,14 @@
           type="button"
           class="popup__close-button popup_close_preview"
         ></button>
-        <img
-          class="popup__image"
-          src="https://code.s3.yandex.net/web-code/yosemite.jpg"
-          alt=""
-        />
+        <figure>
+          <img
+            class="popup__image"
+            src="https://code.s3.yandex.net/web-code/yosemite.jpg"
+            alt=""
+          />
+          <figcaption class="popup__caption"></figcaption>
+        </figure>
       </div>
     </div>
     <template id="card-template">
@@ -143,7 +146,10 @@
         <button type="button" class="card__delete-button"></button>
         <div class="card__info">
           <h2 class="card__title"></h2>
-          <button type="button" class="card__like-button"></button>
+          <button
+            type="button"
+            class="card__like-button card__like-button_active"
+          ></button>
         </div></li
     ></template>
     <script src="./scripts/index.js"></script>
