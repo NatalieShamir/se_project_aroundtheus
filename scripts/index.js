@@ -41,7 +41,6 @@ const closeEditProfileButton = document.querySelector(".popup_close_profile");
 const openAddCardButton = document.querySelector(".profile__add-button");
 const closeAddCardButton = document.querySelector(".popup_close_add-card");
 const closePopupPreviewButton = document.querySelector(".popup_close_preview");
-const deleteCardButton = document.querySelector(".card__delete-button"); //
 const profileName = document.querySelector(".profile__title");
 const profileJob = document.querySelector(".profile__subtitle");
 
@@ -91,9 +90,20 @@ function generateCard(cardData) {
 
   const cardTitle = cardElement.querySelector(".card__title");
   const cardImage = cardElement.querySelector(".card__image");
+  const deleteCardButton = cardElement.querySelector(".card__delete-button");
+  const likeCardButton = cardElement.querySelector(".card__like-button");
 
   cardTitle.textContent = cardData.name;
   cardImage.style.backgroundImage = `url(${cardData.link})`;
+
+  likeCardButton.addEventListener("click", () => {
+    likeCardButton.classList.toggle("card__like-button_active");
+    likeCardButton.reset();
+  });
+
+  deleteCardButton.addEventListener("click", () => {
+    cardElement.remove();
+  });
 
   cardsGallery.append(cardElement);
 }
