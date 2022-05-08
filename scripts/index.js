@@ -59,8 +59,8 @@ const cardTemplate = document
 const cardsGallery = document.querySelector(".cards__gallery");
 
 //Image Modal Elements
-const popupImage = document.querySelector(".popup__image");
-const popupCaption = document.querySelector(".popup__caption");
+const popupPreviewImage = document.querySelector(".popup__preview-image");
+const popupPreviewCaption = document.querySelector(".popup__preview-caption");
 
 //Functions
 function openEditProfilePopup() {
@@ -108,6 +108,12 @@ function generateCard(cardData) {
     cardElement.remove();
   });
 
+  cardImage.addEventListener("click", () => {
+    openPopupPreviewImage();
+    popupPreviewImage = cardData.name;
+    popupPreviewCaption = cardData.link;
+  });
+
   cardsGallery.append(cardElement);
 }
 
@@ -120,6 +126,10 @@ function openAddCardModal() {
 
 function closeAddCardPopup() {
   addCard.classList.remove("popup_open");
+}
+
+function openPopupPreviewImage() {
+  popupPreviewImage.classList.add("popup__preview-image");
 }
 
 //Event Handlers
