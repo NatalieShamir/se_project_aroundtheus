@@ -27,9 +27,9 @@ const initialCards = [
 ];
 
 //Modals
+const editProfile = document.querySelector(".popup_type_edit-profile");
 const addCard = document.querySelector(".popup_type_add-card");
 const addPreview = document.querySelector(".popup_type_preview");
-const editProfile = document.querySelector(".popup_type_edit-profile");
 
 //Forms
 const editForm = editProfile.querySelector(".popup__form");
@@ -57,6 +57,10 @@ const cardTemplate = document
 
 //Wrappers
 const cardsGallery = document.querySelector(".cards__gallery");
+
+//Image Modal Elements
+const popupImage = document.querySelector(".popup__image");
+const popupCaption = document.querySelector(".popup__caption");
 
 //Functions
 function openEditProfilePopup() {
@@ -98,7 +102,6 @@ function generateCard(cardData) {
 
   likeCardButton.addEventListener("click", () => {
     likeCardButton.classList.toggle("card__like-button_active");
-    likeCardButton.reset();
   });
 
   deleteCardButton.addEventListener("click", () => {
