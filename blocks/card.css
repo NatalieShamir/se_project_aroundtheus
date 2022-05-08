@@ -25,6 +25,10 @@
   height: 19.3px;
 }
 
+.card__delete-button:hover {
+  background-image: url(../images/bin_hover.svg);
+}
+
 .card__info {
   max-width: 246px;
   margin: auto 15px auto 21px;
@@ -52,7 +56,7 @@
   background-image: url("../images/heart.svg");
 }
 
-.card__button:hover {
+.card__like-button:hover {
   opacity: 0.5;
 }
 
