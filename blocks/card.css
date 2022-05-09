@@ -14,6 +14,10 @@
   background-position: center;
 }
 
+.card__image:hover {
+  cursor: pointer;
+}
+
 .card__delete-button {
   background: transparent url(../images/bin.svg) center no-repeat;
   border: none;
