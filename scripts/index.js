@@ -112,6 +112,7 @@ function generateCard(cardData) {
   cardElement.querySelector(".card__image").addEventListener("click", () => {
     openPreviewPopup();
     popupPreviewImage.src = cardData.link;
+    popupPreviewCaption.textContent = cardData.name;
   });
 
   cardsGallery.append(cardElement);
