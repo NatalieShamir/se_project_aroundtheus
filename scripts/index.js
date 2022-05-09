@@ -111,6 +111,7 @@ function generateCard(cardData) {
 
   cardElement.querySelector(".card__image").addEventListener("click", () => {
     openPreviewPopup();
+    popupPreviewImage.src = cardData.link;
   });
 
   cardsGallery.append(cardElement);
@@ -128,11 +129,11 @@ function closeAddCardPopup() {
 }
 
 function openPreviewPopup() {
-  addPreview.classList.add("popup__open");
+  addPreview.classList.add("popup_open");
 }
 
 function closePreviewPopup() {
-  addPreview.classList.remove("popup__open");
+  addPreview.classList.remove("popup_open");
 }
 
 //Event Handlers
@@ -146,3 +147,4 @@ addCardForm.addEventListener("submit", (e) => {
   generateCard({ name: cardTitleInput.value, link: cardLinkInput.value });
   closeAddCardPopup();
 });
+closePopupPreviewButton.addEventListener("click", closePreviewPopup);
