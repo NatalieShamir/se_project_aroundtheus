@@ -5,13 +5,20 @@
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition: visibility 0s linear 0.3s, opacity 0.3s linear;
 }
 
 .popup_open {
-  display: flex;
+  visibility: visible;
+  pointer-events: all;
+  opacity: 1;
+  transition-delay: 0s;
 }
 
 .popup__container {
@@ -94,9 +101,6 @@
   background: rgba(0, 0, 0, 0.8);
 }
 
-/*.popup_type_preview {
-  display: flex;
-}*/
 .popup__container_content_preview {
   background: transparent;
   width: auto;
