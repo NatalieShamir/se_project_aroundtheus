@@ -37,10 +37,16 @@ const addCardForm = addCard.querySelector(".popup__form");
 
 //Buttons and Other DOM Elements
 const openEditProfileButton = document.querySelector(".profile__edit-button");
-const closeEditProfileButton = document.querySelector(".popup_close_profile");
+const closeEditProfileButton = document.querySelector(
+  ".popup__close-button_close_profile"
+);
 const openAddCardButton = document.querySelector(".profile__add-button");
-const closeAddCardButton = document.querySelector(".popup_close_add-card");
-const closePopupPreviewButton = document.querySelector(".popup_close_preview");
+const closeAddCardButton = document.querySelector(
+  ".popup__close-button_close_add-card"
+);
+const closePopupPreviewButton = document.querySelector(
+  ".popup__close-button_close_preview"
+);
 const profileName = document.querySelector(".profile__title");
 const profileJob = document.querySelector(".profile__subtitle");
 
