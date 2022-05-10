@@ -107,13 +107,14 @@
   height: auto;
 }
 
-.popup_close_preview {
-  left: 100%;
-  bottom: 75vh;
-}
-
 .popup__image-content {
   margin: 0;
+  position: relative;
+}
+
+.popup_close_preview {
+  left: 100%;
+  bottom: 100%;
 }
 
 .popup__preview-image {
@@ -164,5 +165,10 @@
 
   .popup__preview-caption {
     max-width: 240px;
+  }
+
+  .popup_close_preview {
+    left: 100%;
+    bottom: 100%;
   }
 }
