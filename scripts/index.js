@@ -32,7 +32,7 @@ const addCardPopup = document.querySelector(".popup_type_add-card");
 const addPreviewPopup = document.querySelector(".popup_type_preview");
 
 //Forms
-const editForm = editProfilePopup.querySelector(".popup__form");
+const editProfileForm = editProfilePopup.querySelector(".popup__form");
 const addCardForm = addCardPopup.querySelector(".popup__form");
 
 //Buttons and Other DOM Elements
