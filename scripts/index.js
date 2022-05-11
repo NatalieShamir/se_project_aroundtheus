@@ -29,7 +29,7 @@ const initialCards = [
 //Modals
 const editProfilePopup = document.querySelector(".popup_type_edit-profile");
 const addCardPopup = document.querySelector(".popup_type_add-card");
-const addPreview = document.querySelector(".popup_type_preview");
+const addPreviewPopup = document.querySelector(".popup_type_preview");
 
 //Forms
 const editForm = editProfilePopup.querySelector(".popup__form");
@@ -136,11 +136,11 @@ function closeAddCardPopup() {
 }
 
 function openPreviewPopup() {
-  addPreview.classList.add("popup_open");
+  addPreviewPopup.classList.add("popup_open");
 }
 
 function closePreviewPopup() {
-  addPreview.classList.remove("popup_open");
+  addPreviewPopup.classList.remove("popup_open");
 }
 
 //Event Handlers
