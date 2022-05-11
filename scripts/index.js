@@ -27,7 +27,7 @@ const initialCards = [
 ];
 
 //Modals
-const editProfile = document.querySelector(".popup_type_edit-profile");
+const editProfilePopup = document.querySelector(".popup_type_edit-profile");
 const addCard = document.querySelector(".popup_type_add-card");
 const addPreview = document.querySelector(".popup_type_preview");
 
@@ -71,7 +71,7 @@ const popupPreviewCaption = document.querySelector(".popup__preview-caption");
 
 //Functions
 function openEditProfilePopup() {
-  editProfile.classList.add("popup_open");
+  editProfilePopup.classList.add("popup_open");
 
   const profileNameText = profileName.textContent;
   const profileJobText = profileJob.textContent;
@@ -93,7 +93,7 @@ function onSubmitEditProfile(event) {
 }
 
 function closeEditProfilePopup() {
-  editProfile.classList.remove("popup_open");
+  editProfilePopup.classList.remove("popup_open");
 }
 
 function generateCard(cardData) {
@@ -144,7 +144,7 @@ function closePreviewPopup() {
 }
 
 //Event Handlers
-editProfile.addEventListener("submit", onSubmitEditProfile);
+editProfilePopup.addEventListener("submit", onSubmitEditProfile);
 openEditProfileButton.addEventListener("click", openEditProfilePopup);
 closeEditProfileButton.addEventListener("click", closeEditProfilePopup);
 openAddCardButton.addEventListener("click", openAddCardPopup);
