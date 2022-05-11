@@ -28,12 +28,12 @@ const initialCards = [
 
 //Modals
 const editProfilePopup = document.querySelector(".popup_type_edit-profile");
-const addCard = document.querySelector(".popup_type_add-card");
+const addCardPopup = document.querySelector(".popup_type_add-card");
 const addPreview = document.querySelector(".popup_type_preview");
 
 //Forms
-const editForm = editProfile.querySelector(".popup__form");
-const addCardForm = addCard.querySelector(".popup__form");
+const editForm = editProfilePopup.querySelector(".popup__form");
+const addCardForm = addCardPopup.querySelector(".popup__form");
 
 //Buttons and Other DOM Elements
 const openEditProfileButton = document.querySelector(".profile__edit-button");
@@ -128,11 +128,11 @@ initialCards.forEach(generateCard);
 
 function openAddCardPopup() {
   addCardForm.reset();
-  addCard.classList.add("popup_open");
+  addCardPopup.classList.add("popup_open");
 }
 
 function closeAddCardPopup() {
-  addCard.classList.remove("popup_open");
+  addCardPopup.classList.remove("popup_open");
 }
 
 function openPreviewPopup() {
