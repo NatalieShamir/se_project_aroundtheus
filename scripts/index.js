@@ -70,8 +70,16 @@ const popupPreviewImage = document.querySelector(".popup__preview-image");
 const popupPreviewCaption = document.querySelector(".popup__preview-caption");
 
 //Functions
+function openPopup(popup) {
+  popup.classList.add("popup_open");
+}
+
+function closePopup(popup) {
+  popup.classList.remove("popup_open");
+}
+
 function openEditProfilePopup() {
-  editProfilePopup.classList.add("popup_open");
+  openPopup();
 
   const profileNameText = profileName.textContent;
   const profileJobText = profileJob.textContent;
@@ -89,11 +97,7 @@ function onSubmitEditProfile(event) {
   profileName.textContent = inputNameValue;
   profileJob.textContent = inputJobValue;
 
-  closeEditProfilePopup();
-}
-
-function closeEditProfilePopup() {
-  editProfilePopup.classList.remove("popup_open");
+  closePopup();
 }
 
 function generateCard(cardData) {
@@ -116,7 +120,7 @@ function generateCard(cardData) {
   });
 
   cardElement.querySelector(".card__image").addEventListener("click", () => {
-    openPreviewPopup();
+    openPopup();
     popupPreviewImage.src = cardData.link;
     popupPreviewCaption.textContent = cardData.name;
   });
@@ -126,32 +130,15 @@ function generateCard(cardData) {
 
 initialCards.forEach(generateCard);
 
-function openAddCardPopup() {
-  addCardForm.reset();
-  addCardPopup.classList.add("popup_open");
-}
-
-function closeAddCardPopup() {
-  addCardPopup.classList.remove("popup_open");
-}
-
-function openPreviewPopup() {
-  addPreviewPopup.classList.add("popup_open");
-}
-
-function closePreviewPopup() {
-  addPreviewPopup.classList.remove("popup_open");
-}
-
 //Event Handlers
 editProfilePopup.addEventListener("submit", onSubmitEditProfile);
 openEditProfileButton.addEventListener("click", openEditProfilePopup);
-closeEditProfileButton.addEventListener("click", closeEditProfilePopup);
-openAddCardButton.addEventListener("click", openAddCardPopup);
-closeAddCardButton.addEventListener("click", closeAddCardPopup);
+closeEditProfileButton.addEventListener("click", closePopup);
+openAddCardButton.addEventListener("click", openPopup);
+closeAddCardButton.addEventListener("click", closePopup);
 addCardForm.addEventListener("submit", (e) => {
   e.preventDefault();
   generateCard({ name: cardTitleInput.value, link: cardLinkInput.value });
-  closeAddCardPopup();
+  closePopup();
 });
-closePopupPreviewButton.addEventListener("click", closePreviewPopup);
+closePopupPreviewButton.addEventListener("click", closePopup);
