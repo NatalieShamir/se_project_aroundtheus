@@ -78,16 +78,16 @@ function closePopup(popup) {
   popup.classList.remove("popup_open");
 }
 
-function openEditProfilePopup() {
-  openPopup();
-
-  const profileNameText = profileName.textContent;
-  const profileJobText = profileJob.textContent;
-}
+//function openEditProfilePopup() {
+//openPopup(editProfilePopup);
+//const profileNameText = profileName.textContent;
+//const profileJobText = profileJob.textContent;
+//}
 
 function fillProfileForm() {
-  inputName.value = profileNameText;
-  inputJob.value = profileJobText;
+  openPopup(editProfilePopup);
+  inputName.value = profileName.textContent;
+  inputJob.value = profileJob.textContent;
 }
 
 function onSubmitEditProfile(event) {
@@ -99,7 +99,7 @@ function onSubmitEditProfile(event) {
   profileName.textContent = inputNameValue;
   profileJob.textContent = inputJobValue;
 
-  closePopup();
+  closePopup(editProfilePopup);
 }
 
 function generateCard(cardData) {
@@ -122,8 +122,9 @@ function generateCard(cardData) {
   });
 
   cardElement.querySelector(".card__image").addEventListener("click", () => {
-    openPopup();
+    openPopup(addPreviewPopup);
     popupPreviewImage.src = cardData.link;
+    popupPreviewImage.alt = "Photo of ${cardData.name}";
     popupPreviewCaption.textContent = cardData.name;
   });
 
@@ -133,14 +134,26 @@ function generateCard(cardData) {
 initialCards.forEach(generateCard);
 
 //Event Handlers
+openEditProfileButton.addEventListener("click", () => {
+  openPopup(editProfileForm);
+  fillProfileForm();
+});
 editProfilePopup.addEventListener("submit", onSubmitEditProfile);
-openEditProfileButton.addEventListener("click", openEditProfilePopup);
-closeEditProfileButton.addEventListener("click", closePopup);
-openAddCardButton.addEventListener("click", openPopup);
-closeAddCardButton.addEventListener("click", closePopup);
+closeEditProfileButton.addEventListener("click", () => {
+  closePopup(editProfilePopup);
+});
+openAddCardButton.addEventListener("click", () => {
+  openPopup(addCardPopup);
+});
+closeAddCardButton.addEventListener("click", () => {
+  closePopup(addCardPopup);
+});
 addCardForm.addEventListener("submit", (e) => {
   e.preventDefault();
   generateCard({ name: cardTitleInput.value, link: cardLinkInput.value });
-  closePopup();
+  closePopup(addCardPopup);
 });
-closePopupPreviewButton.addEventListener("click", closePopup);
+addCardForm.reset();
+closePopupPreviewButton.addEventListener("click", () => {
+  closePopup(addPreviewPopup);
+});
