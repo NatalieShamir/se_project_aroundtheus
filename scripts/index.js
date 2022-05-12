@@ -83,7 +83,9 @@ function openEditProfilePopup() {
 
   const profileNameText = profileName.textContent;
   const profileJobText = profileJob.textContent;
+}
 
+function fillProfileForm() {
   inputName.value = profileNameText;
   inputJob.value = profileJobText;
 }
