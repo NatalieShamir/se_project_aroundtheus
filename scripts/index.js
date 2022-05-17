@@ -79,7 +79,6 @@ function closePopup(popup) {
 }
 
 function fillProfileForm() {
-  openPopup(editProfilePopup);
   inputName.value = profileName.textContent;
   inputJob.value = profileJob.textContent;
 }
@@ -107,23 +106,35 @@ function generateCard(cardData) {
   cardTitle.textContent = cardData.name;
   cardImage.style.backgroundImage = `url(${cardData.link})`;
 
-  likeCardButton.addEventListener("click", () => {
-    likeCardButton.classList.toggle("card__like-button_active");
-  });
+  addDeleteCardEventListener(cardElement, deleteCardButton);
 
+  addLikeCardEventListener(likeCardButton);
+
+  addCardImageEventListener(cardImage, cardData);
+
+  return cardElement;
+}
+
+function addDeleteCardEventListener(cardElement, deleteCardButton) {
   deleteCardButton.addEventListener("click", () => {
     cardElement.remove();
     return cardElement;
   });
+}
 
-  cardElement.querySelector(".card__image").addEventListener("click", () => {
+function addLikeCardEventListener(likeCardButton) {
+  likeCardButton.addEventListener("click", () => {
+    likeCardButton.classList.toggle("card__like-button_active");
+  });
+}
+
+function addCardImageEventListener(cardImage, cardData) {
+  cardImage.addEventListener("click", () => {
     openPopup(addPreviewPopup);
     popupPreviewImage.src = cardData.link;
     popupPreviewImage.alt = "Photo of ${cardData.name}";
     popupPreviewCaption.textContent = cardData.name;
   });
-
-  return cardElement;
 }
 
 function renderCard(cardData) {
@@ -136,7 +147,7 @@ initialCards.forEach(renderCard);
 
 //Event Handlers
 openEditProfileButton.addEventListener("click", () => {
-  openPopup(editProfileForm);
+  openPopup(editProfilePopup);
   fillProfileForm();
 });
 editProfilePopup.addEventListener("submit", onSubmitEditProfile);
