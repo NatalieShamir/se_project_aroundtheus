@@ -162,10 +162,10 @@ closeAddCardButton.addEventListener("click", () => {
   addCardForm.reset();
 });
 addCardForm.addEventListener("submit", (e) => {
-  addCardForm.reset();
   e.preventDefault();
   renderCard({ name: cardTitleInput.value, link: cardLinkInput.value });
   closePopup(addCardPopup);
+  addCardForm.reset();
 });
 
 closePopupPreviewButton.addEventListener("click", () => {
