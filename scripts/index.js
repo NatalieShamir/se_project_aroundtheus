@@ -132,7 +132,7 @@ function addCardImageEventListener(cardImage, cardData) {
   cardImage.addEventListener("click", () => {
     openPopup(addPreviewPopup);
     popupPreviewImage.src = cardData.link;
-    popupPreviewImage.alt = "Photo of ${cardData.name}";
+    popupPreviewImage.alt = `Photo of ${cardData.name}`;
     popupPreviewCaption.textContent = cardData.name;
   });
 }
