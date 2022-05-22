@@ -1,8 +1,19 @@
+function showError(input) {
+  const error = input.validationMessage;
+  const errorElement = document.querySelector(`#${input.id}-error`);
+  errorElement.textContent = error;
+}
+
+function hideError(input) {
+  const errorElement = document.querySelector(`#${input.id}-error`);
+  errorElement.textContent = "";
+}
+
 function checkValidity(input) {
   if (input.validity.valid) {
-    //hide error
+    hideError(input);
   } else {
-    //show error
+    showError(input);
   }
 }
 
