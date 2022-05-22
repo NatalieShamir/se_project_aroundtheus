@@ -2,6 +2,13 @@ function enableValidation(settings) {
   const forms = Array.from(document.querySelectorAll(".popup__form"));
 }
 
+function preventDefaultFormBehavior(forms) {
+  //is the function parameter defined correctly?
+  forms.forEach((form) => {
+    form.addEventListener("submit", (e) => e.preventDefault());
+  });
+}
+
 const config = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
