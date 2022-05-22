@@ -1,3 +1,11 @@
+function checkValidity(input) {
+  if (input.validity.valid) {
+    //hide error
+  } else {
+    //show error
+  }
+}
+
 function enableValidation(settings) {
   const forms = Array.from(document.querySelectorAll(".popup__form"));
 }
@@ -11,6 +19,17 @@ function preventDefaultFormBehavior(forms) {
 
 function searchFormInputs() {
   const inputs = Array.from(form.querySelectorAll(".popup__form-input"));
+}
+
+function subscribeInputsChange(inputs) {
+  ////is the function parameter defined correctly?
+  inputs.forEach((input) => {
+    input.addEventListener("input", () => {
+      checkValidity(input);
+      //check validity
+      //toggle button state
+    });
+  });
 }
 
 const config = {
