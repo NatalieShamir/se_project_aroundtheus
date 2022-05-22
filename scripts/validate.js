@@ -9,9 +9,13 @@ function preventDefaultFormBehavior(forms) {
   });
 }
 
+function searchFormInputs() {
+  const inputs = Array.from(form.querySelectorAll(".popup__form-input"));
+}
+
 const config = {
   formSelector: ".popup__form",
-  inputSelector: ".popup__input",
+  inputSelector: ".popup__form-input",
   submitButtonSelector: ".popup__button",
   inactiveButtonClass: "popup__button_disabled",
   inputErrorClass: "popup__input_type_error",
