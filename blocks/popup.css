@@ -131,6 +131,10 @@
   line-height: 15px;
 }
 
+.popup__form-input_theme_error {
+  color: #ff0000;
+}
+
 @media screen and (max-width: 600px) {
   .popup__close-button {
     background-size: contain;
