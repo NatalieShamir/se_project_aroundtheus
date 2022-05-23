@@ -135,6 +135,11 @@
   color: #ff0000;
 }
 
+.popup__form-button_disabled {
+  color: rgba(0, 0, 0, 1);
+  background: #e5e5e5;
+}
+
 @media screen and (max-width: 600px) {
   .popup__close-button {
     background-size: contain;
