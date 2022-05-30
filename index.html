@@ -67,7 +67,7 @@
             <label for="name" class="popup__form-label"></label>
             <input
               type="text"
-              id="name"
+              id="name-input"
               class="popup__form-input popup__form-input_type_name"
               name="name"
               placeholder="Name"
@@ -75,7 +75,7 @@
               minlength="2"
               maxlength="40"
             />
-            <span id="name-error"></span>
+            <span id="name-input-error" class="popup__input_error"></span>
           </fieldset>
           <fieldset class="popup__form-fieldset">
             <label for="job" class="popup__form-label"></label>
@@ -89,15 +89,10 @@
               minlength="2"
               maxlength="200"
             />
-            <span id="job-error"></span>
+            <span class="popup__input_error"></span>
           </fieldset>
           <fieldset class="popup__form-fieldset">
-            <button
-              type="submit"
-              class="popup__form-button popup__form-button_disabled"
-            >
-              Save
-            </button>
+            <button type="submit" class="popup__form-button">Save</button>
           </fieldset>
         </form>
       </div>
@@ -138,12 +133,7 @@
             <span id="image-error"></span>
           </fieldset>
           <fieldset class="popup__form-fieldset">
-            <button
-              type="submit"
-              class="popup__form-button popup__form-button_disabled"
-            >
-              Create
-            </button>
+            <button type="submit" class="popup__form-button">Create</button>
           </fieldset>
         </form>
       </div>
