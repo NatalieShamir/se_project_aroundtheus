@@ -2,11 +2,13 @@ function showError(input) {
   const error = input.validationMessage;
   const errorElement = document.querySelector(`#${input.id}-error`);
   errorElement.textContent = error;
+  input.classList.add("popup__form-input_theme_error");
 }
 
 function hideError(input) {
   const errorElement = document.querySelector(`#${input.id}-error`);
   errorElement.textContent = "";
+  input.classList.remove("popup__form-input_theme_error");
 }
 
 function checkValidity(input) {
@@ -17,38 +19,44 @@ function checkValidity(input) {
   }
 }
 
-function enableValidation(settings) {
-  const forms = Array.from(document.querySelectorAll(".popup__form"));
+function toggleButtonState(inputs, button) {
+  const isFormValid = inputs.every((input) => input.validity.valid);
+
+  if (isFormValid) {
+    button.disabled = false;
+    button.classList.remove("popup__form-button_disabled");
+  } else {
+    button.disabled = "disabled";
+    button.classList.add("popup__form-button_disabled");
+  }
 }
 
-function preventDefaultFormBehavior(forms) {
-  //is the function parameter defined correctly?
-  forms.forEach((form) => {
-    form.addEventListener("submit", (e) => e.preventDefault());
-  });
-}
+function setEventListeners(formEl, settings) {
+  const inputs = [...formEl.querySelectorAll(settings.inputSelector)];
+  const button = formEl.querySelector(".popup__form-button");
 
-function searchFormInputs() {
-  const inputs = Array.from(form.querySelectorAll(".popup__form-input"));
-}
-
-function subscribeInputsChange(inputs) {
-  ////is the function parameter defined correctly?
   inputs.forEach((input) => {
     input.addEventListener("input", () => {
       checkValidity(input);
-      //check validity
-      //toggle button state
+      toggleButtonState(inputs, button);
     });
   });
+}
+
+function enableValidation(settings) {
+  const formElements = [...document.querySelectorAll(settings.formSelector)]; //find all forms
+  formElements.forEach((formEl) => {
+    formEl.addEventListener("submit", (e) => e.preventDefault());
+  }); //prevent their default behavior- refreshing the page on submit
+  setEventListeners(formEl, settings);
 }
 
 const config = {
   formSelector: ".popup__form",
   inputSelector: ".popup__form-input",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
+  submitButtonSelector: ".popup__form-button",
+  inactiveButtonClass: "popup__form-button_disabled",
+  inputErrorClass: "popup__form-input_type_error",
   errorClass: "popup__error_visible",
 };
 
