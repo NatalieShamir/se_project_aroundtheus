@@ -35,7 +35,7 @@ function setEventListeners(formEl, settings) {
   const inputs = [...formEl.querySelectorAll(settings.inputSelector)];
   //const button = formEl.querySelector(".popup__form-button");
   inputs.forEach((input) => {
-    input.addEventListener("input", () => {
+    input.addEventListener("input", (e) => {
       checkInputValidity(formEl, input, settings);
       //toggleButtonState(inputs, button);
     });
