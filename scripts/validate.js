@@ -12,7 +12,6 @@ function toggleButtonState(inputs, button) {
 
 function showInputError(input, formEl, { errorClass }) {
   const errorSpan = formEl.querySelector("#" + input.id + "-error");
-  const { errorClass } = settings;
   errorSpan.textContent = input.validationMessage;
   input.classList.add(errorClass);
 }
