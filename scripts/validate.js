@@ -1,15 +1,3 @@
-function toggleButtonState(inputs, button) {
-  const isFormValid = inputs.every((input) => input.validity.valid);
-
-  if (isFormValid) {
-    button.disabled = false;
-    button.classList.remove("popup__form-button_disabled");
-  } else {
-    button.disabled = "disabled";
-    button.classList.add("popup__form-button_disabled");
-  }
-}
-
 function showInputError(input, formEl, { errorClass }) {
   const errorSpan = formEl.querySelector("#" + input.id + "-error");
   errorSpan.textContent = input.validationMessage;
@@ -30,13 +18,26 @@ function checkInputValidity(formEl, input, settings) {
   }
 }
 
+function hasValidInputs(inputList) {
+  inputList.every((input) => input.validity.valid === true);
+}
+
+function toggleButtonState(inputList, button, settings) {
+  if (hasValidInputs(inputList)) {
+    button.disabled = false;
+  } else {
+    button.disabled = true;
+    button.classList.add(settings.inactiveButtonClass);
+  }
+}
+
 function setEventListeners(formEl, settings) {
-  const inputs = [...formEl.querySelectorAll(settings.inputSelector)];
-  //const button = formEl.querySelector(".popup__form-button");
-  inputs.forEach((input) => {
+  const inputList = [...formEl.querySelectorAll(settings.inputSelector)];
+  const button = formEl.querySelector(settings.submitButtonSelector);
+  inputList.forEach((input) => {
     input.addEventListener("input", (e) => {
       checkInputValidity(formEl, input, settings);
-      //toggleButtonState(inputs, button);
+      toggleButtonState(formEl, button, settings);
     });
   });
 }
@@ -55,5 +56,5 @@ enableValidation({
   submitButtonSelector: ".popup__form-button",
   inactiveButtonClass: "popup__form-button_disabled",
   inputErrorClass: "popup__form-input_type_error",
-  errorClass: "popup__error_visible",
+  errorClass: "popup__form-error_visible",
 });
