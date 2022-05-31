@@ -1,24 +1,3 @@
-function showError(input) {
-  const error = input.validationMessage;
-  const errorElement = document.querySelector(`#${input.id}-error`);
-  errorElement.textContent = error;
-  input.classList.add("popup__form-input_theme_error");
-}
-
-function hideError(input) {
-  const errorElement = document.querySelector(`#${input.id}-error`);
-  errorElement.textContent = "";
-  input.classList.remove("popup__form-input_theme_error");
-}
-
-function checkValidity(input) {
-  if (input.validity.valid) {
-    hideError(input);
-  } else {
-    showError(input);
-  }
-}
-
 function toggleButtonState(inputs, button) {
   const isFormValid = inputs.every((input) => input.validity.valid);
 
@@ -31,14 +10,34 @@ function toggleButtonState(inputs, button) {
   }
 }
 
+function showInputError(input, formEl, settings) {
+  const { errorClass } = settings;
+  const errorSpan = formEl.querySelector("#" + input.id + "-error");
+  errorSpan.textContent = input.validationMessage;
+  input.classList.add(errorClass);
+}
+
+function hideInputError(input, formEl, settings) {
+  const errorSpan = formEl.querySelector("#" + input.id + "-error");
+  errorSpan.textContent = "";
+  input.classList.remove(errorClass);
+}
+
+function checkInputValidity(formEl, input, settings) {
+  if (input.validity.valid) {
+    hideInputError(input, formEl, settings);
+  } else {
+    showInputError(input, formEl, settings);
+  }
+}
+
 function setEventListeners(formEl, settings) {
   const inputs = [...formEl.querySelectorAll(settings.inputSelector)];
-  const button = formEl.querySelector(".popup__form-button");
-
+  //const button = formEl.querySelector(".popup__form-button");
   inputs.forEach((input) => {
     input.addEventListener("input", () => {
-      checkValidity(input);
-      toggleButtonState(inputs, button);
+      checkInputValidity(formEl, input, settings);
+      //toggleButtonState(inputs, button);
     });
   });
 }
