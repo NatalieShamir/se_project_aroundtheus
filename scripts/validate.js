@@ -10,14 +10,14 @@ function toggleButtonState(inputs, button) {
   }
 }
 
-function showInputError(input, formEl, settings) {
-  const { errorClass } = settings;
+function showInputError(input, formEl, { errorClass }) {
   const errorSpan = formEl.querySelector("#" + input.id + "-error");
+  const { errorClass } = settings;
   errorSpan.textContent = input.validationMessage;
   input.classList.add(errorClass);
 }
 
-function hideInputError(input, formEl, settings) {
+function hideInputError(input, formEl, { errorClass }) {
   const errorSpan = formEl.querySelector("#" + input.id + "-error");
   errorSpan.textContent = "";
   input.classList.remove(errorClass);
@@ -50,13 +50,11 @@ function enableValidation(settings) {
   setEventListeners(formEl, settings);
 }
 
-const config = {
+enableValidation({
   formSelector: ".popup__form",
   inputSelector: ".popup__form-input",
   submitButtonSelector: ".popup__form-button",
   inactiveButtonClass: "popup__form-button_disabled",
   inputErrorClass: "popup__form-input_type_error",
   errorClass: "popup__error_visible",
-};
-
-enableValidation(config);
+});
