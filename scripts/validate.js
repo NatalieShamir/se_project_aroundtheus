@@ -1,13 +1,16 @@
-function showInputError(input, form, { errorClass }) {
+function showInputError(input, settings) {
+  const { inputErrorClass } = settings;
+  const error = input.validationMessage;
   const errorSpan = form.querySelector("#" + input.id + "-error");
-  errorSpan.textContent = input.validationMessage;
-  input.classList.add(errorClass);
+  errorSpan.textContent = error;
+  input.classList.add(inputErrorClass);
 }
 
-function hideInputError(input, form, { errorClass }) {
+function hideInputError(input, settings) {
+  const { inputErrorClass } = settings;
   const errorSpan = form.querySelector("#" + input.id + "-error");
   errorSpan.textContent = "";
-  input.classList.remove(errorClass);
+  input.classList.remove(inputErrorClass);
 }
 
 function checkInputValidity(form, input, settings) {
@@ -44,10 +47,10 @@ function setEventListeners(form, settings) {
 }
 
 function enableValidation(settings) {
-  const formElements = [...document.querySelectorAll(settings.formSelector)]; //find all forms
+  const formElements = [...document.querySelectorAll(settings.formSelector)];
   formElements.forEach((form) => {
     form.addEventListener("submit", (e) => e.preventDefault());
-  }); //prevent their default behavior- refreshing the page on submit
+  });
   setEventListeners(form, settings);
 }
 
