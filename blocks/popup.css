@@ -131,7 +131,16 @@
   line-height: 15px;
 }
 
-.popup__form-error_visible {
+.popup__form-span {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ff0000;
+}
+
+.popup__form-input_type_error {
   color: #ff0000;
 }
 
