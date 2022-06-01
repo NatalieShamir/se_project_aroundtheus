@@ -75,13 +75,13 @@
               minlength="2"
               maxlength="40"
             />
-            <span id="name-input-error" class="popup__input_error"></span>
+            <span id="name-input-error">Please fill out this field.</span>
           </fieldset>
           <fieldset class="popup__form-fieldset">
             <label for="job" class="popup__form-label"></label>
             <input
               type="text"
-              id="job"
+              id="job-input"
               class="popup__form-input popup__form-input_type_job"
               name="job"
               placeholder="About me"
@@ -89,10 +89,12 @@
               minlength="2"
               maxlength="200"
             />
-            <span id="job-input-error" class="popup__input_error"></span>
+            <span id="job-input-error">Please fill out this field.</span>
           </fieldset>
           <fieldset class="popup__form-fieldset">
-            <button type="submit" class="popup__form-button">Save</button>
+            <button type="submit" class="button popup__form-button">
+              Save
+            </button>
           </fieldset>
         </form>
       </div>
@@ -110,7 +112,7 @@
             <label for="title" class="popup__form-label"></label>
             <input
               type="text"
-              id="title"
+              id="title-input"
               class="popup__form-input popup__form-input_type_title"
               name="title"
               placeholder="Title"
@@ -118,22 +120,24 @@
               minlength="1"
               maxlength="30"
             />
-            <span id="title-input-error" class="popup__input_error"></span>
+            <span id="title-input-error">Please fill out this field.</span>
           </fieldset>
           <fieldset class="popup__form-fieldset">
             <label for="image" class="popup__form-label"></label>
             <input
               type="url"
-              id="image"
+              id="image-input"
               class="popup__form-input popup__form-input_type_image"
               name="image"
               placeholder="Image URL"
               required
             />
-            <span id="image-input-error" class="popup__input_error"></span>
+            <span id="image-input-error">Please enter a web address.</span>
           </fieldset>
           <fieldset class="popup__form-fieldset">
-            <button type="submit" class="popup__form-button">Create</button>
+            <button type="submit" class="button popup__form-button">
+              Create
+            </button>
           </fieldset>
         </form>
       </div>
