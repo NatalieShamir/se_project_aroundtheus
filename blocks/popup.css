@@ -131,13 +131,14 @@
   line-height: 15px;
 }
 
-.popup__form-input_theme_error {
+.popup__form-error_visible {
   color: #ff0000;
 }
 
 .popup__form-button_disabled {
-  color: rgba(0, 0, 0, 1);
+  color: rgba(0, 0, 0, 0.2);
   background: #e5e5e5;
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (max-width: 600px) {
