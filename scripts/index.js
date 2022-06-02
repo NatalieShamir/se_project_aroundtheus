@@ -30,6 +30,7 @@ const initialCards = [
 const editProfilePopup = document.querySelector(".popup_type_edit-profile");
 const addCardPopup = document.querySelector(".popup_type_add-card");
 const addPreviewPopup = document.querySelector(".popup_type_preview");
+const openPopupModal = document.querySelector(".popup_open");
 
 //Forms
 const editProfileForm = editProfilePopup.querySelector(".popup__form");
@@ -170,4 +171,9 @@ addCardForm.addEventListener("submit", (e) => {
 
 closePopupPreviewButton.addEventListener("click", () => {
   closePopup(addPreviewPopup);
+});
+
+document.addEventListener("click", (e) => {
+  if (e.target.closest(".popup_open")) return;
+  closePopup(editProfilePopup, addCardPopup, addPreviewPopup);
 });
