@@ -30,18 +30,18 @@ const initialCards = [
 const editProfilePopup = document.querySelector(".popup_type_edit-profile");
 const addCardPopup = document.querySelector(".popup_type_add-card");
 const addPreviewPopup = document.querySelector(".popup_type_preview");
-const openPopupModal = document.querySelector(".popup_open");
+const popupModal = document.querySelector(".popup");
 
 //Forms
 const editProfileForm = editProfilePopup.querySelector(".popup__form");
-const addCardForm = addCardPopup.querySelector(".popup__form");
-
-//Buttons and Other DOM Elements
-const openEditProfileButton = document.querySelector(".profile__edit-button");
 const closeEditProfileButton = document.querySelector(
   ".popup__close-button_close_profile"
 );
 const openAddCardButton = document.querySelector(".profile__add-button");
+const addCardForm = addCardPopup.querySelector(".popup__form");
+
+//Buttons and Other DOM Elements
+const openEditProfileButton = document.querySelector(".profile__edit-button");
 const closeAddCardButton = document.querySelector(
   ".popup__close-button_close_add-card"
 );
@@ -173,7 +173,20 @@ closePopupPreviewButton.addEventListener("click", () => {
   closePopup(addPreviewPopup);
 });
 
-document.addEventListener("click", (e) => {
-  if (e.target.closest(".popup_open")) return;
-  closePopup(editProfilePopup, addCardPopup, addPreviewPopup);
+popupModal.addEventListener("click", function (event) {
+  const isOutside = !event.target.closest(".popup__container");
+  if (isOutside) {
+    closePopup(editProfilePopup);
+    closePopup(addCardPopup);
+    closePopup(addPreviewPopup);
+  }
+});
+
+document.addEventListener("keydown", function (event) {
+  const key = event.key;
+  if (key === "Escape") {
+    closePopup(editProfilePopup);
+    closePopup(addCardPopup);
+    closePopup(addPreviewPopup);
+  }
 });
