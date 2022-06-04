@@ -101,6 +101,11 @@
   background: rgba(0, 0, 0, 0.8);
 }
 
+.popup__form-button_disabled {
+  opacity: 0.2;
+  pointer-events: none;
+}
+
 .popup__container_content_preview {
   background: transparent;
   width: auto;
@@ -131,23 +136,20 @@
   line-height: 15px;
 }
 
-.popup__form-span {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 15px;
-  color: #ff0000;
-}
-
 .popup__form-input_type_error {
-  color: #ff0000;
+  border: 1px solid #ff0000;
 }
 
-.popup__form-button_disabled {
-  color: rgba(0, 0, 0, 0.2);
-  background: #e5e5e5;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+.popup__form-error {
+  visibility: none;
+  display: none;
+  color: #ff0000;
+  font-size: 12px;
+}
+
+.popup__form-error_visible {
+  visibility: visible;
+  display: block;
 }
 
 @media screen and (max-width: 600px) {
