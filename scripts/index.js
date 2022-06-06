@@ -30,7 +30,7 @@ const initialCards = [
 const editProfilePopup = document.querySelector(".popup_type_edit-profile");
 const addCardPopup = document.querySelector(".popup_type_add-card");
 const addPreviewPopup = document.querySelector(".popup_type_preview");
-//const popupModal = document.querySelector(".popup");
+const popup = document.querySelector(".popup");
 
 //Forms
 const editProfileForm = editProfilePopup.querySelector(".popup__form");
@@ -145,6 +145,12 @@ function renderCard(cardData) {
 
 initialCards.forEach(renderCard);
 
+function closePopupOnRemoteClick(evt) {
+  if (evt.target === evt.currentTarget) {
+    closePopup(evt.target);
+  }
+}
+
 //Event Handlers
 openEditProfileButton.addEventListener("click", () => {
   openPopup(editProfilePopup);
@@ -166,33 +172,16 @@ addCardForm.addEventListener("submit", (e) => {
   renderCard({ name: cardTitleInput.value, link: cardLinkInput.value });
   closePopup(addCardPopup);
   addCardForm.reset();
-  //toggleButtonState();
+  toggleButtonState(inputElements, buttonElement, settings);
 });
 
 closePopupPreviewButton.addEventListener("click", () => {
   closePopup(addPreviewPopup);
 });
 
-editProfilePopup.addEventListener("click", function (event) {
-  const isOutside = !event.target.closest(".popup__container");
-  if (isOutside) {
-    closePopup(editProfilePopup);
-  }
-});
+popup.addEventListener("mousedown", closePopupOnRemoteClick);
 
-addCardPopup.addEventListener("click", function (event) {
-  const isOutside = !event.target.closest(".popup__container");
-  if (isOutside) {
-    closePopup(addCardPopup);
-  }
-});
-
-addPreviewPopup.addEventListener("click", function (event) {
-  const isOutside = !event.target.closest(".popup__container");
-  if (isOutside) {
-    closePopup(addPreviewPopup);
-  }
-});
+popup.removeEventListener("mousedown", closePopupOnRemoteClick);
 
 document.addEventListener("keydown", function (event) {
   const key = event.key;
