@@ -119,7 +119,6 @@ function generateCard(cardData) {
 function addDeleteCardEventListener(cardElement, deleteCardButton) {
   deleteCardButton.addEventListener("click", () => {
     cardElement.remove();
-    return cardElement;
   });
 }
 
@@ -167,6 +166,7 @@ addCardForm.addEventListener("submit", (e) => {
   renderCard({ name: cardTitleInput.value, link: cardLinkInput.value });
   closePopup(addCardPopup);
   addCardForm.reset();
+  //toggleButtonState();
 });
 
 closePopupPreviewButton.addEventListener("click", () => {
