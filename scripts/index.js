@@ -175,7 +175,6 @@ openAddCardButton.addEventListener("click", () => {
 });
 closeAddCardButton.addEventListener("click", () => {
   closePopup(addCardPopup);
-  addCardForm.reset();
 });
 addCardForm.addEventListener("submit", (e) => {
   e.preventDefault();
