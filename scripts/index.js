@@ -30,7 +30,6 @@ const initialCards = [
 const editProfilePopup = document.querySelector(".popup_type_edit-profile");
 const addCardPopup = document.querySelector(".popup_type_add-card");
 const addPreviewPopup = document.querySelector(".popup_type_preview");
-const popup = document.querySelector(".popup");
 
 //Forms
 const editProfileForm = editProfilePopup.querySelector(".popup__form");
@@ -73,10 +72,14 @@ const popupPreviewCaption = document.querySelector(".popup__preview-caption");
 //Functions
 function openPopup(popup) {
   popup.classList.add("popup_open");
+  popup.addEventListener("mousedown", closePopupOnRemoteClick);
+  document.addEventListener("keydown", keyHandler);
 }
 
 function closePopup(popup) {
   popup.classList.remove("popup_open");
+  popup.removeEventListener("mousedown", closePopupOnRemoteClick);
+  document.removeEventListener("keydown", keyHandler);
 }
 
 function fillProfileForm() {
@@ -151,6 +154,13 @@ function closePopupOnRemoteClick(evt) {
   }
 }
 
+function keyHandler(evt) {
+  if (evt.key === "Escape") {
+    const openedPopup = document.querySelector(".popup_open");
+    closePopup(openedPopup);
+  }
+}
+
 //Event Handlers
 openEditProfileButton.addEventListener("click", () => {
   openPopup(editProfilePopup);
@@ -177,17 +187,4 @@ addCardForm.addEventListener("submit", (e) => {
 
 closePopupPreviewButton.addEventListener("click", () => {
   closePopup(addPreviewPopup);
-});
-
-popup.addEventListener("mousedown", closePopupOnRemoteClick);
-
-popup.removeEventListener("mousedown", closePopupOnRemoteClick);
-
-document.addEventListener("keydown", function (event) {
-  const key = event.key;
-  if (key === "Escape") {
-    closePopup(editProfilePopup);
-    closePopup(addCardPopup);
-    closePopup(addPreviewPopup);
-  }
 });
