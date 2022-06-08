@@ -30,8 +30,9 @@ function checkInputValidity(formElement, inputElement, settings) {
 }
 
 function hasValidInputs(inputElements) {
-  inputElements.every((input) => input.validity.valid === true);
+  return inputElements.every((input) => input.validity.valid === true);
 }
+
 function toggleButtonState(inputElements, buttonElement, settings) {
   if (hasValidInputs(inputElements)) {
     buttonElement.disabled = false;
