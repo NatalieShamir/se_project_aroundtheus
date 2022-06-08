@@ -141,7 +141,7 @@
 }
 
 .popup__form-error {
-  visibility: none;
+  visibility: hidden;
   display: none;
   color: #ff0000;
   font-size: 12px;
