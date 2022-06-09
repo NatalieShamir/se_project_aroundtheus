@@ -183,7 +183,7 @@ addCardForm.addEventListener("submit", (e) => {
   closePopup(addCardPopup);
   addCardForm.reset();
   const addCardFormInputElements = [cardTitleInput, cardLinkInput];
-  toggleButtonState(addCardFormInputElements, closeAddCardButton, settings);
+  toggleButtonState(addCardFormInputElements, closeAddCardButton, pageSettings);
 });
 
 closePopupPreviewButton.addEventListener("click", () => {
