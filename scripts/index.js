@@ -176,12 +176,14 @@ openAddCardButton.addEventListener("click", () => {
 closeAddCardButton.addEventListener("click", () => {
   closePopup(addCardPopup);
 });
+
 addCardForm.addEventListener("submit", (e) => {
   e.preventDefault();
   renderCard({ name: cardTitleInput.value, link: cardLinkInput.value });
   closePopup(addCardPopup);
   addCardForm.reset();
-  toggleButtonState(inputElements, buttonElement, settings);
+  const addCardFormInputElements = [cardTitleInput, cardLinkInput];
+  toggleButtonState(addCardFormInputElements, closeAddCardButton, settings);
 });
 
 closePopupPreviewButton.addEventListener("click", () => {
