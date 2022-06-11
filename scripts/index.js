@@ -47,6 +47,7 @@ const closeAddCardButton = document.querySelector(
 const closePopupPreviewButton = document.querySelector(
   ".popup__close-button_close_preview"
 );
+const createCartButton = document.querySelector(".popup__form-button_add-card");
 const profileName = document.querySelector(".profile__title");
 const profileJob = document.querySelector(".profile__subtitle");
 
@@ -183,7 +184,7 @@ addCardForm.addEventListener("submit", (e) => {
   closePopup(addCardPopup);
   addCardForm.reset();
   const addCardFormInputElements = [cardTitleInput, cardLinkInput];
-  toggleButtonState(addCardFormInputElements, closeAddCardButton, pageSettings);
+  toggleButtonState(addCardFormInputElements, createCartButton, pageSettings);
 });
 
 closePopupPreviewButton.addEventListener("click", () => {
