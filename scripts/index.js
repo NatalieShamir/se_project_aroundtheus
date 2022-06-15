@@ -1,4 +1,13 @@
 import FormValidator from "./FormValidator";
+
+const settings = {
+  inputSelector: ".popup__form-input",
+  submitButtonSelector: ".popup__form-button",
+  inactiveButtonClass: "popup__form-button_disabled",
+  inputErrorClass: "popup__form-input_type_error",
+  errorClass: "popup__form-error_visible",
+};
+
 //Declarations
 const initialCards = [
   {
@@ -33,12 +42,14 @@ const addCardPopup = document.querySelector(".popup_type_add-card");
 const addPreviewPopup = document.querySelector(".popup_type_preview");
 
 //Forms
-const editProfileForm = editProfilePopup.querySelector(".popup__form");
+const editProfileForm = editProfilePopup.querySelector(
+  ".popup__form_type_edit"
+);
 const closeEditProfileButton = document.querySelector(
   ".popup__close-button_close_profile"
 );
 const openAddCardButton = document.querySelector(".profile__add-button");
-const addCardForm = addCardPopup.querySelector(".popup__form");
+const addCardForm = addCardPopup.querySelector(".popup__form_type_add_card");
 
 //Form Validator Instances
 const editProfileFormValidator = new FormValidator(settings, editProfileForm);
