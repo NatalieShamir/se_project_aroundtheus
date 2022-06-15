@@ -1,3 +1,4 @@
+import FormValidator from "./FormValidator";
 //Declarations
 const initialCards = [
   {

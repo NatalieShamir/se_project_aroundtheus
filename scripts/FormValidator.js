@@ -45,10 +45,11 @@ class FormValidator {
     });
   }
 
-  _hasValidInputs = () =>
+  _hasValidInputs() {
     this.inputElements.every(
       (inputElement) => inputElement.validity.valid === true
     );
+  }
 
   _toggleButtonState() {
     const { inactiveButtonClass } = this.settings;
@@ -71,14 +72,15 @@ class FormValidator {
   }
 }
 
-const settings = {
-  inputSelector: ".popup__form-input",
-  submitButtonSelector: ".popup__form-button",
-  inactiveButtonClass: "popup__form-button_disabled",
-  inputErrorClass: "popup__form-input_type_error",
-  errorClass: "popup__form-error_visible",
-};
+export default FormValidator;
+//const settings = {
+//inputSelector: ".popup__form-input",
+//submitButtonSelector: ".popup__form-button",
+//inactiveButtonClass: "popup__form-button_disabled",
+//inputErrorClass: "popup__form-input_type_error",
+//errorClass: "popup__form-error_visible",
+//};
 
-const formElement = document.querySelector(".popup__form");
+//const formElement = document.querySelector(".popup__form");
 
-const formValidator = new FormValidator(settings, formElement);
+//const formValidator = new FormValidator(settings, formElement);
