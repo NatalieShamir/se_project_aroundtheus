@@ -64,6 +64,14 @@ class FormValidator {
     }
   }
 
+  resetValidation() {
+    this.inputElements.forEach((inputElement) => {
+      this._hideInputError(inputElement);
+    });
+
+    this._toggleButtonState();
+  }
+
   enableValidation() {
     this.formElement.addEventListener("submit", function (evt) {
       evt.preventDefault();
@@ -81,6 +89,10 @@ export default FormValidator;
 //errorClass: "popup__form-error_visible",
 //};
 
-//const formElement = document.querySelector(".popup__form");
+//const editForm = document.querySelector(".popup__form");
 
-//const formValidator = new FormValidator(settings, formElement);
+//const addCardForm = document.querySelector(".popup__form");
+
+//const editFormValidator = new FormValidator(settings, editForm);
+
+//const addCardFormValidator = new FormValidator(settings, addCardForm);
