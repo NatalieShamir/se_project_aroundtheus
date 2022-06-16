@@ -8,6 +8,13 @@ const settings = {
   errorClass: "popup__form-error_visible",
 };
 
+//Form Validator Instances
+const editProfileFormValidator = new FormValidator(settings, editProfileForm);
+const addCardFormValidator = new FormValidator(settings, addCardForm);
+
+editProfileFormValidator.enableValidation();
+addCardFormValidator.enableValidation();
+
 //Declarations
 const initialCards = [
   {
@@ -50,10 +57,6 @@ const closeEditProfileButton = document.querySelector(
 );
 const openAddCardButton = document.querySelector(".profile__add-button");
 const addCardForm = addCardPopup.querySelector(".popup__form_type_add_card");
-
-//Form Validator Instances
-const editProfileFormValidator = new FormValidator(settings, editProfileForm);
-const addCardFormValidator = new FormValidator(settings, addCardForm);
 
 //Buttons and Other DOM Elements
 const openEditProfileButton = document.querySelector(".profile__edit-button");
@@ -180,6 +183,7 @@ function handleKeyDown(evt) {
 
 //Event Handlers
 openEditProfileButton.addEventListener("click", () => {
+  editProfileFormValidator.resetValidation();
   openPopup(editProfilePopup);
   fillProfileForm();
 });
@@ -188,6 +192,7 @@ closeEditProfileButton.addEventListener("click", () => {
   closePopup(editProfilePopup);
 });
 openAddCardButton.addEventListener("click", () => {
+  addCardFormValidator.resetValidation();
   openPopup(addCardPopup);
 });
 closeAddCardButton.addEventListener("click", () => {
