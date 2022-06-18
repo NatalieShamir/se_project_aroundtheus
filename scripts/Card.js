@@ -9,41 +9,27 @@ class Card {
       .content.querySelector(".card");
   }
 
-<<<<<<< HEAD
+  //Private Method for Adding Event Listeners
+
   _setEventListeners() {
-    likeCardButton.addEventListener("click", () => {
-      likeCardButton.classList.toggle("card__like-button_active");
-    });
-    deleteCardButton.addEventListener("click", () => {
-      cardElement.remove();
-    });
-    cardImage.addEventListener("click", () => {
-      openPopup(addPreviewPopup);
-      popupPreviewImage.src = cardData.link;
-      popupPreviewImage.alt = `Photo of ${cardData.name}`;
-      popupPreviewCaption.textContent = cardData.name;
-=======
-  _addCardImageEventListener(cardImage) {
-    cardImage.addEventListener("click", () => {
-      openPopup(addPreviewPopup);
-      popupPreviewImage.src = this._link;
-      popupPreviewImage.alt = `Photo of ${this._name}`;
-      popupPreviewCaption.textContent = this._name;
-    });
+    likeCardButton.addEventListener("click", this._handleLikeIcon);
+    deleteCardButton.addEventListener("click", this._handleDeleteCard);
+    cardImage.addEventListener("click", () => this._handlePreviewImage(data));
   }
 
-  _addDeleteCardEventListener(cardElement, deleteCardButton) {
-    deleteCardButton.addEventListener("click", () => {
-      cardElement.remove();
-    });
-  }
+  //Private Methods for Each One of the Handlers
 
-  _addLikeCardEventListener(likeCardButton) {
-    likeCardButton.addEventListener("click", () => {
-      likeCardButton.classList.toggle("card__like-button_active");
->>>>>>> 2bc596e39c08516acd09382ddf11c247077ee73a
-    });
-  }
+  _handleLikeIcon = (evt) =>
+    evt.target.classList.toggle("card__like-button_active");
+
+  _handleDeleteCard = () => this._cardElement.remove();
+
+  _handlePreviewImage = () => {
+    openPopup(addPreviewPopup);
+    popupPreviewImage.src = this._link;
+    popupPreviewImage.alt = `Photo of ${this._name}`;
+    popupPreviewCaption.textContent = this._name;
+  };
 
   getCardElement = () => {
     this._cardElement = this._cardTemplate.cloneNode(true);
@@ -59,36 +45,6 @@ class Card {
     cardTitle.textContent = this._name;
     cardImage.style.backgroundImage = `url(${this._link})`;
 
-<<<<<<< HEAD
     return cardElement;
   };
 }
-=======
-    this._addDeleteCardEventListener(cardElement, deleteCardButton);
-    this._addLikeCardEventListener(likeCardButton);
-    this._addCardImageEventListener(cardImage, cardData);
-
-    return cardElement;
-  };
-}
-
-//function generateCard(cardData) {
-//  const cardElement = cardTemplate.cloneNode(true);
-
-// const cardTitle = cardElement.querySelector(".card__title");
-// const cardImage = cardElement.querySelector(".card__image");
-// const deleteCardButton = cardElement.querySelector(".card__delete-button");
-// const likeCardButton = cardElement.querySelector(".card__like-button");
-
-// cardTitle.textContent = cardData.name;
-// cardImage.style.backgroundImage = `url(${cardData.link})`;
-
-// addDeleteCardEventListener(cardElement, deleteCardButton);
-
-// addLikeCardEventListener(likeCardButton);
-
-//  addCardImageEventListener(cardImage, cardData);
-
-//  return cardElement;
-//  }
->>>>>>> 2bc596e39c08516acd09382ddf11c247077ee73a
