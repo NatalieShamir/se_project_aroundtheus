@@ -5,6 +5,7 @@ import { handleKeyDown } from "./utils";
 import { popupPreviewImage } from "./utils";
 import { popupPreviewCaption } from "./utils";
 import { addPreviewPopup } from "./utils";
+import { Card } from "./Card";
 
 const settings = {
   inputSelector: ".popup__form-input",
@@ -158,8 +159,11 @@ function addCardImageEventListener(cardImage, cardData) {
   });
 }
 
+const cardTemplateSelector = "#card-template";
+
 function renderCard(cardData) {
-  const cardElement = generateCard(cardData);
+  // const cardElement = generateCard(cardData);
+  const cardElement = new Card(data, cardTemplateSelector);
 
   cardsGallery.prepend(cardElement);
 }
