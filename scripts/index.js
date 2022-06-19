@@ -4,6 +4,7 @@ import { closePopupOnRemoteClick } from "./utils";
 import { handleKeyDown } from "./utils";
 import { popupPreviewImage } from "./utils";
 import { popupPreviewCaption } from "./utils";
+import { addPreviewPopup } from "./utils";
 
 const settings = {
   inputSelector: ".popup__form-input",
@@ -51,7 +52,6 @@ const initialCards = [
 //Modals
 const editProfilePopup = document.querySelector(".popup_type_edit-profile");
 const addCardPopup = document.querySelector(".popup_type_add-card");
-const addPreviewPopup = document.querySelector(".popup_type_preview");
 
 //Forms
 const editProfileForm = editProfilePopup.querySelector(
