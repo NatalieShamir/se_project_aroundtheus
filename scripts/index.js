@@ -3,6 +3,7 @@ import { openPopup } from "./utils";
 import { closePopupOnRemoteClick } from "./utils";
 import { handleKeyDown } from "./utils";
 import { popupPreviewImage } from "./utils";
+import { popupPreviewCaption } from "./utils";
 
 const settings = {
   inputSelector: ".popup__form-input",
@@ -90,7 +91,6 @@ const cardsGallery = document.querySelector(".cards__gallery");
 
 //Image Modal Elements
 const cardImage = document.querySelector(".card__image");
-const popupPreviewCaption = document.querySelector(".popup__preview-caption");
 
 //Functions
 
