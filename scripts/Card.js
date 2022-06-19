@@ -20,6 +20,12 @@ export class Card {
   //Private Method for Adding Event Listeners
 
   _setEventListeners() {
+    const likeCardButton =
+      this._cardElement.querySelector(".card__like-button");
+    const deleteCardButton = this._cardElement.querySelector(
+      ".card__delete-button"
+    );
+    const cardImage = this._cardElement.querySelector(".card__image");
     likeCardButton.addEventListener("click", this._handleLikeIcon);
     deleteCardButton.addEventListener("click", this._handleDeleteCard);
     cardImage.addEventListener("click", () => this._handlePreviewImage(data));
@@ -46,11 +52,6 @@ export class Card {
 
     const cardTitle = this._cardElement.querySelector(".card__title");
     const cardImage = this._cardElement.querySelector(".card__image");
-    const deleteCardButton = this._cardElement.querySelector(
-      ".card__delete-button"
-    );
-    const likeCardButton =
-      this._cardElement.querySelector(".card__like-button");
 
     cardTitle.textContent = this._name;
     cardImage.style.backgroundImage = `url(${this._link})`;
