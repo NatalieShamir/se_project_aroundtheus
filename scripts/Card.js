@@ -1,3 +1,11 @@
+import {
+  openPopup,
+  addPreviewPopup,
+  popupPreviewImage,
+  popupPreviewCaption,
+} from "./utils";
+//Creates a Card with Text and an Image Link
+
 class Card {
   constructor({ name, link }, templateCardSelector) {
     this._name = name;
@@ -30,6 +38,8 @@ class Card {
     popupPreviewImage.alt = `Photo of ${this._name}`;
     popupPreviewCaption.textContent = this._name;
   };
+
+  //Returns a Fully Functional Card Element Populated with Data
 
   getCardElement = () => {
     this._cardElement = this._cardTemplate.cloneNode(true);
