@@ -162,9 +162,7 @@ function addCardImageEventListener(cardImage, cardData) {
 const cardTemplateSelector = "#card-template";
 
 function renderCard(cardData) {
-  // const cardElement = generateCard(cardData);
-  const cardElement = new Card(data, cardTemplateSelector);
-
+  const cardElement = new Card(cardData, cardTemplateSelector);
   cardsGallery.prepend(cardElement);
 }
 
