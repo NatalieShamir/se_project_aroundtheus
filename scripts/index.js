@@ -1,5 +1,6 @@
 import FormValidator from "./FormValidator";
 import { openPopup } from "./utils";
+import { closePopupOnRemoteClick } from "./utils";
 
 const settings = {
   inputSelector: ".popup__form-input",
@@ -163,12 +164,6 @@ function renderCard(cardData) {
 }
 
 initialCards.forEach(renderCard);
-
-function closePopupOnRemoteClick(evt) {
-  if (evt.target === evt.currentTarget) {
-    closePopup(evt.target);
-  }
-}
 
 function handleKeyDown(evt) {
   if (evt.key === "Escape") {
