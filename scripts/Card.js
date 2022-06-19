@@ -6,7 +6,7 @@ import {
 } from "./utils";
 //Creates a Card with Text and an Image Link
 
-class Card {
+export class Card {
   constructor({ name, link }, templateCardSelector) {
     this._name = name;
     this._link = link;
