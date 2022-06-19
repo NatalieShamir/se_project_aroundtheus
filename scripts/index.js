@@ -1,4 +1,5 @@
 import FormValidator from "./FormValidator";
+import { openPopup } from "./utils";
 
 const settings = {
   inputSelector: ".popup__form-input",
@@ -90,11 +91,6 @@ const popupPreviewImage = document.querySelector(".popup__preview-image");
 const popupPreviewCaption = document.querySelector(".popup__preview-caption");
 
 //Functions
-function openPopup(popup) {
-  popup.classList.add("popup_open");
-  popup.addEventListener("mousedown", closePopupOnRemoteClick);
-  document.addEventListener("keydown", handleKeyDown);
-}
 
 function closePopup(popup) {
   popup.classList.remove("popup_open");
