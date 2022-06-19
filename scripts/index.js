@@ -1,6 +1,7 @@
 import FormValidator from "./FormValidator";
 import { openPopup } from "./utils";
 import { closePopupOnRemoteClick } from "./utils";
+import { handleKeyDown } from "./utils";
 
 const settings = {
   inputSelector: ".popup__form-input",
@@ -164,13 +165,6 @@ function renderCard(cardData) {
 }
 
 initialCards.forEach(renderCard);
-
-function handleKeyDown(evt) {
-  if (evt.key === "Escape") {
-    const openedPopup = document.querySelector(".popup_open");
-    closePopup(openedPopup);
-  }
-}
 
 //Event Handlers
 openEditProfileButton.addEventListener("click", () => {
