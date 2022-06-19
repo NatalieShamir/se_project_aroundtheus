@@ -55,6 +55,7 @@ export class Card {
     cardTitle.textContent = this._name;
     cardImage.style.backgroundImage = `url(${this._link})`;
 
-    return cardElement;
+    this._setEventListeners();
+    return this._cardElement;
   };
 }
