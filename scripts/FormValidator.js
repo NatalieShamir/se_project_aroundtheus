@@ -81,18 +81,3 @@ class FormValidator {
 }
 
 export default FormValidator;
-//const settings = {
-//inputSelector: ".popup__form-input",
-//submitButtonSelector: ".popup__form-button",
-//inactiveButtonClass: "popup__form-button_disabled",
-//inputErrorClass: "popup__form-input_type_error",
-//errorClass: "popup__form-error_visible",
-//};
-
-//const editForm = document.querySelector(".popup__form");
-
-//const addCardForm = document.querySelector(".popup__form");
-
-//const editFormValidator = new FormValidator(settings, editForm);
-
-//const addCardFormValidator = new FormValidator(settings, addCardForm);
