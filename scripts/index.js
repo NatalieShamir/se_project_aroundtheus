@@ -15,6 +15,20 @@ const settings = {
   errorClass: "popup__form-error_visible",
 };
 
+//Modals
+const editProfilePopup = document.querySelector(".popup_type_edit-profile");
+const addCardPopup = document.querySelector(".popup_type_add-card");
+
+//Forms
+const editProfileForm = editProfilePopup.querySelector(
+  ".popup__form_type_edit"
+);
+const closeEditProfileButton = document.querySelector(
+  ".popup__close-button_close_profile"
+);
+const openAddCardButton = document.querySelector(".profile__add-button");
+const addCardForm = addCardPopup.querySelector(".popup__form_type_add_card");
+
 //Form Validator Instances
 const editProfileFormValidator = new FormValidator(settings, editProfileForm);
 const addCardFormValidator = new FormValidator(settings, addCardForm);
@@ -49,20 +63,6 @@ const initialCards = [
     link: "https://code.s3.yandex.net/web-code/lago.jpg",
   },
 ];
-
-//Modals
-const editProfilePopup = document.querySelector(".popup_type_edit-profile");
-const addCardPopup = document.querySelector(".popup_type_add-card");
-
-//Forms
-const editProfileForm = editProfilePopup.querySelector(
-  ".popup__form_type_edit"
-);
-const closeEditProfileButton = document.querySelector(
-  ".popup__close-button_close_profile"
-);
-const openAddCardButton = document.querySelector(".profile__add-button");
-const addCardForm = addCardPopup.querySelector(".popup__form_type_add_card");
 
 //Buttons and Other DOM Elements
 const openEditProfileButton = document.querySelector(".profile__edit-button");
