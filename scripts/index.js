@@ -1,11 +1,11 @@
-import FormValidator from "./FormValidator";
-import openPopup from "./utils";
-import { closePopupOnRemoteClick } from "./utils";
-import { handleKeyDown } from "./utils";
-import { popupPreviewImage } from "./utils";
-import { popupPreviewCaption } from "./utils";
-import { addPreviewPopup } from "./utils";
-import { Card } from "./Card";
+import FormValidator from "./FormValidator.js";
+import openPopup from "./utils.js";
+import { closePopupOnRemoteClick } from "./utils.js";
+import { handleKeyDown } from "./utils.js";
+import { popupPreviewImage } from "./utils.js";
+import { popupPreviewCaption } from "./utils.js";
+import { addPreviewPopup } from "./utils.js";
+import { Card } from "./Card.js";
 
 const settings = {
   inputSelector: ".popup__form-input",
