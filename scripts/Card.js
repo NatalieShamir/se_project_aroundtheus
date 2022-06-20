@@ -3,7 +3,7 @@ import {
   addPreviewPopup,
   popupPreviewImage,
   popupPreviewCaption,
-} from "./utils";
+} from "./utils.js";
 //Creates a Card with Text and an Image Link
 
 export class Card {
