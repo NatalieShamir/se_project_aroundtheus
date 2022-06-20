@@ -1,12 +1,8 @@
-export const popupPreviewImage = document.querySelector(
-  ".popup__preview-image"
-);
-export const popupPreviewCaption = document.querySelector(
-  ".popup__preview-caption"
-);
-export const addPreviewPopup = document.querySelector(".popup_type_preview");
+const popupPreviewImage = document.querySelector(".popup__preview-image");
+const popupPreviewCaption = document.querySelector(".popup__preview-caption");
+const addPreviewPopup = document.querySelector(".popup_type_preview");
 
-export default function openPopup(popup) {
+function openPopup(popup) {
   popup.classList.add("popup_open");
   popup.addEventListener("mousedown", closePopupOnRemoteClick);
   document.addEventListener("keydown", handleKeyDown);
@@ -24,3 +20,12 @@ function handleKeyDown(evt) {
     closePopup(openedPopup);
   }
 }
+
+export {
+  popupPreviewImage,
+  popupPreviewCaption,
+  addPreviewPopup,
+  openPopup,
+  closePopupOnRemoteClick,
+  handleKeyDown,
+};
