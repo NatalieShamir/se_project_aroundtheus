@@ -1,5 +1,5 @@
 import FormValidator from "./FormValidator.js";
-import openPopup from "./utils.js";
+import { openPopup } from "./utils.js";
 import { closePopupOnRemoteClick } from "./utils.js";
 import { handleKeyDown } from "./utils.js";
 import { popupPreviewImage } from "./utils.js";
