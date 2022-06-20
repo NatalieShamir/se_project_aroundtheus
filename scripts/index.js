@@ -1,5 +1,5 @@
 import FormValidator from "./FormValidator";
-import { openPopup } from "./utils";
+import openPopup from "./utils";
 import { closePopupOnRemoteClick } from "./utils";
 import { handleKeyDown } from "./utils";
 import { popupPreviewImage } from "./utils";

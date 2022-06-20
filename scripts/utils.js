@@ -6,7 +6,7 @@ export const popupPreviewCaption = document.querySelector(
 );
 export const addPreviewPopup = document.querySelector(".popup_type_preview");
 
-export function openPopup(popup) {
+export default function openPopup(popup) {
   popup.classList.add("popup_open");
   popup.addEventListener("mousedown", closePopupOnRemoteClick);
   document.addEventListener("keydown", handleKeyDown);
