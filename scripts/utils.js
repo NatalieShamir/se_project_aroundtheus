@@ -33,6 +33,4 @@ export {
   addPreviewPopup,
   popupPreviewImage,
   popupPreviewCaption,
-  closePopupOnRemoteClick,
-  handleKeyDown,
 };
