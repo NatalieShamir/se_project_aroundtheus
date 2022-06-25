@@ -24,7 +24,7 @@ const closeEditProfileButton = document.querySelector(
   ".popup__close-button_close_profile"
 );
 const openAddCardButton = document.querySelector(".profile__add-button");
-const addCardForm = addCardPopup.querySelector(".popup__form_type_add_card");
+const addCardForm = addCardPopup.querySelector(".popup__form_type_add-card");
 
 //Form Validator Instances
 const editProfileFormValidator = new FormValidator(settings, editProfileForm);
