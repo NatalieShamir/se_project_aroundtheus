@@ -8,6 +8,12 @@ function openPopup(popup) {
   document.addEventListener("keydown", handleKeyDown);
 }
 
+function closePopup(popup) {
+  popup.classList.remove("popup_open");
+  popup.removeEventListener("mousedown", closePopupOnRemoteClick);
+  document.removeEventListener("keydown", handleKeyDown);
+}
+
 function closePopupOnRemoteClick(evt) {
   if (evt.target === evt.currentTarget) {
     closePopup(evt.target);
@@ -22,10 +28,11 @@ function handleKeyDown(evt) {
 }
 
 export {
+  openPopup,
+  closePopup,
+  addPreviewPopup,
   popupPreviewImage,
   popupPreviewCaption,
-  addPreviewPopup,
-  openPopup,
   closePopupOnRemoteClick,
   handleKeyDown,
 };

@@ -5,21 +5,23 @@ class FormValidator {
   }
 
   _showInputError(inputElement, errorMessage) {
+    const { inputErrorClass, errorClass } = this._settings;
     const errorElement = this._formElement.querySelector(
       `#${inputElement.id}-error`
     );
-    inputElement.classList.add(this._inputErrorClass);
+    inputElement.classList.add(inputErrorClass);
     errorElement.textContent = errorMessage;
-    errorElement.classList.add(this._errorClass);
+    errorElement.classList.add(errorClass);
   }
 
   _hideInputError(inputElement) {
+    const { inputErrorClass, errorClass } = this._settings;
     const errorElement = this._formElement.querySelector(
       `#${inputElement.id}-error`
     );
-    inputElement.classList.remove(this._inputErrorClass);
+    inputElement.classList.remove(inputErrorClass);
     errorElement.textContent = "";
-    errorElement.classList.remove(this._errorClass);
+    errorElement.classList.remove(errorClass);
   }
 
   _checkInputValidity(inputElement) {
@@ -48,7 +50,7 @@ class FormValidator {
   }
 
   _toggleButtonState() {
-    const { inactiveButtonClass } = this._settings;
+    const { inactiveButtonClass, submitButtonSelector } = this._settings;
     const buttonElement = this._formElement.querySelector(submitButtonSelector);
 
     if (this._hasValidInputs()) {
@@ -72,8 +74,7 @@ class FormValidator {
     this._formElement.addEventListener("submit", function (evt) {
       evt.preventDefault();
     });
-    this._setEventListeners(formElement, pageSettings);
+    this._setEventListeners(this._formElement);
   }
 }
-
 export default FormValidator;

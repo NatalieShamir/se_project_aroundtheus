@@ -1,9 +1,10 @@
 import FormValidator from "./FormValidator.js";
 import { openPopup } from "./utils.js";
+import { closePopup } from "./utils.js";
 import { closePopupOnRemoteClick } from "./utils.js";
 import { handleKeyDown } from "./utils.js";
-import { popupPreviewImage } from "./utils.js";
-import { popupPreviewCaption } from "./utils.js";
+//import { popupPreviewImage } from "./utils.js";
+//import { popupPreviewCaption } from "./utils.js";
 import { addPreviewPopup } from "./utils.js";
 import { Card } from "./Card.js";
 
@@ -83,23 +84,17 @@ const cardTitleInput = document.querySelector(".popup__form-input_type_title");
 const cardLinkInput = document.querySelector(".popup__form-input_type_image");
 
 //Templates
-const cardTemplate = document
-  .querySelector("#card-template")
-  .content.querySelector(".card");
+//const cardTemplate = document
+//.querySelector("#card-template")
+//.content.querySelector(".card");
 
 //Wrappers
 const cardsGallery = document.querySelector(".cards__gallery");
 
 //Image Modal Elements
-const cardImage = document.querySelector(".card__image");
+//const cardImage = document.querySelector(".card__image");
 
 //Functions
-
-function closePopup(popup) {
-  popup.classList.remove("popup_open");
-  popup.removeEventListener("mousedown", closePopupOnRemoteClick);
-  document.removeEventListener("keydown", handleKeyDown);
-}
 
 function fillProfileForm() {
   inputName.value = profileName.textContent;
@@ -118,51 +113,52 @@ function onSubmitEditProfile(event) {
   closePopup(editProfilePopup);
 }
 
-function generateCard(cardData) {
-  const cardElement = cardTemplate.cloneNode(true);
+//function generateCard(cardData) {
+//const cardElement = cardTemplate.cloneNode(true);
 
-  const cardTitle = cardElement.querySelector(".card__title");
-  const cardImage = cardElement.querySelector(".card__image");
-  const deleteCardButton = cardElement.querySelector(".card__delete-button");
-  const likeCardButton = cardElement.querySelector(".card__like-button");
+//const cardTitle = cardElement.querySelector(".card__title");
+//const cardImage = cardElement.querySelector(".card__image");
+//const deleteCardButton = cardElement.querySelector(".card__delete-button");
+//const likeCardButton = cardElement.querySelector(".card__like-button");
 
-  cardTitle.textContent = cardData.name;
-  cardImage.style.backgroundImage = `url(${cardData.link})`;
+//cardTitle.textContent = cardData.name;
+//cardImage.style.backgroundImage = `url(${cardData.link})`;
 
-  addDeleteCardEventListener(cardElement, deleteCardButton);
+//addDeleteCardEventListener(cardElement, deleteCardButton);
 
-  addLikeCardEventListener(likeCardButton);
+//addLikeCardEventListener(likeCardButton);
 
-  addCardImageEventListener(cardImage, cardData);
+//addCardImageEventListener(cardImage, cardData);
 
-  return cardElement;
-}
+//return cardElement;
+//}
 
-function addDeleteCardEventListener(cardElement, deleteCardButton) {
-  deleteCardButton.addEventListener("click", () => {
-    cardElement.remove();
-  });
-}
+//function addDeleteCardEventListener(cardElement, deleteCardButton) {
+// deleteCardButton.addEventListener("click", () => {
+//   cardElement.remove();
+// });
+//}
 
-function addLikeCardEventListener(likeCardButton) {
-  likeCardButton.addEventListener("click", () => {
-    likeCardButton.classList.toggle("card__like-button_active");
-  });
-}
+//function addLikeCardEventListener(likeCardButton) {
+// likeCardButton.addEventListener("click", () => {
+//   likeCardButton.classList.toggle("card__like-button_active");
+// });
+//}
 
-function addCardImageEventListener(cardImage, cardData) {
-  cardImage.addEventListener("click", () => {
-    openPopup(addPreviewPopup);
-    popupPreviewImage.src = cardData.link;
-    popupPreviewImage.alt = `Photo of ${cardData.name}`;
-    popupPreviewCaption.textContent = cardData.name;
-  });
-}
+//function addCardImageEventListener(cardImage, cardData) {
+// cardImage.addEventListener("click", () => {
+//   openPopup(addPreviewPopup);
+//   popupPreviewImage.src = cardData.link;
+//   popupPreviewImage.alt = `Photo of ${cardData.name}`;
+//   popupPreviewCaption.textContent = cardData.name;
+// });
+//}
 
 const cardTemplateSelector = "#card-template";
 
 function renderCard(cardData) {
-  const cardElement = new Card(cardData, cardTemplateSelector);
+  //const cardElement = generateCard(cardData);
+  const cardElement = new Card(cardData, cardTemplateSelector); //Now a card is created via card class. Waht should be done with generateCard() function?
   cardsGallery.prepend(cardElement);
 }
 
