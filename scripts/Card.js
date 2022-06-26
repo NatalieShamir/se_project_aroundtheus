@@ -36,7 +36,10 @@ export class Card {
   _handleLikeIcon = (evt) =>
     evt.target.classList.toggle("card__like-button_active");
 
-  _handleDeleteCard = () => this._cardElement.remove();
+  _handleDeleteCard = () => {
+    this._cardElement.remove();
+    this._cardElement = null;
+  };
 
   _handlePreviewImage = () => {
     openPopup(addPreviewPopup);
