@@ -132,8 +132,6 @@ addCardForm.addEventListener("submit", (event) => {
   renderCard({ name: cardTitleInput.value, link: cardLinkInput.value });
   closePopup(addCardPopup);
   addCardForm.reset();
-  const addCardFormInputElements = [cardTitleInput, cardLinkInput];
-  toggleButtonState(addCardFormInputElements, createCartButton, pageSettings);
 });
 
 closePopupPreviewButton.addEventListener("click", () => {
