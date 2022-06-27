@@ -53,7 +53,7 @@ class FormValidator {
     const { inactiveButtonClass, submitButtonSelector } = this._settings;
     const buttonElement = this._formElement.querySelector(submitButtonSelector);
 
-    if (this._allValidInputs()) {
+    if (this._isAllInputsValid()) {
       buttonElement.disabled = false;
       buttonElement.classList.remove(inactiveButtonClass);
     } else {
