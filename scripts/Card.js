@@ -10,8 +10,6 @@ export class Card {
   constructor({ name, link }, templateCardSelector) {
     this._name = name;
     this._link = link;
-    this._templateCardSelector = templateCardSelector;
-
     this._cardTemplate = document
       .querySelector(templateCardSelector)
       .content.querySelector(".card");
