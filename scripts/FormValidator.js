@@ -43,7 +43,7 @@ class FormValidator {
     });
   }
 
-  _allValidInputs() {
+  _isAllInputsValid() {
     return this.inputElements.every(
       (inputElement) => inputElement.validity.valid === true
     );
