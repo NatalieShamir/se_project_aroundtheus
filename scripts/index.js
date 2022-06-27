@@ -127,8 +127,8 @@ closeAddCardButton.addEventListener("click", () => {
   closePopup(addCardPopup);
 });
 
-addCardForm.addEventListener("submit", (e) => {
-  e.preventDefault();
+addCardForm.addEventListener("submit", (event) => {
+  event.preventDefault();
   renderCard({ name: cardTitleInput.value, link: cardLinkInput.value });
   closePopup(addCardPopup);
   addCardForm.reset();
