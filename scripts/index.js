@@ -1,7 +1,5 @@
 import FormValidator from "./FormValidator.js";
-import { openPopup } from "./utils.js";
-import { closePopup } from "./utils.js";
-import { addPreviewPopup } from "./utils.js";
+import { openPopup, closePopup, addPreviewPopup } from "./utils.js";
 import { Card } from "./Card.js";
 
 const settings = {
