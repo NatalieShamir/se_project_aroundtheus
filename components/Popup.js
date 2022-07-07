@@ -1,7 +1,21 @@
 class Popup {
-  constructor(popupSelector) {}
+  constructor(popupSelector) {
+    this._popupElement = document.querySelector(popupSelector);
+  }
 
-  open() {}
+  open() {
+    this._popupElement.classList.add(".popup_open");
+  }
 
-  close() {}
+  close() {
+    this._popupElement.classList.remove(".popup_open");
+  }
+
+  setEventListeners() {
+    this._popupElement
+      .querySelector(".popup__close-button")
+      .addEventListener("click", () => {
+        this.close;
+      });
+  }
 }
