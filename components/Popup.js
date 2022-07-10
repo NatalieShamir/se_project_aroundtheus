@@ -15,10 +15,13 @@ class Popup {
   }
 
   setEventListeners() {
-    this._popupElement
-      .querySelector(".popup__close-button")
-      .addEventListener("click", () => {
-        this.close;
-      });
+    this._popupElement.addEventListener("click", (event) => {
+      if (
+        event.target.classList.contains(POPUP_CLASS) ||
+        event.target.classList.contains(CLOSE_BUTTON_CLASS)
+      ) {
+        this.close();
+      }
+    });
   }
 }
