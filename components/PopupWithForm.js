@@ -23,10 +23,18 @@ export class PopupWithForm extends Popup {
 
     return values;
   }
+
+  setEventListeners() {
+    super.setEventListeners(); //super allows to save the parent class functionality and to extend it to additional functionality
+    this._formElement.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const valuesFromForm = this._getInputValues();
+      this._handleSubmit(valuesFromForm);
+    });
+  }
+
+  close() {
+    super.close();
+    this._formElement.reset();
+  }
 }
-// /*
-//   setEventListeners() {
-//     super.setEventListeners(); //super allows to save the parent class functionality and to extend it to additional functionality
-//   }
-//
-//  */
