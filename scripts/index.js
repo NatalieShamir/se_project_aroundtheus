@@ -1,6 +1,7 @@
 import FormValidator from "./FormValidator.js";
 import { openPopup, closePopup, addPreviewPopup } from "./utils.js";
 import { Card } from "./Card.js";
+import { PopupWithForm } from "../components/PopupWithForm.js";
 
 const settings = {
   inputSelector: ".popup__form-input",
@@ -23,13 +24,6 @@ const closeEditProfileButton = document.querySelector(
 );
 const openAddCardButton = document.querySelector(".profile__add-button");
 const addCardForm = addCardPopup.querySelector(".popup__form_type_add-card");
-
-//Form Validator Instances
-const editProfileFormValidator = new FormValidator(settings, editProfileForm);
-const addCardFormValidator = new FormValidator(settings, addCardForm);
-
-editProfileFormValidator.enableValidation();
-addCardFormValidator.enableValidation();
 
 //Declarations
 const initialCards = [
@@ -67,15 +61,13 @@ const closeAddCardButton = document.querySelector(
 const closePopupPreviewButton = document.querySelector(
   ".popup__close-button_close_preview"
 );
-const createCartButton = document.querySelector(".popup__form-button_add-card");
+const createCardButton = document.querySelector(".popup__form-button_add-card");
 const profileName = document.querySelector(".profile__title");
 const profileJob = document.querySelector(".profile__subtitle");
 
 //Inputs
-const inputName = document.querySelector(".popup__form-input_type_name");
-const inputJob = document.querySelector(".popup__form-input_type_job");
-const cardTitleInput = document.querySelector(".popup__form-input_type_title");
-const cardLinkInput = document.querySelector(".popup__form-input_type_image");
+const inputNameValue = document.querySelector(".popup__form-input_type_name");
+const inputJobValue = document.querySelector(".popup__form-input_type_job");
 
 //Templates
 const cardTemplateSelector = "#card-template";
@@ -83,39 +75,55 @@ const cardTemplateSelector = "#card-template";
 //Wrappers
 const cardsGallery = document.querySelector(".cards__gallery");
 
+//Form Validator Instances
+const editProfileFormValidator = new FormValidator(settings, editProfileForm);
+const addCardFormValidator = new FormValidator(settings, addCardForm);
+
+editProfileFormValidator.enableValidation();
+addCardFormValidator.enableValidation();
+
 //Functions
-
-function fillProfileForm() {
-  inputName.value = profileName.textContent;
-  inputJob.value = profileJob.textContent;
-}
-
-function onSubmitEditProfile(event) {
-  event.preventDefault();
-
-  const inputNameValue = inputName.value;
-  const inputJobValue = inputJob.value;
-
-  profileName.textContent = inputNameValue;
-  profileJob.textContent = inputJobValue;
-
-  closePopup(editProfilePopup);
-}
-
-function renderCard(cardData) {
+const renderCard = (cardData) => {
   const cardElement = new Card(cardData, cardTemplateSelector);
   cardsGallery.prepend(cardElement.getCardElement());
-}
+};
 
 initialCards.forEach(renderCard);
 
+const handleAddCardSubmit = (data) => {
+  renderCard({ name: data["title"], link: data["image"] }, initialCards);
+  addCardPopupWithForm.close();
+};
+
+const handleEditProfileSubmit = (data) => {
+  profileName.textContent = data.name;
+  profileJob.textContent = data.job;
+
+  editProfilePopupWithForm.close();
+};
+
+//PopupWithForm Class Instances
+const addCardPopupWithForm = new PopupWithForm(
+  ".popup_type_add-card",
+  handleAddCardSubmit
+);
+addCardPopupWithForm.setEventListeners();
+
+const editProfilePopupWithForm = new PopupWithForm(
+  ".popup_type_edit-profile",
+  handleEditProfileSubmit
+);
+editProfilePopupWithForm.setEventListeners();
+
 //Event Handlers
 openEditProfileButton.addEventListener("click", () => {
+  inputNameValue.value = profileName.textContent;
+  inputJobValue.value = profileJob.textContent;
   editProfileFormValidator.resetValidation();
   openPopup(editProfilePopup);
-  fillProfileForm();
+  // handleEditProfileSubmit();
 });
-editProfilePopup.addEventListener("submit", onSubmitEditProfile);
+// editProfilePopup.addEventListener("submit", handleEditProfileSubmit);
 closeEditProfileButton.addEventListener("click", () => {
   closePopup(editProfilePopup);
 });
@@ -125,13 +133,6 @@ openAddCardButton.addEventListener("click", () => {
 });
 closeAddCardButton.addEventListener("click", () => {
   closePopup(addCardPopup);
-});
-
-addCardForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  renderCard({ name: cardTitleInput.value, link: cardLinkInput.value });
-  closePopup(addCardPopup);
-  addCardForm.reset();
 });
 
 closePopupPreviewButton.addEventListener("click", () => {
