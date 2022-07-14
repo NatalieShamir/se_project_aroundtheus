@@ -14,12 +14,12 @@ class Popup {
   }
 
   open() {
-    this._popupElement.classList.add(".popup_open");
+    this._popupElement.classList.add("popup_open");
     document.addEventListener("keyup", this._handleEscClose);
   }
 
   close() {
-    this._popupElement.classList.remove(".popup_open");
+    this._popupElement.classList.remove("popup_open");
     document.removeEventListener("keyup", this._handleEscClose);
   }
 
