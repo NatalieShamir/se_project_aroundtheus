@@ -4,22 +4,23 @@ const CLOSE_BUTTON_CLASS = "popup__close-button";
 class Popup {
   constructor(popupSelector) {
     this._popupElement = document.querySelector(popupSelector);
-    this._handleEscClose = this._handleEscClose.bind(this)
+    this._handleEscClose = this._handleEscClose.bind(this);
   }
 
   _handleEscClose(event) {
     if (event.key === "Escape") {
-    this.close()
+      this.close();
+    }
   }
 
   open() {
     this._popupElement.classList.add(".popup_open");
-    document.addEventListener("keyup", this._handleEscClose)
+    document.addEventListener("keyup", this._handleEscClose);
   }
 
   close() {
     this._popupElement.classList.remove(".popup_open");
-    document.removeEventListener("keyup", this._handleEscClose)
+    document.removeEventListener("keyup", this._handleEscClose);
   }
 
   setEventListeners() {
@@ -32,5 +33,6 @@ class Popup {
       }
     });
   }
-  }
 }
+
+export { Popup };
