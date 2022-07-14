@@ -2,6 +2,7 @@ import FormValidator from "./FormValidator.js";
 import { openPopup, closePopup, addPreviewPopup } from "./utils.js";
 import { Card } from "./Card.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
+import { PopupWithImage } from "../components/PopupWithImage.js";
 
 const settings = {
   inputSelector: ".popup__form-input",
@@ -84,7 +85,9 @@ addCardFormValidator.enableValidation();
 
 //Functions
 const renderCard = (cardData) => {
-  const cardElement = new Card(cardData, cardTemplateSelector);
+  const cardElement = new Card(cardData, cardTemplateSelector, () => {
+    imagePopup.open();
+  });
   cardsGallery.prepend(cardElement.getCardElement());
 };
 
@@ -114,6 +117,10 @@ const editProfilePopupWithForm = new PopupWithForm(
   handleEditProfileSubmit
 );
 editProfilePopupWithForm.setEventListeners();
+
+//PopupWithImage Class Instance
+const imagePopup = new PopupWithImage(".popup_type_preview");
+imagePopup.setEventListeners();
 
 //Event Handlers
 openEditProfileButton.addEventListener("click", () => {
