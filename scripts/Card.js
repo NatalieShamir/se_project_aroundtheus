@@ -27,7 +27,9 @@ export class Card {
     const cardImage = this._cardElement.querySelector(".card__image");
     likeCardButton.addEventListener("click", this._handleLikeIcon);
     deleteCardButton.addEventListener("click", this._handleDeleteCard);
-    cardImage.addEventListener("click", () => this._handleCardClick());
+    cardImage.addEventListener("click", () =>
+      this._handleCardClick(this._link, this._name)
+    );
   }
 
   //Private Methods for Each One of the Handlers
