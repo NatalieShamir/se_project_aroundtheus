@@ -1,6 +1,6 @@
-import FormValidator from "./FormValidator.js";
+import FormValidator from "../components/FormValidator.js";
 import { openPopup, closePopup, addPreviewPopup } from "./utils.js";
-import { Card } from "./Card.js";
+import { Card } from "../components/Card.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
 
