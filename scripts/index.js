@@ -85,8 +85,8 @@ addCardFormValidator.enableValidation();
 
 //Functions
 const renderCard = (cardData) => {
-  const cardElement = new Card(cardData, cardTemplateSelector, () => {
-    imagePopup.open();
+  const cardElement = new Card(cardData, cardTemplateSelector, (link, name) => {
+    imagePopup.open(link, name);
   });
   cardsGallery.prepend(cardElement.getCardElement());
 };
