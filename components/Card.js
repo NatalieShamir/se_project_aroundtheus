@@ -3,16 +3,17 @@ import {
   addPreviewPopup,
   popupPreviewImage,
   popupPreviewCaption,
-} from "./utils.js";
+} from "../scripts/utils.js";
 //Creates a Card with Text and an Image Link
 
 export class Card {
-  constructor({ name, link }, templateCardSelector) {
+  constructor({ name, link }, templateCardSelector, handleCardClick) {
     this._name = name;
     this._link = link;
     this._cardTemplate = document
       .querySelector(templateCardSelector)
       .content.querySelector(".card");
+    this._handleCardClick = handleCardClick;
   }
 
   //Private Method for Adding Event Listeners
@@ -26,7 +27,9 @@ export class Card {
     const cardImage = this._cardElement.querySelector(".card__image");
     likeCardButton.addEventListener("click", this._handleLikeIcon);
     deleteCardButton.addEventListener("click", this._handleDeleteCard);
-    cardImage.addEventListener("click", () => this._handlePreviewImage());
+    cardImage.addEventListener("click", () =>
+      this._handleCardClick(this._link, this._name)
+    );
   }
 
   //Private Methods for Each One of the Handlers
