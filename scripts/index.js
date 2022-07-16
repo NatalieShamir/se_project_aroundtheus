@@ -3,6 +3,7 @@ import { openPopup, closePopup, addPreviewPopup } from "./utils.js";
 import { Card } from "../components/Card.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
+import { Section } from "../components/Section.js";
 
 const settings = {
   inputSelector: ".popup__form-input",
@@ -91,8 +92,6 @@ const renderCard = (cardData) => {
   cardsGallery.prepend(cardElement.getCardElement());
 };
 
-initialCards.forEach(renderCard);
-
 const handleAddCardSubmit = (data) => {
   renderCard({ name: data["title"], link: data["image"] }, initialCards);
   addCardPopupWithForm.close();
@@ -121,6 +120,13 @@ editProfilePopupWithForm.setEventListeners();
 //PopupWithImage Class Instance
 const imagePopup = new PopupWithImage(".popup_type_preview");
 imagePopup.setEventListeners();
+
+//Section Class Instance
+const section = new Section(
+  { items: initialCards, renderer: renderCard },
+  ".cards__gallery"
+);
+section.renderItems();
 
 //Event Handlers
 openEditProfileButton.addEventListener("click", () => {
