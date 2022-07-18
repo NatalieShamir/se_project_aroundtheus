@@ -1,9 +1,9 @@
 import FormValidator from "../components/FormValidator.js";
-import { openPopup, closePopup, addPreviewPopup } from "./utils.js";
 import { Card } from "../components/Card.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
 import { Section } from "../components/Section.js";
+import { UserInfo } from "../components/UserInfo.js";
 
 const settings = {
   inputSelector: ".popup__form-input",
@@ -20,9 +20,6 @@ const addCardPopup = document.querySelector(".popup_type_add-card");
 //Forms
 const editProfileForm = editProfilePopup.querySelector(
   ".popup__form_type_edit"
-);
-const closeEditProfileButton = document.querySelector(
-  ".popup__close-button_close_profile"
 );
 const openAddCardButton = document.querySelector(".profile__add-button");
 const addCardForm = addCardPopup.querySelector(".popup__form_type_add-card");
@@ -57,15 +54,6 @@ const initialCards = [
 
 //Buttons and Other DOM Elements
 const openEditProfileButton = document.querySelector(".profile__edit-button");
-const closeAddCardButton = document.querySelector(
-  ".popup__close-button_close_add-card"
-);
-const closePopupPreviewButton = document.querySelector(
-  ".popup__close-button_close_preview"
-);
-const createCardButton = document.querySelector(".popup__form-button_add-card");
-const profileName = document.querySelector(".profile__title");
-const profileJob = document.querySelector(".profile__subtitle");
 
 //Inputs
 const inputNameValue = document.querySelector(".popup__form-input_type_name");
@@ -98,8 +86,7 @@ const handleAddCardSubmit = (data) => {
 };
 
 const handleEditProfileSubmit = (data) => {
-  profileName.textContent = data.name;
-  profileJob.textContent = data.job;
+  userInfo.setUserInfo(data.name, data.job);
 
   editProfilePopupWithForm.close();
 };
@@ -128,26 +115,22 @@ const section = new Section(
 );
 section.renderItems();
 
+//UserInfo Class Instance
+const userInfo = new UserInfo({
+  profileNameSelector: ".profile__title",
+  profileJobSelector: ".profile__subtitle",
+});
+
 //Event Handlers
 openEditProfileButton.addEventListener("click", () => {
-  inputNameValue.value = profileName.textContent;
-  inputJobValue.value = profileJob.textContent;
+  const profileData = userInfo.getUserInfo();
+  console.log("profileData", profileData);
+  inputNameValue.value = profileData.name;
+  inputJobValue.value = profileData.job;
   editProfileFormValidator.resetValidation();
-  openPopup(editProfilePopup);
-  // handleEditProfileSubmit();
-});
-// editProfilePopup.addEventListener("submit", handleEditProfileSubmit);
-closeEditProfileButton.addEventListener("click", () => {
-  closePopup(editProfilePopup);
+  editProfilePopupWithForm.open();
 });
 openAddCardButton.addEventListener("click", () => {
   addCardFormValidator.resetValidation();
-  openPopup(addCardPopup);
-});
-closeAddCardButton.addEventListener("click", () => {
-  closePopup(addCardPopup);
-});
-
-closePopupPreviewButton.addEventListener("click", () => {
-  closePopup(addPreviewPopup);
+  addCardPopupWithForm.open();
 });
