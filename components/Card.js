@@ -1,9 +1,3 @@
-import {
-  openPopup,
-  addPreviewPopup,
-  popupPreviewImage,
-  popupPreviewCaption,
-} from "../scripts/utils.js";
 //Creates a Card with Text and an Image Link
 
 export class Card {
@@ -40,13 +34,6 @@ export class Card {
   _handleDeleteCard = () => {
     this._cardElement.remove();
     this._cardElement = null;
-  };
-
-  _handlePreviewImage = () => {
-    openPopup(addPreviewPopup);
-    popupPreviewImage.src = this._link;
-    popupPreviewImage.alt = `Photo of ${this._name}`;
-    popupPreviewCaption.textContent = this._name;
   };
 
   //Returns a Fully Functional Card Element Populated with Data
