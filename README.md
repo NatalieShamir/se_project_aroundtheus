@@ -19,8 +19,22 @@ CSS files have been organized according to BEM methodology (flat BEM).
 
 **JavaScript**
 
-JavaScript has been implemented in the popup block.
-Both addEventListener() method and submit event have been used.
+Project's functionality has been created via JavaScript.
+
+**OOP**
+
+- ES6 classes are used.
+- Each class is described in a separate JS file and is imported into index.js
+- Each class performs only one specific task.
+- Loose coupling is used.
+- An instance of the Section class is created for each container, in which elements
+  are rendered.
+- An instance of the Card class is created for each card.
+- An instance of the FormValidator class is created for each form that should be
+  validated.
+- An instance of the UserInfo is created once.
+- The Popup class is a parent class, which has two subclasses created for each
+  popup box.
 
 **GitHub**
 
