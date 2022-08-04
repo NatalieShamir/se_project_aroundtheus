@@ -15,7 +15,7 @@ import {
   inputJobValue,
   cardTemplateSelector,
   cardsGallery,
-} from "./constants.js";
+} from "../scripts/constants.js";
 
 //Form Validator Instances
 const editProfileFormValidator = new FormValidator(settings, editProfileForm);
