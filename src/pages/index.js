@@ -24,13 +24,23 @@ const addCardFormValidator = new FormValidator(settings, addCardForm);
 editProfileFormValidator.enableValidation();
 addCardFormValidator.enableValidation();
 
-//Functions
 const renderCard = (cardData) => {
   const cardElement = new Card(cardData, cardTemplateSelector, (link, name) => {
     imagePopup.open(link, name);
   });
-  cardsGallery.prepend(cardElement.getCardElement());
+  const newCardElement = cardElement.getCardElement();
+  section.addItem(newCardElement);
 };
+
+//Section Class Instance
+
+const section = new Section(
+  { items: initialCards, renderer: renderCard },
+  ".cards__gallery"
+);
+section.renderItems();
+
+//Functions
 
 const handleAddCardSubmit = (data) => {
   renderCard({ name: data["title"], link: data["image"] }, initialCards);
@@ -59,13 +69,6 @@ editProfilePopupWithForm.setEventListeners();
 //PopupWithImage Class Instance
 const imagePopup = new PopupWithImage(".popup_type_preview");
 imagePopup.setEventListeners();
-
-//Section Class Instance
-const section = new Section(
-  { items: initialCards, renderer: renderCard },
-  ".cards__gallery"
-);
-section.renderItems();
 
 //UserInfo Class Instance
 const userInfo = new UserInfo({
