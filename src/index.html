@@ -13,8 +13,9 @@
     <header class="header">
       <img
         class="header__image"
-        src="/src/images/header.svg"
-        alt="The project's title"
+        src="<%=require('./images/header.svg')%>"
+        alt="The
+      project's title"
       />
     </header>
     <main class="content">
@@ -22,7 +23,7 @@
         <div class="profile__user">
           <img
             class="profile__image"
-            src="/src/images/cousteau.jpg"
+            src="<%=require('./images/cousteau.jpg')%>"
             alt="A
           photograph of Jacques Cousteau"
           />
@@ -30,7 +31,7 @@
             <h1 class="profile__title">Jacques Cousteau</h1>
             <button type="button" class="profile__edit-button">
               <img
-                src="images/button-edit.svg"
+                src="<%=require('./images/button-edit.svg')%>"
                 alt="A vector image of a pen inside the edit button"
                 class="profile__edit-icon"
               />
@@ -40,7 +41,7 @@
         </div>
         <button type="button" class="profile__add-button">
           <img
-            src="images/plus_sign.svg"
+            src="<%=require('./images/plus_sign.svg')%>"
             alt="An image of a plus sign inside the add button"
             class="profile__add-icon"
           />
