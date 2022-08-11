@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/NatalieShamir/web_project_4/issues"
   },
-  "homepage": "https://github.com/NatalieShamir/web_project_4#readme",
+  "homepage": "https://natalieshamir.github.io/web_project_4/",
   "devDependencies": {
     "@babel/core": "^7.18.9",
     "@babel/preset-env": "^7.18.9",
