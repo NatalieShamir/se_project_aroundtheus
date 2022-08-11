@@ -19,7 +19,7 @@
 }
 
 .card__delete-button {
-  background: transparent url(/images/bin.svg) center no-repeat;
+  background: transparent url("/src/images/bin.svg") center no-repeat;
   border: none;
   position: absolute;
   top: 18px;
@@ -30,7 +30,7 @@
 }
 
 .card__delete-button:hover {
-  background-image: url(/images/bin_hover.svg);
+  background-image: url("/src/images/bin_hover.svg");
 }
 
 .card__info {
@@ -57,7 +57,7 @@
   background-color: #ffffff;
   border: none;
   cursor: pointer;
-  background-image: url("/images/heart.svg");
+  background-image: url("/src/images/heart.svg");
 }
 
 .card__like-button:hover {
@@ -65,7 +65,7 @@
 }
 
 .card__like-button_active {
-  background-image: url("/images/heart-active.svg");
+  background-image: url("/src/images/heart-active.svg");
 }
 
 @media screen and (max-width: 960px) {
