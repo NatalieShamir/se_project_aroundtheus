@@ -49,10 +49,7 @@ const renderCard = (cardData) => {
 
 //Section Class Instance
 
-const section = new Section(
-  { items: initialCards, renderer: renderCard },
-  ".cards__gallery"
-);
+const section = new Section({ renderer: renderCard }, ".cards__gallery");
 section.renderItems();
 
 //Functions
