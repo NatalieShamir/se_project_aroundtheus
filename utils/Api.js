@@ -15,6 +15,20 @@ class Api {
       headers: this._headers,
     }).then((res) => (res.ok ? res.json() : Promise.reject(res.statusText)));
   }
+
+  editProfile() {
+    return (
+      fetch(this._baseUrl + "users/me"),
+      {
+        method: "PATCH",
+        headers: this._headers,
+        body: JSON.stringify({
+          name: "another user name",
+          about: "another user about",
+        }),
+      }
+    );
+  }
 }
 
 export const api = new Api({
