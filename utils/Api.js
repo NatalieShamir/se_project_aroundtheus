@@ -16,14 +16,14 @@ class Api {
     }).then((res) => (res.ok ? res.json() : Promise.reject(res.statusText)));
   }
 
-  editProfile() {
+  editProfile(name, about) {
     return (fetch(this._baseUrl + "users/me"),
     {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        name: "another user name",
-        about: "another user about",
+        name,
+        about,
       }),
     }).then((res) => (res.ok ? res.json() : Promise.reject(res.statusText)));
   }
