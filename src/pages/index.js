@@ -15,8 +15,19 @@ import {
   inputNameValue,
   inputJobValue,
   cardTemplateSelector,
-  cardsGallery,
 } from "../scripts/constants.js";
+import { api } from "../../utils/Api";
+
+api
+  .getUserInfo()
+  .then((res) => {
+    console.log("res =>", res);
+
+    let a = undefined;
+
+    a.forEach();
+  })
+  .catch(console.log);
 
 //Form Validator Instances
 const editProfileFormValidator = new FormValidator(settings, editProfileForm);
