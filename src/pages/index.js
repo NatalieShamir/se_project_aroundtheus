@@ -29,6 +29,17 @@ api
   })
   .catch(console.log);
 
+api
+  .getCards()
+  .then((res) => {
+    console.log("res =>", res);
+
+    let a = undefined;
+
+    a.forEach();
+  })
+  .catch(console.log);
+
 //Form Validator Instances
 const editProfileFormValidator = new FormValidator(settings, editProfileForm);
 const addCardFormValidator = new FormValidator(settings, addCardForm);
