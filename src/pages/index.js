@@ -21,22 +21,21 @@ import { api } from "../../utils/Api";
 api
   .getUserInfo()
   .then((res) => {
-    console.log("res =>", res);
-
-    let a = undefined;
-
-    a.forEach();
+    console.log("res getUserInfo=>", res);
   })
   .catch(console.log);
 
 api
   .getCards()
   .then((res) => {
-    console.log("res =>", res);
+    console.log("res getCards=>", res);
+  })
+  .catch(console.log);
 
-    let a = undefined;
-
-    a.forEach();
+api
+  .editProfile()
+  .then((res) => {
+    console.log("res editProfile=>", res);
   })
   .catch(console.log);
 
