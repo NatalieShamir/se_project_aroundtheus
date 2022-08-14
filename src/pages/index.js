@@ -32,13 +32,6 @@ api
   })
   .catch(console.log);
 
-api
-  .editProfile()
-  .then((res) => {
-    console.log("res editProfile=>", res);
-  })
-  .catch(console.log);
-
 //Form Validator Instances
 const editProfileFormValidator = new FormValidator(settings, editProfileForm);
 const addCardFormValidator = new FormValidator(settings, addCardForm);
@@ -70,9 +63,15 @@ const handleAddCardSubmit = (data) => {
 };
 
 const handleEditProfileSubmit = (data) => {
-  userInfo.setUserInfo(data.name, data.job);
-
-  editProfilePopupWithForm.close();
+  api
+    .editProfile(data.name, data.job)
+    .then((res) => {
+      userInfo.setUserInfo(data.name, data.job);
+    })
+    .catch(console.log)
+    .finally(() => {
+      editProfilePopupWithForm.close();
+    });
 };
 
 //PopupWithForm Class Instances
