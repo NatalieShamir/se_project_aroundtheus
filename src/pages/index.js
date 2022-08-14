@@ -100,7 +100,6 @@ const userInfo = new UserInfo({
 //Event Handlers
 openEditProfileButton.addEventListener("click", () => {
   const profileData = userInfo.getUserInfo();
-  console.log("profileData", profileData);
   inputNameValue.value = profileData.name;
   inputJobValue.value = profileData.job;
   editProfileFormValidator.resetValidation();
