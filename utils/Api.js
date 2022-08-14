@@ -3,6 +3,12 @@ class Api {
     this._baseUrl = options._baseUrl;
     this._headers = options._headers;
   }
+
+  getUserInfo() {
+    return fetch(this._baseUrl + "users/me/", {
+      headers: this._headers,
+    }).then((res) => (res.ok ? res.json() : Promise.reject(res.statusText)));
+  }
 }
 
 export const api = new Api({
