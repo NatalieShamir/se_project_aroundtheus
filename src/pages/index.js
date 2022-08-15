@@ -29,6 +29,7 @@ api
   .getCards()
   .then((res) => {
     console.log("res getCards=>", res);
+    section.renderItems();
   })
   .catch(console.log);
 
@@ -50,7 +51,6 @@ const renderCard = (cardData) => {
 //Section Class Instance
 
 const section = new Section({ renderer: renderCard }, ".cards__gallery");
-section.renderItems();
 
 //Functions
 
