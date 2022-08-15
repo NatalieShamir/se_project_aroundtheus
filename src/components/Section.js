@@ -5,7 +5,7 @@ export class Section {
     this._container = document.querySelector(containerSelector);
   }
 
-  renderItems() {
+  renderItems(items) {
     this._items.forEach((data) => {
       this._renderer(data);
     });
