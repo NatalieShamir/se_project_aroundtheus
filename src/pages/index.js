@@ -29,7 +29,7 @@ api
   .getCards()
   .then((res) => {
     console.log("res getCards=>", res);
-    section.renderItems();
+    section.renderItems(res);
   })
   .catch(console.log);
 
