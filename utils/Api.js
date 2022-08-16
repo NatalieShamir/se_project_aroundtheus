@@ -27,6 +27,18 @@ class Api {
       }),
     }).then((res) => (res.ok ? res.json() : Promise.reject(res.statusText)));
   }
+
+  addCard(name, link) {
+    return (fetch(this._baseUrl + "/cards"),
+    {
+      method: "POST",
+      headers: this._headers,
+      body: JSON.stringify({
+        name,
+        link,
+      }),
+    }).then((res) => (res.ok ? res.json() : Promise.reject(res.statusText)));
+  }
 }
 
 export const api = new Api({
