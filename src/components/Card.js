@@ -4,6 +4,7 @@ export class Card {
   constructor({ name, link }, templateCardSelector, handleCardClick) {
     this._name = name;
     this._link = link;
+    this._likes = data.likes;
     this._cardTemplate = document
       .querySelector(templateCardSelector)
       .content.querySelector(".card");
