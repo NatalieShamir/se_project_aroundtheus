@@ -28,7 +28,6 @@ api
 api
   .getCards()
   .then((res) => {
-    console.log("res getCards=>", res);
     section.renderItems(res);
   })
   .catch(console.log);
@@ -55,7 +54,12 @@ const section = new Section({ renderer: renderCard }, ".cards__gallery");
 //Functions
 
 const handleAddCardSubmit = (data) => {
-  renderCard({ name: data["title"], link: data["image"] }, initialCards);
+  api
+    .addCard(data["card__title"], data.link)
+    .then((res) => {
+      renderCard({ name: res.name, link: res.link }, initialCards);
+    })
+    .catch(console.log);
   addCardPopupWithForm.close();
 };
 
