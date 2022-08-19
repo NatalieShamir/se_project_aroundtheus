@@ -21,7 +21,7 @@ import { api } from "../../utils/Api";
 api
   .getUserInfo()
   .then((res) => {
-    userInfo.setUserInfo(res.name, res.job);
+    userInfo.setUserInfo(res.name, res.about);
   })
   .catch(console.log);
 

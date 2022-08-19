@@ -1,9 +1,9 @@
 //Creates a Card with Text and an Image Link
 
 export class Card {
-  constructor({ name, link }, templateCardSelector, handleCardClick) {
-    this._name = name;
-    this._link = link;
+  constructor(data, templateCardSelector, handleCardClick) {
+    this._name = data.name;
+    this._link = data.link;
     this._likes = data.likes;
     this._cardTemplate = document
       .querySelector(templateCardSelector)
@@ -37,6 +37,12 @@ export class Card {
     this._cardElement = null;
   };
 
+  _setLikes = () => {
+    const likesAmount = this_likes.length;
+
+    this._cardElement.querySelector(".card__likes").textContent = likesAmount;
+  };
+
   //Returns a Fully Functional Card Element Populated with Data
 
   getCardElement = () => {
@@ -49,6 +55,9 @@ export class Card {
     cardImage.style.backgroundImage = `url(${this._link})`;
 
     this._setEventListeners();
+
+    this._setLikes();
+
     return this._cardElement;
   };
 }
