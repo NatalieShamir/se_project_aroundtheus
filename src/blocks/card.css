@@ -68,6 +68,12 @@
   background-image: url("/src/images/heart-active.svg");
 }
 
+.card__likes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 @media screen and (max-width: 960px) {
   .card {
     justify-self: center;
