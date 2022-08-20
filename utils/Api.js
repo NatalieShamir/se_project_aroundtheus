@@ -17,8 +17,7 @@ class Api {
   }
 
   editProfile(name, about) {
-    return (fetch(this._baseUrl + "/users/me"),
-    {
+    return fetch(this._baseUrl + "/users/me", {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
@@ -29,8 +28,7 @@ class Api {
   }
 
   addCard(name, link) {
-    return (fetch(this._baseUrl + "/cards"),
-    {
+    return fetch(this._baseUrl + "/cards", {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({
