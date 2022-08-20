@@ -38,8 +38,7 @@ export class Card {
   };
 
   _setLikes = () => {
-    const likesAmount = this_likes.length;
-
+    const likesAmount = this._likes.length;
     this._cardElement.querySelector(".card__likes").textContent = likesAmount;
   };
 
