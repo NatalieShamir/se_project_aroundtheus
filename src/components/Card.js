@@ -39,7 +39,8 @@ export class Card {
 
   _setLikes = () => {
     const likesAmount = this._likes.length;
-    this._cardElement.querySelector(".card__likes").textContent = likesAmount;
+    this._cardElement.querySelector(".card__likes-amount").textContent =
+      likesAmount;
   };
 
   //Returns a Fully Functional Card Element Populated with Data
