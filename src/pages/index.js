@@ -39,8 +39,8 @@ const addCardFormValidator = new FormValidator(settings, addCardForm);
 editProfileFormValidator.enableValidation();
 addCardFormValidator.enableValidation();
 
-const renderCard = (cardData) => {
-  const cardElement = new Card(cardData, cardTemplateSelector, (link, name) => {
+const renderCard = (data) => {
+  const cardElement = new Card(data, cardTemplateSelector, (link, name) => {
     imagePopup.open(link, name);
   });
   const newCardElement = cardElement.getCardElement();
