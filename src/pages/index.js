@@ -55,9 +55,9 @@ const section = new Section({ renderer: renderCard }, ".cards__gallery");
 
 const handleAddCardSubmit = (data) => {
   api
-    .addCard(data["card__title"], data.link)
+    .addCard(data["title"], data.image)
     .then((res) => {
-      renderCard({ name: res.name, link: res.link }, initialCards);
+      renderCard({ name: res.name, image: res.image }, initialCards);
     })
     .catch(console.log);
   addCardPopupWithForm.close();
