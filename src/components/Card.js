@@ -30,7 +30,7 @@ export class Card {
 
     this._setEventListeners();
 
-    this._setLikes();
+    this.setLikes(this._likes);
 
     return this._cardElement;
   };
@@ -44,24 +44,32 @@ export class Card {
       ".card__delete-button"
     );
     const cardImage = this._cardElement.querySelector(".card__image");
-    likeCardButton.addEventListener("click", this._handleLikeIcon);
+    likeCardButton.addEventListener("click", this._handleLikeIcon());
     deleteCardButton.addEventListener("click", this._handleDeleteCard);
     cardImage.addEventListener("click", () =>
       this._handleCardClick(this._link, this._name)
     );
   }
 
-  _setLikes = () => {
+  setLikes = (newLikes) => {
+    this._likes = newLikes;
+
     const likesAmount = this._likes.length;
     this._cardElement.querySelector(".card__likes-amount").textContent =
       likesAmount;
+
+    const cardIsLikedByCurrentUser = false;
+
+    if (cardIsLikedByCurrentUser) {
+      this._cardElement
+        .querySelector("card__like-button")
+        .classList.toggle("card__like-button_active");
+      //evt.target.classList.toggle("card__like-button_active");
+    }
   };
 
   //Private Methods for Each One of the Handlers
-  /* 
-  _handleLikeIcon = (evt) =>
-    evt.target.classList.toggle("card__like-button_active");
- */
+
   _handleDeleteCard = () => {
     this._cardElement.remove();
     this._cardElement = null;
