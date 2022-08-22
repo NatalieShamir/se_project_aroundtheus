@@ -1,7 +1,13 @@
 //Creates a Card with Text and an Image Link
 
 export class Card {
-  constructor(data, templateCardSelector, handleCardClick, handleLikeIcon) {
+  constructor(
+    data,
+    userId,
+    templateCardSelector,
+    handleCardClick,
+    handleLikeIcon
+  ) {
     this._name = data.name;
     this._link = data.link;
     this._likes = data.likes;
@@ -11,6 +17,7 @@ export class Card {
       .content.querySelector(".card");
     this._handleCardClick = handleCardClick;
     this._handleLikeIcon = handleLikeIcon;
+    this._userId = userId;
   }
 
   getId = () => {
