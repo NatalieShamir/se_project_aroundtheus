@@ -52,7 +52,9 @@ export class Card {
     this._cardElement.querySelector(".card__likes-amount").textContent =
       likesAmount;
 
-    const cardIsLikedByCurrentUser = false;
+    const cardIsLikedByCurrentUser = this._likes.find(
+      (user) => user.id === this._userId
+    );
 
     if (cardIsLikedByCurrentUser) {
       this._cardElement
