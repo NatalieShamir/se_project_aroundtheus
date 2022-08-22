@@ -48,18 +48,18 @@ const renderCard = (data) => {
       imagePopup.open(link, name);
     },
     () => {
-      if() {
-        api.addLike(cardElement.getId()).then((res) => {
+      if (cardElement.isLiked()) {
+        api.removeLike(cardElement.getId()).then((res) => {
           cardElement.setLikes(res.likes);
         });
       } else {
-        api.removeLike(cardElement.getId()).then((res) => {
+        api.addLike(cardElement.getId()).then((res) => {
           cardElement.setLikes(res.likes);
         });
       }
     }
   );
-  
+
   const newCardElement = cardElement.getCardElement();
   section.addItem(newCardElement);
 };
