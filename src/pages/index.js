@@ -18,9 +18,12 @@ import {
 } from "../scripts/constants.js";
 import { api } from "../../utils/Api";
 
+let userId;
+
 api
   .getUserInfo()
   .then((res) => {
+    userId = res._id;
     userInfo.setUserInfo(res.name, res.about);
   })
   .catch(console.log);
