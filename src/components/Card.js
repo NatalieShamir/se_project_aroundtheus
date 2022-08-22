@@ -58,8 +58,12 @@ export class Card {
 
     if (cardIsLikedByCurrentUser) {
       this._cardElement
-        .querySelector(". card__like-button")
-        .classList.toggle("card__like-button_active");
+        .querySelector(".card__like-button")
+        .classList.add("card__like-button_active");
+    } else {
+      this._cardElement
+        .querySelector(".card__like-button")
+        .classList.remove("card__like-button_active");
     }
   };
 
