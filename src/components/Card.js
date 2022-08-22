@@ -24,24 +24,6 @@ export class Card {
     return this._id;
   };
 
-  //Returns a Fully Functional Card Element Populated with Data
-
-  getCardElement = () => {
-    this._cardElement = this._cardTemplate.cloneNode(true);
-
-    const cardTitle = this._cardElement.querySelector(".card__title");
-    const cardImage = this._cardElement.querySelector(".card__image");
-
-    cardTitle.textContent = this._name;
-    cardImage.style.backgroundImage = `url(${this._link})`;
-
-    this._setEventListeners();
-
-    this.setLikes(this._likes);
-
-    return this._cardElement;
-  };
-
   //Private Method for Adding Event Listeners
 
   _setEventListeners() {
@@ -58,6 +40,11 @@ export class Card {
     );
   }
 
+  _handleDeleteCard = () => {
+    this._cardElement.remove();
+    this._cardElement = null;
+  };
+
   setLikes = (newLikes) => {
     this._likes = newLikes;
 
@@ -69,16 +56,26 @@ export class Card {
 
     if (cardIsLikedByCurrentUser) {
       this._cardElement
-        .querySelector("card__like-button")
+        .querySelector(".card__like-button")
         .classList.toggle("card__like-button_active");
-      //evt.target.classList.toggle("card__like-button_active");
     }
   };
 
-  //Private Methods for Each One of the Handlers
+  //Returns a Fully Functional Card Element Populated with Data
 
-  _handleDeleteCard = () => {
-    this._cardElement.remove();
-    this._cardElement = null;
+  getCardElement = () => {
+    this._cardElement = this._cardTemplate.cloneNode(true);
+
+    const cardTitle = this._cardElement.querySelector(".card__title");
+    const cardImage = this._cardElement.querySelector(".card__image");
+
+    cardTitle.textContent = this._name;
+    cardImage.style.backgroundImage = `url(${this._link})`;
+
+    this._setEventListeners();
+
+    this.setLikes(this._likes);
+
+    return this._cardElement;
   };
 }
