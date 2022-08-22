@@ -39,7 +39,7 @@ class Api {
   }
 
   addLike(id) {
-    return fetch(this._baseUrl + "/cards/likes" + id, {
+    return fetch(this._baseUrl + "/cards/likes/" + id, {
       method: "PUT",
       headers: this._headers,
     }).then((res) => (res.ok ? res.json() : Promise.reject(res.statusText)));
