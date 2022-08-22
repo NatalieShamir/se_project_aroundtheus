@@ -5,7 +5,7 @@ class Api {
   }
 
   getUserInfo() {
-    return fetch(this._baseUrl + "/users/me/", {
+    return fetch(this._baseUrl + "/users/me", {
       headers: this._headers,
     }).then((res) => (res.ok ? res.json() : Promise.reject(res.statusText)));
   }
@@ -41,6 +41,13 @@ class Api {
   addLike(id) {
     return fetch(this._baseUrl + "/cards/likes/" + id, {
       method: "PUT",
+      headers: this._headers,
+    }).then((res) => (res.ok ? res.json() : Promise.reject(res.statusText)));
+  }
+
+  removeLike(id) {
+    return fetch(this._baseUrl + "/cards/likes/" + id, {
+      method: "DELETE",
       headers: this._headers,
     }).then((res) => (res.ok ? res.json() : Promise.reject(res.statusText)));
   }
