@@ -33,7 +33,7 @@ export class Card {
       ".card__delete-button"
     );
     const cardImage = this._cardElement.querySelector(".card__image");
-    likeCardButton.addEventListener("click", this._handleLikeIcon());
+    likeCardButton.addEventListener("click", this._handleLikeIcon);
     deleteCardButton.addEventListener("click", this._handleDeleteCard);
     cardImage.addEventListener("click", () =>
       this._handleCardClick(this._link, this._name)
@@ -56,7 +56,7 @@ export class Card {
 
     if (cardIsLikedByCurrentUser) {
       this._cardElement
-        .querySelector(".card__like-button")
+        .querySelector(". card__like-button")
         .classList.toggle("card__like-button_active");
     }
   };
