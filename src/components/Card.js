@@ -5,7 +5,7 @@ export class Card {
     this._name = data.name;
     this._link = data.link;
     this._likes = data.likes;
-    this._id = data.id;
+    this._id = data._id;
     this._cardTemplate = document
       .querySelector(templateCardSelector)
       .content.querySelector(".card");
