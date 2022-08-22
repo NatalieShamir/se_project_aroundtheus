@@ -52,9 +52,7 @@ export class Card {
     this._cardElement.querySelector(".card__likes-amount").textContent =
       likesAmount;
 
-    const cardIsLikedByCurrentUser = this._likes.find(
-      (user) => user.id === this._userId
-    );
+    const cardIsLikedByCurrentUser = this._isLiked();
 
     if (cardIsLikedByCurrentUser) {
       this._cardElement
@@ -66,6 +64,10 @@ export class Card {
         .classList.remove("card__like-button_active");
     }
   };
+
+  isLiked() {
+    return this._likes.find((user) => user.id === this._userId);
+  }
 
   //Returns a Fully Functional Card Element Populated with Data
 
