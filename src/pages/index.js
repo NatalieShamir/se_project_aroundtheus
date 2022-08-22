@@ -50,7 +50,7 @@ const renderCard = (data) => {
     },
     () => {
       api.addLike(cardElement.getId()).then((res) => {
-        console.log("!!!");
+        cardElement.setLikes(res.likes);
       });
     }
   );
