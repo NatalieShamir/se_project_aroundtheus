@@ -20,18 +20,13 @@ import { api } from "../../utils/Api";
 
 let userId;
 
-api
-  .getUserInfo()
-  .then((res) => {
-    userId = res._id;
-    userInfo.setUserInfo(res.name, res.about);
-  })
-  .catch(console.log);
+Promise.all([api.getUserInfo(), api.getCards()])
+  .then(([userData, cards]) => {
+    userId = userData._id;
 
-api
-  .getCards()
-  .then((res) => {
-    section.renderItems(res);
+    userInfo.setUserInfo(userData.name, userData.about);
+
+    section.renderItems(cards);
   })
   .catch(console.log);
 
@@ -47,6 +42,7 @@ addCardFormValidator.enableValidation();
 const renderCard = (data) => {
   const cardElement = new Card(
     data,
+    userId,
     cardTemplateSelector,
     (link, name) => {
       imagePopup.open(link, name);
