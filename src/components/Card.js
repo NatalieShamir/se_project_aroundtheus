@@ -1,14 +1,16 @@
 //Creates a Card with Text and an Image Link
 
 export class Card {
-  constructor(data, templateCardSelector, handleCardClick) {
+  constructor(data, templateCardSelector, handleCardClick, handleLikeIcon) {
     this._name = data.name;
     this._link = data.link;
     this._likes = data.likes;
+    this._id = data.id;
     this._cardTemplate = document
       .querySelector(templateCardSelector)
       .content.querySelector(".card");
     this._handleCardClick = handleCardClick;
+    this._handleLikeIcon = handleLikeIcon;
   }
 
   //Private Method for Adding Event Listeners
@@ -28,10 +30,10 @@ export class Card {
   }
 
   //Private Methods for Each One of the Handlers
-
+  /* 
   _handleLikeIcon = (evt) =>
     evt.target.classList.toggle("card__like-button_active");
-
+ */
   _handleDeleteCard = () => {
     this._cardElement.remove();
     this._cardElement = null;
