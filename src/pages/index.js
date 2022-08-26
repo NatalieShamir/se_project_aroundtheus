@@ -23,9 +23,7 @@ let userId;
 Promise.all([api.getUserInfo(), api.getCards()])
   .then(([userData, cards]) => {
     userId = userData._id;
-
     userInfo.setUserInfo(userData.name, userData.about);
-
     section.renderItems(cards);
   })
   .catch(console.log);
@@ -33,11 +31,21 @@ Promise.all([api.getUserInfo(), api.getCards()])
 //Form Validator Instances
 const editProfileFormValidator = new FormValidator(settings, editProfileForm);
 const addCardFormValidator = new FormValidator(settings, addCardForm);
-
 editProfileFormValidator.enableValidation();
 addCardFormValidator.enableValidation();
 
-//Function  for Creating New Cards
+//Functions  for Creating New Cards
+const handleLikeClick = (cardElement) => {
+  if (cardElement.isLiked()) {
+    api.removeLike(cardElement.getId()).then((res) => {
+      cardElement.setLikes(res.likes);
+    });
+  } else {
+    api.addLike(cardElement.getId()).then((res) => {
+      cardElement.setLikes(res.likes);
+    });
+  }
+};
 
 const renderCard = (data) => {
   const cardElement = new Card(
@@ -48,15 +56,7 @@ const renderCard = (data) => {
       imagePopup.open(link, name);
     },
     () => {
-      if (cardElement.isLiked()) {
-        api.removeLike(cardElement.getId()).then((res) => {
-          cardElement.setLikes(res.likes);
-        });
-      } else {
-        api.addLike(cardElement.getId()).then((res) => {
-          cardElement.setLikes(res.likes);
-        });
-      }
+      handleLikeClick(cardElement);
     }
   );
 
@@ -65,11 +65,9 @@ const renderCard = (data) => {
 };
 
 //Section Class Instance
-
 const section = new Section({ renderer: renderCard }, ".cards__gallery");
 
 //Functions
-
 const handleAddCardSubmit = (data) => {
   api
     .addCard(data["title"], data.image)
@@ -97,12 +95,14 @@ const addCardPopupWithForm = new PopupWithForm(
   ".popup_type_add-card",
   handleAddCardSubmit
 );
+
 addCardPopupWithForm.setEventListeners();
 
 const editProfilePopupWithForm = new PopupWithForm(
   ".popup_type_edit-profile",
   handleEditProfileSubmit
 );
+
 editProfilePopupWithForm.setEventListeners();
 
 //PopupWithImage Class Instance
