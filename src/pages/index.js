@@ -69,12 +69,10 @@ const section = new Section({ renderer: renderCard }, ".cards__gallery");
 
 //Functions
 const handleAddCardSubmit = (data) => {
-  api
-    .addCard(data["title"], data.image)
-    .then((res) => {
-      renderCard({ name: res.name, image: res.image }, initialCards);
-    })
-    .catch(console.log);
+  api.addCard(data["title"], data.image).then((res) => {
+    renderCard({ name: res.name, image: res.image }, initialCards);
+  });
+  //.catch(console.log);
   addCardPopupWithForm.close();
 };
 
@@ -95,15 +93,19 @@ const addCardPopupWithForm = new PopupWithForm(
   ".popup_type_add-card",
   handleAddCardSubmit
 );
-
 addCardPopupWithForm.setEventListeners();
 
 const editProfilePopupWithForm = new PopupWithForm(
   ".popup_type_edit-profile",
   handleEditProfileSubmit
 );
-
 editProfilePopupWithForm.setEventListeners();
+
+const avatarChangeModal = new PopupWithForm(
+  ".popup_type_avatar-change",
+  handleEditProfileSubmit
+);
+avatarChangeModal.setEventListeners();
 
 //PopupWithImage Class Instance
 const imagePopup = new PopupWithImage(".popup_type_preview");
