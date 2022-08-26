@@ -11,6 +11,9 @@ export const editProfilePopup = document.querySelector(
   ".popup_type_edit-profile"
 );
 export const addCardPopup = document.querySelector(".popup_type_add-card");
+export const changeAvatarPopup = document.querySelector(
+  ".popup_type_avatar-change"
+);
 
 //Forms
 export const editProfileForm = editProfilePopup.querySelector(
