@@ -18,30 +18,27 @@ import {
   editProfilePopup,
   addCardPopup,
   changeAvatarPopup,
+  avatarElement,
+  avatarForm,
 } from "../scripts/constants.js";
 import { api } from "../../utils/Api";
 
 let userId;
 
-//UserInfo Class Instance
-const userInfo = new UserInfo({
-  profileNameSelector: ".profile__title",
-  profileJobSelector: ".profile__subtitle",
+Promise.all([api.getUserInfo(), api.getCards()]).then(([userData, cards]) => {
+  userId = userData._id;
+  userInfo.setUserInfo(userData.name, userData.about);
+  section.renderItems(cards);
 });
-
-Promise.all([api.getUserInfo(), api.getCards()])
-  .then(([userData, cards]) => {
-    userId = userData._id;
-    userInfo.setUserInfo(userData.name, userData.about);
-    section.renderItems(cards);
-  })
-  .catch(console.log);
 
 //Form Validator Instances
 const editProfileFormValidator = new FormValidator(settings, editProfileForm);
 const addCardFormValidator = new FormValidator(settings, addCardForm);
+const avatarFormValidator = new FormValidator(settings, avatarForm);
+
 editProfileFormValidator.enableValidation();
 addCardFormValidator.enableValidation();
+avatarFormValidator.enableValidation();
 
 //Functions  for Creating New Cards
 const handleLikeClick = (cardElement) => {
@@ -78,10 +75,12 @@ const section = new Section({ renderer: renderCard }, ".cards__gallery");
 
 //Functions
 const handleAddCardSubmit = (data) => {
-  api.addCard(data["title"], data.image).then((res) => {
-    renderCard({ name: res.name, image: res.image }, initialCards);
-  });
-  //.catch(console.log);
+  api
+    .addCard(data["title"], data.image)
+    .then((res) => {
+      renderCard({ name: res.name, image: res.image }, initialCards);
+    })
+    .catch(console.log);
   addCardPopupWithForm.close();
 };
 
@@ -97,6 +96,12 @@ const handleEditProfileSubmit = (data) => {
     });
 };
 
+const handleAvatarChangeSubmit = (data) => {
+  api.editAvatar(data.link).then((res) => {
+    userInfo.setUserInfo(res);
+  });
+};
+
 //PopupWithForm Class Instances
 const addCardPopupWithForm = new PopupWithForm(
   addCardPopup,
@@ -110,15 +115,22 @@ const editProfilePopupWithForm = new PopupWithForm(
 );
 editProfilePopupWithForm.setEventListeners();
 
-const avatarChangeModal = new PopupWithForm(
+const avatarChangePopupWithForm = new PopupWithForm(
   changeAvatarPopup,
-  handleEditProfileSubmit
+  handleAvatarChangeSubmit
 );
-avatarChangeModal.setEventListeners();
+avatarChangePopupWithForm.setEventListeners();
 
 //PopupWithImage Class Instance
 const imagePopup = new PopupWithImage(".popup_type_preview");
 imagePopup.setEventListeners();
+
+//UserInfo Class Instance
+const userInfo = new UserInfo({
+  profileNameSelector: ".profile__title",
+  profileJobSelector: ".profile__subtitle",
+  profileAvatarSelector: ".profile__image",
+});
 
 //Event Handlers
 openEditProfileButton.addEventListener("click", () => {
@@ -131,4 +143,8 @@ openEditProfileButton.addEventListener("click", () => {
 openAddCardButton.addEventListener("click", () => {
   addCardFormValidator.resetValidation();
   addCardPopupWithForm.open();
+});
+avatarElement.addEventListener("click", () => {
+  avatarFormValidator.resetValidation();
+  avatarChangePopupWithForm.open();
 });
