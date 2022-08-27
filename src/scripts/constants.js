@@ -19,9 +19,11 @@ export const changeAvatarPopup = document.querySelector(
 export const editProfileForm = editProfilePopup.querySelector(
   ".popup__form_type_edit"
 );
-export const openAddCardButton = document.querySelector(".profile__add-button");
 export const addCardForm = addCardPopup.querySelector(
   ".popup__form_type_add-card"
+);
+export const avatarForm = changeAvatarPopup.querySelector(
+  ".popup__form_type_avatar-change"
 );
 
 //Declarations
@@ -56,6 +58,8 @@ export const initialCards = [
 export const openEditProfileButton = document.querySelector(
   ".profile__edit-button"
 );
+export const openAddCardButton = document.querySelector(".profile__add-button");
+export const avatarElement = document.querySelector(".profile__image");
 
 //Inputs
 export const inputNameValue = document.querySelector(
