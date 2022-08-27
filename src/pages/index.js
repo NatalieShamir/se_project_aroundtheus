@@ -15,10 +15,19 @@ import {
   inputNameValue,
   inputJobValue,
   cardTemplateSelector,
+  editProfilePopup,
+  addCardPopup,
+  changeAvatarPopup,
 } from "../scripts/constants.js";
 import { api } from "../../utils/Api";
 
 let userId;
+
+//UserInfo Class Instance
+const userInfo = new UserInfo({
+  profileNameSelector: ".profile__title",
+  profileJobSelector: ".profile__subtitle",
+});
 
 Promise.all([api.getUserInfo(), api.getCards()])
   .then(([userData, cards]) => {
@@ -90,19 +99,19 @@ const handleEditProfileSubmit = (data) => {
 
 //PopupWithForm Class Instances
 const addCardPopupWithForm = new PopupWithForm(
-  ".popup_type_add-card",
+  addCardPopup,
   handleAddCardSubmit
 );
 addCardPopupWithForm.setEventListeners();
 
 const editProfilePopupWithForm = new PopupWithForm(
-  ".popup_type_edit-profile",
+  editProfilePopup,
   handleEditProfileSubmit
 );
 editProfilePopupWithForm.setEventListeners();
 
 const avatarChangeModal = new PopupWithForm(
-  ".popup_type_avatar-change",
+  changeAvatarPopup,
   handleEditProfileSubmit
 );
 avatarChangeModal.setEventListeners();
@@ -110,12 +119,6 @@ avatarChangeModal.setEventListeners();
 //PopupWithImage Class Instance
 const imagePopup = new PopupWithImage(".popup_type_preview");
 imagePopup.setEventListeners();
-
-//UserInfo Class Instance
-const userInfo = new UserInfo({
-  profileNameSelector: ".profile__title",
-  profileJobSelector: ".profile__subtitle",
-});
 
 //Event Handlers
 openEditProfileButton.addEventListener("click", () => {
