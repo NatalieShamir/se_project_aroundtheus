@@ -20,6 +20,7 @@ import {
   changeAvatarPopup,
   avatarElement,
   avatarForm,
+  previewImagePopup,
 } from "../scripts/constants.js";
 import { api } from "../../utils/Api";
 
@@ -122,7 +123,7 @@ const avatarChangePopupWithForm = new PopupWithForm(
 avatarChangePopupWithForm.setEventListeners();
 
 //PopupWithImage Class Instance
-const imagePopup = new PopupWithImage(".popup_type_preview");
+const imagePopup = new PopupWithImage(previewImagePopup);
 imagePopup.setEventListeners();
 
 //UserInfo Class Instance
