@@ -3,7 +3,7 @@ const CLOSE_BUTTON_CLASS = "popup__close-button";
 
 class Popup {
   constructor(popupSelector) {
-    this._popupElement = document.querySelector(popupSelector);
+    this._popupElement = popupSelector;
     this._handleEscClose = this._handleEscClose.bind(this);
   }
 
