@@ -23,6 +23,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .profile__image:hover {
@@ -34,11 +35,11 @@
   height: 26px;
   background: transparent;
   border: none;
-  display: none;
+  position: absolute;
+  z-index: -1;
 }
 
 .profile__change-image-button:hover {
-  display: block;
   cursor: pointer;
 }
 
