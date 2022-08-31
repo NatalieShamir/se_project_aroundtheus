@@ -21,6 +21,7 @@ import {
   avatarElement,
   avatarForm,
   previewImagePopup,
+  changeAvatarButton,
 } from "../scripts/constants.js";
 import { api } from "../../utils/Api";
 
@@ -142,7 +143,7 @@ openAddCardButton.addEventListener("click", () => {
   addCardFormValidator.resetValidation();
   addCardPopupWithForm.open();
 });
-avatarElement.addEventListener("click", () => {
+changeAvatarButton.addEventListener("click", () => {
   avatarFormValidator.resetValidation();
   avatarChangePopupWithForm.open();
 });
