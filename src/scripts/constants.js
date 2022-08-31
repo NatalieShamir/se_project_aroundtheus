@@ -60,6 +60,9 @@ export const openEditProfileButton = document.querySelector(
   ".profile__edit-button"
 );
 export const openAddCardButton = document.querySelector(".profile__add-button");
+export const changeAvatarButton = document.querySelector(
+  ".profile__change-image-button"
+);
 export const avatarElement = document.querySelector(".profile__image");
 
 //Inputs
