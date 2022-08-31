@@ -28,7 +28,7 @@ let userId;
 
 Promise.all([api.getUserInfo(), api.getCards()]).then(([userData, cards]) => {
   userId = userData._id;
-  userInfo.setUserInfo(userData.name, userData.about);
+  userInfo.setUserInfo(userData.name, userData.about, userData.avatar);
   section.renderItems(cards);
 });
 
@@ -76,12 +76,9 @@ const section = new Section({ renderer: renderCard }, ".cards__gallery");
 
 //Functions
 const handleAddCardSubmit = (data) => {
-  api
-    .addCard(data["title"], data.image)
-    .then((res) => {
-      renderCard({ name: res.name, image: res.image }, initialCards);
-    })
-    .catch(console.log);
+  api.addCard(data["title"], data.image).then((res) => {
+    renderCard({ name: res.name, image: res.image }, initialCards);
+  });
   addCardPopupWithForm.close();
 };
 
@@ -91,7 +88,6 @@ const handleEditProfileSubmit = (data) => {
     .then((res) => {
       userInfo.setUserInfo(data.name, data.job);
     })
-    .catch(console.log)
     .finally(() => {
       editProfilePopupWithForm.close();
     });
@@ -100,6 +96,7 @@ const handleEditProfileSubmit = (data) => {
 const handleAvatarChangeSubmit = (data) => {
   api.editAvatar(data.link).then((res) => {
     userInfo.setUserInfo(res);
+    avatarChangePopupWithForm.close();
   });
 };
 
