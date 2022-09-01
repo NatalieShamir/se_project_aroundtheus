@@ -15,6 +15,9 @@ export const changeAvatarPopup = document.querySelector(
   ".popup_type_avatar-change"
 );
 export const previewImagePopup = document.querySelector(".popup_type_preview");
+export const confirmDeletingWindowPopup = document.querySelector(
+  ".popup_type_confirm-delete"
+);
 
 //Forms
 export const editProfileForm = editProfilePopup.querySelector(
