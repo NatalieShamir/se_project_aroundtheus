@@ -18,10 +18,11 @@ import {
   editProfilePopup,
   addCardPopup,
   changeAvatarPopup,
-  avatarElement,
   avatarForm,
   previewImagePopup,
   changeAvatarButton,
+  confirmDeletingWindowPopup,
+  deleteCardForm,
 } from "../scripts/constants.js";
 import { api } from "../../utils/Api";
 
@@ -37,12 +38,18 @@ Promise.all([api.getUserInfo(), api.getCards()]).then(([userData, cards]) => {
 const editProfileFormValidator = new FormValidator(settings, editProfileForm);
 const addCardFormValidator = new FormValidator(settings, addCardForm);
 const avatarFormValidator = new FormValidator(settings, avatarForm);
+const deleteCardFormValidator = new FormValidator(settings, deleteCardForm);
 
 editProfileFormValidator.enableValidation();
 addCardFormValidator.enableValidation();
 avatarFormValidator.enableValidation();
+deleteCardFormValidator.enableValidation();
 
-//Functions  for Creating New Cards
+const handleCardClick = (data) => {
+  console.log(data);
+  imagePopup.open(data);
+};
+
 const handleLikeClick = (cardElement) => {
   if (cardElement.isLiked()) {
     api.removeLike(cardElement.getId()).then((res) => {
@@ -55,27 +62,32 @@ const handleLikeClick = (cardElement) => {
   }
 };
 
+let cardToDelete;
+const handleDeleteClick = (cardElement) => {
+  deleteCardPopupWithForm.open();
+
+  cardToDelete = cardElement;
+};
+
 const renderCard = (data) => {
   const cardElement = new Card(
-    data,
-    userId,
-    cardTemplateSelector,
-    (link, name) => {
-      imagePopup.open(link, name);
+    {
+      data,
+      userId,
+      handleCardClick: () => handleCardClick(data),
+      handleLikeClick: () => handleLikeClick(cardElement),
+      handleDeleteClick: () => handleDeleteClick(cardElement),
     },
-    () => {
-      handleLikeClick(cardElement);
-    }
+    cardTemplateSelector
   );
 
-  const newCardElement = cardElement.getCardElement();
+  const newCardElement = cardElement.getView();
   section.addItem(newCardElement);
 };
 
 //Section Class Instance
 const section = new Section({ renderer: renderCard }, ".cards__gallery");
 
-//Functions
 const handleAddCardSubmit = (data) => {
   api.addCard(data["title"], data.image).then((res) => {
     renderCard({ name: res.name, image: res.image }, initialCards);
@@ -101,6 +113,14 @@ const handleAvatarChangeSubmit = (data) => {
   });
 };
 
+const handleDeleteCardSubmit = () => {
+  api.deleteCard(cardToDelete.getId()).then((res) => {
+    console.log("res =>", res);
+    cardToDelete.removeCard();
+    deleteCardPopupWithForm.close();
+  });
+};
+
 //PopupWithForm Class Instances
 const addCardPopupWithForm = new PopupWithForm(
   addCardPopup,
@@ -119,6 +139,12 @@ const avatarChangePopupWithForm = new PopupWithForm(
   handleAvatarChangeSubmit
 );
 avatarChangePopupWithForm.setEventListeners();
+
+const deleteCardPopupWithForm = new PopupWithForm(
+  confirmDeletingWindowPopup,
+  handleDeleteCardSubmit
+);
+deleteCardPopupWithForm.setEventListeners();
 
 //PopupWithImage Class Instance
 const imagePopup = new PopupWithImage(previewImagePopup);

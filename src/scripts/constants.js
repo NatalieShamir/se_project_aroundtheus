@@ -29,6 +29,9 @@ export const addCardForm = addCardPopup.querySelector(
 export const avatarForm = changeAvatarPopup.querySelector(
   ".popup__form_type_avatar-change"
 );
+export const deleteCardForm = confirmDeletingWindowPopup.querySelector(
+  ".popup__form_type_confirm-delete"
+);
 
 //Declarations
 export const initialCards = [
