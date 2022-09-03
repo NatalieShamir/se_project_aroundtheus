@@ -152,6 +152,20 @@
   display: block;
 }
 
+.popup__form_type_confirm-delete {
+  height: 181px;
+  justify-content: space-evenly;
+}
+
+.popup__form-title_confirm-delete {
+  max-width: 358px;
+  margin: 0 36px;
+}
+
+.popup__close-button_close_confirm-delete {
+  bottom: 181px;
+}
+
 @media screen and (max-width: 600px) {
   .popup__close-button {
     background-size: contain;
