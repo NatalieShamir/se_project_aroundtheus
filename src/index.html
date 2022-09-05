@@ -25,15 +25,15 @@
           <div
             class="profile__image"
             title="An image of the French oceanographer- Jacques Cousteau"
-          >
-            <button type="button" class="profile__change-image-button">
-              <img
-                src="<%=require('./images/edit-profile-icon.svg')%>"
-                alt="A vector image of a pen inside the profile image"
-                class="profile__change-image-icon"
-              />
-            </button>
-          </div>
+          ></div>
+          <div class="profile__change-image-button-hide"></div>
+          <button type="button" class="profile__change-image-button">
+            <img
+              src="<%=require('./images/edit-profile-icon.svg')%>"
+              alt="A vector image of a pen inside the profile image"
+              class="profile__change-image-icon"
+            />
+          </button>
           <div class="profile__info">
             <h1 class="profile__title"></h1>
             <button type="button" class="profile__edit-button">
@@ -202,7 +202,9 @@
           name="confirm-delete-form"
           class="popup__form popup__form_type_confirm-delete"
         >
-          <h3 class="popup__form-title">Are you sure?</h3>
+          <h3 class="popup__form-title popup__form-title_confirm-delete">
+            Are you sure?
+          </h3>
           <fieldset class="popup__form-fieldset">
             <button
               type="submit"
