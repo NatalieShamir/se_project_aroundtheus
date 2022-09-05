@@ -11,6 +11,7 @@
 .profile__user {
   max-width: 583px;
   display: flex;
+  position: relative;
 }
 
 .profile__image {
@@ -22,11 +23,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
 }
 
 .profile__image:hover {
   opacity: 0.8;
+}
+
+.profile__change-image-button-hide {
+  display: none;
 }
 
 .profile__change-image-button {
@@ -35,11 +39,14 @@
   background: transparent;
   border: none;
   position: absolute;
-  z-index: -1;
+  left: 47px;
+  bottom: 56px;
 }
 
-.profile__change-image-button:hover {
+.profile__change-image-button:hover + .profile__change-image-button-hide {
   cursor: pointer;
+  display: block;
+  color: #ffffff;
 }
 
 .profile__info {
