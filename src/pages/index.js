@@ -67,7 +67,7 @@ const handleDeleteClick = (cardElement) => {
   deleteCardPopupWithForm.open();
 
   deleteCardPopupWithForm.changeSubmitHandler(() => {
-    api.deleteCard(cardElement.getId()).then((res) => {
+    api.deleteCard(cardElement.getId()).then(() => {
       cardElement.removeCard();
       deleteCardPopupWithForm.close();
     });
