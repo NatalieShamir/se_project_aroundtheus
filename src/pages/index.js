@@ -62,11 +62,18 @@ const handleLikeClick = (cardElement) => {
   }
 };
 
-let cardToDelete;
+//let cardToDelete;
 const handleDeleteClick = (cardElement) => {
   deleteCardPopupWithForm.open();
 
-  cardToDelete = cardElement;
+  deleteCardPopupWithForm.changeSubmitHandler(() => {
+    api.deleteCard(cardElement.getId()).then((res) => {
+      cardElement.removeCard();
+      deleteCardPopupWithForm.close();
+    });
+  });
+
+  //cardToDelete = cardElement;
 };
 
 const renderCard = (data) => {
@@ -112,14 +119,13 @@ const handleAvatarChangeSubmit = (data) => {
     avatarChangePopupWithForm.close();
   });
 };
-
+/* 
 const handleDeleteCardSubmit = () => {
   api.deleteCard(cardToDelete.getId()).then((res) => {
-    console.log("res =>", res);
     cardToDelete.removeCard();
     deleteCardPopupWithForm.close();
   });
-};
+}; */
 
 //PopupWithForm Class Instances
 const addCardPopupWithForm = new PopupWithForm(
@@ -142,7 +148,8 @@ avatarChangePopupWithForm.setEventListeners();
 
 const deleteCardPopupWithForm = new PopupWithForm(
   confirmDeletingWindowPopup,
-  handleDeleteCardSubmit
+  // handleDeleteCardSubmit
+  handleDeleteClick
 );
 deleteCardPopupWithForm.setEventListeners();
 
