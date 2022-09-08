@@ -62,7 +62,6 @@ const handleLikeClick = (cardElement) => {
   }
 };
 
-//let cardToDelete;
 const handleDeleteClick = (cardElement) => {
   deleteCardPopupWithForm.open();
 
@@ -72,8 +71,6 @@ const handleDeleteClick = (cardElement) => {
       deleteCardPopupWithForm.close();
     });
   });
-
-  //cardToDelete = cardElement;
 };
 
 const renderCard = (data) => {
@@ -95,37 +92,24 @@ const renderCard = (data) => {
 //Section Class Instance
 const section = new Section({ renderer: renderCard }, ".cards__gallery");
 
-const handleAddCardSubmit = (data) => {
-  api.addCard(data["title"], data.image).then((res) => {
-    renderCard({ name: res.name, image: res.image }, initialCards);
-  });
+//Submit Handlers of Modals
+const handleAddCardSubmit = ({ title, image }) => {
+  api.addCard(title, image).then(renderCard);
+
   addCardPopupWithForm.close();
 };
 
-const handleEditProfileSubmit = (data) => {
-  api
-    .editProfile(data.name, data.job)
-    .then((res) => {
-      userInfo.setUserInfo(data.name, data.job);
-    })
-    .finally(() => {
-      editProfilePopupWithForm.close();
-    });
+const handleEditProfileSubmit = ({ name, job }) => {
+  api.editProfile(name, job).then(userInfo.setUserInfo(name, job));
+
+  editProfilePopupWithForm.close();
 };
 
-const handleAvatarChangeSubmit = (data) => {
-  api.editAvatar(data.link).then((res) => {
-    userInfo.setUserInfo(res);
-    avatarChangePopupWithForm.close();
-  });
+const handleAvatarChangeSubmit = ({ link }) => {
+  api.editAvatar(link).then(userInfo.setUserInfo);
+
+  avatarChangePopupWithForm.close();
 };
-/* 
-const handleDeleteCardSubmit = () => {
-  api.deleteCard(cardToDelete.getId()).then((res) => {
-    cardToDelete.removeCard();
-    deleteCardPopupWithForm.close();
-  });
-}; */
 
 //PopupWithForm Class Instances
 const addCardPopupWithForm = new PopupWithForm(
@@ -148,7 +132,6 @@ avatarChangePopupWithForm.setEventListeners();
 
 const deleteCardPopupWithForm = new PopupWithForm(
   confirmDeletingWindowPopup,
-  // handleDeleteCardSubmit
   handleDeleteClick
 );
 deleteCardPopupWithForm.setEventListeners();
