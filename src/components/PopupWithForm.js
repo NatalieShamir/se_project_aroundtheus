@@ -25,7 +25,7 @@ export class PopupWithForm extends Popup {
   }
 
   setEventListeners() {
-    super.setEventListeners(); //super allows to save the parent class functionality and to extend it to additional functionality
+    super.setEventListeners();
     this._formElement.addEventListener("submit", (event) => {
       event.preventDefault();
       const valuesFromForm = this._getInputValues();
