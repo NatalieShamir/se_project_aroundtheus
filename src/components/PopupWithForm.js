@@ -5,6 +5,10 @@ export class PopupWithForm extends Popup {
     super(popupSelector);
     this._handleSubmit = handleSubmit;
     this._formElement = this._popupElement.querySelector(".popup__form");
+    this._formSubmitButton = this._popupElement.querySelector(
+      ".popup__form-button"
+    );
+    this._initialButtonText = this._formSubmitButton.textContent;
   }
 
   _getInputValues() {
@@ -35,6 +39,17 @@ export class PopupWithForm extends Popup {
 
   changeSubmitHandler(newSubmitHandler) {
     this._handleSubmit = newSubmitHandler;
+  }
+
+  changeFormButtonText(textType) {
+    const formButton = this._formElement.querySelector(".popup__form-button");
+    if (textType === "saving") {
+      formButton.textContent = "Saving...";
+    }
+
+    if (textType === "initial") {
+      formButton.textContent = this._initialButtonText;
+    }
   }
 
   close() {
