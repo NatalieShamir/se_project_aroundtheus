@@ -111,10 +111,10 @@ const handleEditProfileSubmit = ({ name, job }) => {
   });
 };
 
-const handleAvatarChangeSubmit = ({ link }) => {
+const handleAvatarChangeSubmit = ({ image }) => {
   avatarChangePopupWithForm.changeFormButtonText("saving");
-  api.editAvatar(link).then((res) => {
-    userInfo.setUserInfo(res);
+  api.editAvatar(image).then((res) => {
+    userInfo.setUserInfo(res.name, res.about, res.avatar);
     avatarChangePopupWithForm.changeFormButtonText("initial");
     avatarChangePopupWithForm.close();
   });
