@@ -167,6 +167,18 @@
     width: 80%;
     margin: auto;
   }
+
+  .profile__change-image-button {
+    left: 280px;
+    top: 50px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .profile__change-image-button {
+    left: 255px;
+    top: 50px;
+  }
 }
 
 @media screen and (max-width: 740px) {
@@ -174,6 +186,9 @@
     max-width: 196px;
     font-size: 22px;
     line-height: 27px;
+  }
+  .profile__change-image-button {
+    left: 245px;
   }
 }
 
@@ -207,5 +222,9 @@
 
   .profile__add-button {
     width: 282px;
+  }
+
+  .profile__change-image-button {
+    left: 130px;
   }
 }
