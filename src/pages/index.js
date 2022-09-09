@@ -94,21 +94,30 @@ const section = new Section({ renderer: renderCard }, ".cards__gallery");
 
 //Submit Handlers of Modals
 const handleAddCardSubmit = ({ title, image }) => {
-  api.addCard(title, image).then(renderCard);
-
-  addCardPopupWithForm.close();
+  addCardPopupWithForm.changeFormButtonText("saving");
+  api.addCard(title, image).then((res) => {
+    renderCard(res);
+    addCardPopupWithForm.changeFormButtonText("initial");
+    addCardPopupWithForm.close();
+  });
 };
 
 const handleEditProfileSubmit = ({ name, job }) => {
-  api.editProfile(name, job).then(userInfo.setUserInfo(name, job));
-
-  editProfilePopupWithForm.close();
+  editProfilePopupWithForm.changeFormButtonText("saving");
+  api.editProfile(name, job).then((res) => {
+    userInfo.setUserInfo(res);
+    editProfilePopupWithForm.changeFormButtonText("initial");
+    editProfilePopupWithForm.close();
+  });
 };
 
 const handleAvatarChangeSubmit = ({ link }) => {
-  api.editAvatar(link).then(userInfo.setUserInfo);
-
-  avatarChangePopupWithForm.close();
+  avatarChangePopupWithForm.changeFormButtonText("saving");
+  api.editAvatar(link).then((res) => {
+    userInfo.setUserInfo(res);
+    avatarChangePopupWithForm.changeFormButtonText("initial");
+    avatarChangePopupWithForm.close();
+  });
 };
 
 //PopupWithForm Class Instances
