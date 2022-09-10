@@ -38,7 +38,6 @@ Promise.all([api.getUserInfo(), api.getCards()]).then(([userData, cards]) => {
 const editProfileFormValidator = new FormValidator(settings, editProfileForm);
 const addCardFormValidator = new FormValidator(settings, addCardForm);
 const avatarFormValidator = new FormValidator(settings, avatarForm);
-const deleteCardFormValidator = new FormValidator(settings, deleteCardForm);
 
 editProfileFormValidator.enableValidation();
 addCardFormValidator.enableValidation();
