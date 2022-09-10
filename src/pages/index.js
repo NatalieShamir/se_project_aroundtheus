@@ -129,7 +129,7 @@ const handleEditProfileSubmit = ({ name, job }) => {
   api
     .editProfile(name, job)
     .then((res) => {
-      userInfo.setUserInfo(res);
+      userInfo.setUserInfo(res.name, res.about, res.avatar);
       editProfilePopupWithForm.changeFormButtonText("initial");
       editProfilePopupWithForm.close();
     })
