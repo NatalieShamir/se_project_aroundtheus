@@ -42,7 +42,6 @@ const avatarFormValidator = new FormValidator(settings, avatarForm);
 editProfileFormValidator.enableValidation();
 addCardFormValidator.enableValidation();
 avatarFormValidator.enableValidation();
-deleteCardFormValidator.enableValidation();
 
 const handleCardClick = (data) => {
   console.log(data);
