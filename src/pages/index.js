@@ -28,11 +28,15 @@ import { api } from "../../utils/Api";
 
 let userId;
 
-Promise.all([api.getUserInfo(), api.getCards()]).then(([userData, cards]) => {
-  userId = userData._id;
-  userInfo.setUserInfo(userData.name, userData.about, userData.avatar);
-  section.renderItems(cards);
-});
+Promise.all([api.getUserInfo(), api.getCards()])
+  .then(([userData, cards]) => {
+    userId = userData._id;
+    userInfo.setUserInfo(userData.name, userData.about, userData.avatar);
+    section.renderItems(cards);
+  })
+  .catch((err) => {
+    console.log("Error. The request failed");
+  });
 
 //Form Validator Instances
 const editProfileFormValidator = new FormValidator(settings, editProfileForm);
@@ -50,13 +54,23 @@ const handleCardClick = (data) => {
 
 const handleLikeClick = (cardElement) => {
   if (cardElement.isLiked()) {
-    api.removeLike(cardElement.getId()).then((res) => {
-      cardElement.setLikes(res.likes);
-    });
+    api
+      .removeLike(cardElement.getId())
+      .then((res) => {
+        cardElement.setLikes(res.likes);
+      })
+      .catch((err) => {
+        console.log("Error. The request failed");
+      });
   } else {
-    api.addLike(cardElement.getId()).then((res) => {
-      cardElement.setLikes(res.likes);
-    });
+    api
+      .addLike(cardElement.getId())
+      .then((res) => {
+        cardElement.setLikes(res.likes);
+      })
+      .catch((err) => {
+        console.log("Error. The request failed");
+      });
   }
 };
 
@@ -64,10 +78,15 @@ const handleDeleteClick = (cardElement) => {
   deleteCardPopupWithForm.open();
 
   deleteCardPopupWithForm.changeSubmitHandler(() => {
-    api.deleteCard(cardElement.getId()).then(() => {
-      cardElement.removeCard();
-      deleteCardPopupWithForm.close();
-    });
+    api
+      .deleteCard(cardElement.getId())
+      .then(() => {
+        cardElement.removeCard();
+        deleteCardPopupWithForm.close();
+      })
+      .catch((err) => {
+        console.log("Error. The request failed");
+      });
   });
 };
 
@@ -93,29 +112,44 @@ const section = new Section({ renderer: renderCard }, ".cards__gallery");
 //Submit Handlers of Modals
 const handleAddCardSubmit = ({ title, image }) => {
   addCardPopupWithForm.changeFormButtonText("saving");
-  api.addCard(title, image).then((res) => {
-    renderCard(res);
-    addCardPopupWithForm.changeFormButtonText("initial");
-    addCardPopupWithForm.close();
-  });
+  api
+    .addCard(title, image)
+    .then((res) => {
+      renderCard(res);
+      addCardPopupWithForm.changeFormButtonText("initial");
+      addCardPopupWithForm.close();
+    })
+    .catch((err) => {
+      console.log("Error. The request failed");
+    });
 };
 
 const handleEditProfileSubmit = ({ name, job }) => {
   editProfilePopupWithForm.changeFormButtonText("saving");
-  api.editProfile(name, job).then((res) => {
-    userInfo.setUserInfo(res);
-    editProfilePopupWithForm.changeFormButtonText("initial");
-    editProfilePopupWithForm.close();
-  });
+  api
+    .editProfile(name, job)
+    .then((res) => {
+      userInfo.setUserInfo(res);
+      editProfilePopupWithForm.changeFormButtonText("initial");
+      editProfilePopupWithForm.close();
+    })
+    .catch((err) => {
+      console.log("Error. The request failed");
+    });
 };
 
 const handleAvatarChangeSubmit = ({ image }) => {
   avatarChangePopupWithForm.changeFormButtonText("saving");
-  api.editAvatar(image).then((res) => {
-    userInfo.setUserInfo(res.name, res.about, res.avatar);
-    avatarChangePopupWithForm.changeFormButtonText("initial");
-    avatarChangePopupWithForm.close();
-  });
+  api
+    .editAvatar(image)
+    .then((res) => {
+      userInfo.setUserInfo(res.name, res.about, res.avatar);
+      avatarChangePopupWithForm.changeFormButtonText("initial");
+      avatarChangePopupWithForm.close();
+    })
+    .catch((err) => {
+      console.log("Error. The request failed");
+    });
 };
 
 //PopupWithForm Class Instances
