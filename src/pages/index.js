@@ -24,7 +24,7 @@ import {
   confirmDeletingWindowPopup,
   deleteCardForm,
 } from "../scripts/constants.js";
-import { api } from "../../utils/Api";
+import { api } from "../components/Api";
 
 let userId;
 
