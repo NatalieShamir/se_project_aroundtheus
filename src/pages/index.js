@@ -49,7 +49,7 @@ avatarFormValidator.enableValidation();
 
 const handleCardClick = (data) => {
   console.log(data);
-  imagePopup.open(data);
+  imagePopup.open(data.link, data.name);
 };
 
 const handleLikeClick = (cardElement) => {
