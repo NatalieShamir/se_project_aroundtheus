@@ -21,7 +21,7 @@ export class Card {
 
   getId() {
     return this._id;
-  }
+  } //gets identifier from the constructor
 
   _getTemplate() {
     const card = document
@@ -76,7 +76,9 @@ export class Card {
   };
 
   isLiked() {
-    return this._likes.find((user) => user.id === this._userId);
+    console.log("this._likes " + JSON.stringify(this._likes));
+    console.log("user.id " + this._userId);
+    return this._likes.find((user) => user._id === this._userId);
   }
 
   getView() {
