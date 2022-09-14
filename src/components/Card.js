@@ -76,8 +76,6 @@ export class Card {
   };
 
   isLiked() {
-    console.log("this._likes " + JSON.stringify(this._likes));
-    console.log("user.id " + this._userId);
     return this._likes.find((user) => user._id === this._userId);
   }
 
