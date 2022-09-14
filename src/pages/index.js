@@ -90,7 +90,7 @@ const handleDeleteClick = (cardElement) => {
   });
 };
 
-const renderCard = (data) => {
+const createCard = (data) => {
   const cardElement = new Card(
     {
       data,
@@ -101,8 +101,11 @@ const renderCard = (data) => {
     },
     cardTemplateSelector
   );
+  return cardElement.getView();
+};
 
-  const newCardElement = cardElement.getView();
+const renderCard = (data) => {
+  const newCardElement = createCard(data);
   section.addItem(newCardElement);
 };
 
