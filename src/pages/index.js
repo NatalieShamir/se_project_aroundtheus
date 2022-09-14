@@ -119,11 +119,13 @@ const handleAddCardSubmit = ({ title, image }) => {
     .addCard(title, image)
     .then((res) => {
       renderCard(res);
-      addCardPopupWithForm.changeFormButtonText("initial");
       addCardPopupWithForm.close();
     })
     .catch((err) => {
       console.log("Error. The request failed");
+    })
+    .finally(() => {
+      addCardPopupWithForm.changeFormButtonText("initial");
     });
 };
 
@@ -133,11 +135,13 @@ const handleEditProfileSubmit = ({ name, job }) => {
     .editProfile(name, job)
     .then((res) => {
       userInfo.setUserInfo(res.name, res.about, res.avatar);
-      editProfilePopupWithForm.changeFormButtonText("initial");
       editProfilePopupWithForm.close();
     })
     .catch((err) => {
       console.log("Error. The request failed");
+    })
+    .finally(() => {
+      editProfilePopupWithForm.changeFormButtonText("initial");
     });
 };
 
@@ -147,11 +151,13 @@ const handleAvatarChangeSubmit = ({ image }) => {
     .editAvatar(image)
     .then((res) => {
       userInfo.setUserInfo(res.name, res.about, res.avatar);
-      avatarChangePopupWithForm.changeFormButtonText("initial");
       avatarChangePopupWithForm.close();
     })
     .catch((err) => {
       console.log("Error. The request failed");
+    })
+    .finally(() => {
+      avatarChangePopupWithForm.changeFormButtonText("initial");
     });
 };
 
