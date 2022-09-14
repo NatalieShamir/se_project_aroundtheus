@@ -7,6 +7,7 @@ export class PopupWithImage extends Popup {
     const caption = this._popupElement.querySelector(".popup__preview-caption");
 
     image.src = link;
+    image.alt = "Clicked-on image enlarged";
     caption.textContent = name;
   }
 }
