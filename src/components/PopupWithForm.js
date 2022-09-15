@@ -5,6 +5,7 @@ export class PopupWithForm extends Popup {
     super(popupSelector);
     this._handleSubmit = handleSubmit;
     this._formElement = this._popupElement.querySelector(".popup__form");
+    this._formInput = this._formElement.querySelectorAll(".popup__form-input");
     this._formSubmitButton = this._popupElement.querySelector(
       ".popup__form-button"
     );
@@ -14,9 +15,7 @@ export class PopupWithForm extends Popup {
   _getInputValues() {
     const values = {};
 
-    const inputs = [
-      ...this._formElement.querySelectorAll(".popup__form-input"),
-    ];
+    const inputs = [...this._formInput];
 
     inputs.forEach((input) => {
       const key = input.name;
@@ -42,7 +41,7 @@ export class PopupWithForm extends Popup {
   }
 
   changeFormButtonText(textType) {
-    const formButton = this._formElement.querySelector(".popup__form-button");
+    const formButton = this._formSubmitButton;
     if (textType === "saving") {
       formButton.textContent = "Saving...";
     }
