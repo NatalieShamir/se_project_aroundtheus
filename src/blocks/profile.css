@@ -25,14 +25,6 @@
   justify-content: center;
 }
 
-.profile__image:hover {
-  opacity: 0.8;
-}
-
-.profile__change-image-button-hide {
-  display: none;
-}
-
 .profile__change-image-button {
   width: 26px;
   height: 26px;
@@ -43,10 +35,16 @@
   bottom: 56px;
 }
 
-.profile__change-image-button:hover + .profile__change-image-button-hide {
-  cursor: pointer;
+.profile__change-image-button-hide {
+  display: none;
+}
+
+.profile__image:hover {
+  opacity: 0.8;
+}
+
+.profile__image:hover + .profile__change-image-button-hide {
   display: block;
-  color: #ffffff;
 }
 
 .profile__info {
