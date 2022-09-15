@@ -17,6 +17,18 @@ export class Card {
     this._handleDeleteClick = handleDeleteClick;
 
     this._cardSelector = cardSelector;
+    this._cardElement = this._getTemplate();
+    this._cardLikesAmount = this._cardElement.querySelector(
+      ".card__likes-amount"
+    );
+
+    this._cardLikeButton =
+      this._cardElement.querySelector(".card__like-button");
+    this._cardImage = this._cardElement.querySelector(".card__image");
+    this._cardTitle = this._cardElement.querySelector(".card__title");
+    this._cardDeleteButton = this._cardElement.querySelector(
+      ".card__delete-button"
+    );
   }
 
   getId() {
@@ -59,19 +71,14 @@ export class Card {
     this._likes = newLikes;
 
     const likesAmount = this._likes.length;
-    this._cardElement.querySelector(".card__likes-amount").textContent =
-      likesAmount;
+    this._cardLikesAmount.textContent = likesAmount;
 
     const cardIsLikedByCurrentUser = this.isLiked();
 
     if (cardIsLikedByCurrentUser) {
-      this._cardElement
-        .querySelector(".card__like-button")
-        .classList.add("card__like-button_active");
+      this._cardLikeButton.classList.add("card__like-button_active");
     } else {
-      this._cardElement
-        .querySelector(".card__like-button")
-        .classList.remove("card__like-button_active");
+      this._cardLikeButton.classList.remove("card__like-button_active");
     }
   };
 
@@ -80,19 +87,15 @@ export class Card {
   }
 
   getView() {
-    this._cardElement = this._getTemplate();
     this._setEventListeners();
 
-    this._cardElement.querySelector(
-      ".card__image"
-    ).style.backgroundImage = `url(${this._link})`;
-    this._cardElement.querySelector(".card__title").textContent = this._name;
+    this._cardImage.style.backgroundImage = `url(${this._link})`;
+    this._cardTitle.textContent = this._name;
 
     this.setLikes(this._likes);
 
     if (this._userId !== this._ownerId) {
-      this._cardElement.querySelector(".card__delete-button").style.display =
-        "none";
+      this._cardDeleteButton.style.display = "none";
     }
 
     return this._cardElement;
