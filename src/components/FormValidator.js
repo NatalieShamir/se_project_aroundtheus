@@ -2,8 +2,9 @@ class FormValidator {
   constructor(settings, formElement) {
     this._settings = settings;
     this._formElement = formElement;
-    this._popupFormButton =
-      this._formElement.querySelector(submitButtonSelector);
+    this._popupFormButton = this._formElement.querySelector(
+      this._settings.submitButtonSelector
+    );
   }
 
   _showInputError(inputElement, errorMessage) {
@@ -52,7 +53,7 @@ class FormValidator {
   }
 
   _toggleButtonState() {
-    const { inactiveButtonClass, submitButtonSelector } = this._settings;
+    const inactiveButtonClass = this._settings.inactiveButtonClass;
     const buttonElement = this._popupFormButton;
 
     if (this._isAllInputsValid()) {
