@@ -43,7 +43,7 @@
   opacity: 0.8;
 }
 
-.profile__image:hover + .profile__change-image-button-hide {
+.profile__image:hover > .profile__change-image-button-hide {
   display: block;
 }
 
